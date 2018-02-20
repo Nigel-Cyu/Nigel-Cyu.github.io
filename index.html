@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -257,7 +257,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T20:28:52+08:00">
                 2018-02-20
@@ -299,12 +299,13 @@
       
         
           
-            <h2 id="html笔记"><a href="#html笔记" class="headerlink" title="html笔记"></a>html笔记</h2><p>1.html 全称 Hypertext  Markup  Language  超文本标记语言<br>2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面</p>
-<pre><code>ie             trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多
-firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows、 BSD、Linux 和 Mac OS X 中使用。
-opera          presto  快、兼容性不好 ，现为chrome的blink
-chrome         先为 webkit 、后为blink
-safari         webkit   代码结构清晰、渲染速度快
+            <h2 id="html笔记"><a href="#html笔记" class="headerlink" title="html笔记"></a>html笔记</h2><p>1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。</p>
+<p>2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面</p>
+<pre><code>IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多
+Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows、 BSD、Linux 和 Mac OS X 中使用。
+Opera          presto  快、兼容性不好 ，现为chrome的blink
+Chrome(谷歌)   先为 webkit 、后为blink
+Safari(苹果)   webkit   代码结构清晰、渲染速度快
 
 360、UC、QQ、2345等国内浏览器(都是自己的皮肤别人的核)      blink
 
@@ -312,7 +313,15 @@ safari         webkit   代码结构清晰、渲染速度快
 iPhone 和 iPad       webkit
 Android 4.4 之前     webkit
 Android 4.4 之后     chromiun
-</code></pre>
+</code></pre><p>3.chrome V8引擎：<br>   ① 快速属性访问<br>        不会像查字典一样查询属性位置。而是动态创建隐藏类，每次属性的增、删会在原来基础上创建新的隐藏类<br>   ② 动态机器码生成<br>        js代码直接生成为机器码<br>   ③ 高效分代垃圾回收机制</p>
+<p>4.部分常用标签<br>    标题：</p><h1>,<h2>,<h3>,<h4>,<h5>,<h6>     显示在页面上字体按顺序由大到小<br>    段落：<p></p><br>    换行：<br><br>    分割线：<hr><br>    引用短的句子：<q></q>   显示在页面中就是将句子加了一个“双引号”，但是不要只为了需要双引号而是用<q><br>    引用大块的句子或段落：<blockquote cite=""></blockquote>    显示在页面是整体缩进,但是不要只为了需要缩进而使用<blockquote>,cite属性值是引用的出处<br>    定义作品标题：<cite></cite><br>    粗体：<b></b><br>    斜体：<i></i><br>    强调：<em></em>            显示为斜体，不要为了使用斜体而是用em<br>    强调：<strong></strong>    比em更强烈的强调，显示为粗体,不要为了使用粗体而是用strong<br>    计算机代码：<code></code><br>    保留：<pre></pre>          可以保留文档中的空格、换行和TAB<br>    上标：<sup></sup><br>    下标：<sub></sub><br>    无意义标签：<div></div>,可作为容器，用来布局；<span></span>,可以用来和css配合改变文字的样式<br>    实体字符：<br>            &lt;      &lt;<p></p>
+<pre><code>        &gt;      &amp;gt;
+        &amp;      &amp;amp;
+        空格   &amp;nbsp;
+        ©      &amp;copy;
+图像：&lt;img src=&quot;图像所在路径&quot; alt=&quot;&quot; /&gt; 图片占位符 alt 当页面加载不出来图片的时候就会显示alt中的文本；图片提示符 title
+表格：&lt;table&gt;&lt;/table&gt; 为什么不用：强制下载完成才执行，用户体验差，样式不好加，自己带有样式 tr行 td单元格
+</code></pre></blockquote></q></h6></h5></h4></h3></h2></h1>
           
         
       
@@ -389,7 +398,7 @@ Android 4.4 之后     chromiun
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-26T15:36:35+08:00">
                 2018-01-26
@@ -522,7 +531,7 @@ Android 4.4 之后     chromiun
                 <a href="/archives/">
               
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -572,7 +581,7 @@ Android 4.4 之后     chromiun
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
