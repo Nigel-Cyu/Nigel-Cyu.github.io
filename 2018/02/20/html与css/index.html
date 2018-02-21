@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="html笔记1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。 2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面 IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows">
+<meta name="description" content="HTML笔记1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。 2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面 IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="html与css">
 <meta property="og:url" content="http://yoursite.com/2018/02/20/html与css/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="html笔记1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。 2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面 IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows">
-<meta property="og:updated_time" content="2018-02-21T06:57:16.210Z">
+<meta property="og:description" content="HTML笔记1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。 2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面 IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows">
+<meta property="og:updated_time" content="2018-02-21T08:43:35.880Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html与css">
-<meta name="twitter:description" content="html笔记1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。 2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面 IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows">
+<meta name="twitter:description" content="HTML笔记1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。 2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面 IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows">
 
 
 
@@ -298,7 +298,7 @@
       
 
       
-        <h2 id="html笔记"><a href="#html笔记" class="headerlink" title="html笔记"></a>html笔记</h2><p>1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。</p>
+        <h2 id="HTML笔记"><a href="#HTML笔记" class="headerlink" title="HTML笔记"></a>HTML笔记</h2><p>1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。</p>
 <p>2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面</p>
 <pre><code>IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多
 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows、 BSD、Linux 和 Mac OS X 中使用
@@ -354,38 +354,51 @@ Android 4.4 之后     chromiun
                 &lt;dd&gt;内容&lt;/dd&gt;
             &lt;/dl&gt;
             ul ol dl之间可以互相嵌套
-表单：&lt;form action=&quot;&quot; method=&quot;&quot;&gt;      // actioin 表单提交地址; method 表单提交方式 post 或者 get; 定义id属性，可以让表单外                                          的表单元素用 form 属性关联到此表单中
-        &lt;fieldset&gt;                    // 分区
+表单：&lt;form action=&quot;&quot; method=&quot;&quot;&gt;      // actioin 表单提交地址; method 表单提交方式 post 或者 get; 定义id属性，可以让表单外      的表单元素用 form 属性关联到此表单中
+        &lt;fieldset&gt;                   // 分区
             &lt;legend&gt;分区标题&lt;/legend&gt;    
-            账号：&lt;input type=&quot;text&quot; name=&quot;&quot; /&gt;&lt;br /&gt;                 
-            密码：&lt;input type=&quot;password&quot; name=&quot;&quot; /&gt;&lt;br /&gt;
-            技能:&lt;br /&gt;
-            &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;ht&quot; checked=&quot;checked&quot; /&gt;html&lt;/label&gt;            // 同一组 radio 的 name 值必须相同；checked 默认选中
-            &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;ht&quot; /&gt;css&lt;/label&gt;                               // input 外加 label 为了点击字体的时候也可选中radio ;另一种方法是&lt;label&gt; 中的 for 属性和 radio 的 id 属性值相同 
-            &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;ht&quot; /&gt;javascript&lt;/label&gt;&lt;br /&gt;
-            兴趣:&lt;br /&gt;
-            &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;l&quot; value=&quot;骑行&quot; /&gt;骑行&lt;/label&gt;             // 
-            &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;l&quot; value=&quot;书法&quot; checked=&quot;checked&quot; /&gt;书法&lt;/label&gt;
+            账号：&lt;input type=&quot;text&quot; name=&quot;&quot; /&gt;&lt;br/&gt;                 
+            密码：&lt;input type=&quot;password&quot; name=&quot;&quot; /&gt;&lt;br/&gt;
+            技能:&lt;br/&gt;
+            &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;ht&quot; checked=&quot;checked&quot; /&gt;html&lt;/label&gt;      // 同一组(单选) radio 的 name 值必须相同；checked 默认选中
+            &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;ht&quot; /&gt;css&lt;/label&gt;                         // input 外加 label 为了点击字体的时候也可选中radio ;另一种方法是&lt;label&gt; 中的 for 属性和 radio 的 id 属性值相同 
+            &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;ht&quot; /&gt;javascript&lt;/label&gt;&lt;br/&gt;
+            兴趣:&lt;br/&gt;
+            &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;l&quot; value=&quot;骑行&quot; /&gt;摄影&lt;/label&gt;
+            &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;l&quot; value=&quot;书法&quot; checked=&quot;checked&quot; /&gt;蹦迪&lt;/label&gt;
             &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;l&quot; value=&quot;旅行&quot; /&gt;旅行&lt;/label&gt;
         &lt;/fieldset&gt;
         城市：
         &lt;select&gt;
             &lt;option&gt;北京&lt;/option&gt;
-            &lt;option selected=&quot;selected&quot;&gt;上海&lt;/option&gt;         // selected 默认选中
+            &lt;option selected=&quot;selected&quot;&gt;上海&lt;/option&gt;       // selected 默认选中
             &lt;option&gt;广州&lt;/option&gt;
-        &lt;/select&gt;&lt;br /&gt;
-        简介：&lt;br /&gt;
-        &lt;textarea cols=&quot;30&quot; rows=&quot;5&quot;&gt;&lt;/textarea&gt;&lt;br /&gt;
+        &lt;/select&gt;&lt;br/&gt;
+        简介：&lt;br/&gt;
+        &lt;textarea cols=&quot;30&quot; rows=&quot;5&quot;&gt;&lt;/textarea&gt;&lt;br/&gt;
         &lt;input type=&quot;submit&quot; name=&quot;&quot; /&gt;
         &lt;input type=&quot;reset&quot; name=&quot;&quot; /&gt;
         &lt;input type=&quot;button&quot; name=&quot;&quot; value=&quot;按钮&quot; /&gt;      // 按钮还是用 &lt;button&gt; 标签好一些 
-        &lt;br /&gt;
+        &lt;br/&gt;
         &lt;button type=&quot;submit&quot;&gt;提交&lt;/button&gt;
     &lt;/form&gt;
 
         display 禁用； required 必须填写项； placeholder 提示词（显示灰色）；multiple 可多选；min max 最小值、最大值；width 和 height  input属性；
         input 的 type 属性还有其他值，比如，email，url,number, search,range,color,data,aurofocus
-</code></pre>
+</code></pre><p>5.渲染模式：标准模式和怪异模式<br>    &lt;!doctype html&gt;严格模式 以最高标准来加载<br>    没有则为混杂(怪异)模式 向前兼容</p>
+<pre><code>document.compatMode   BackCompat     怪异模式
+                      CSS1Compat     标准模式   w3c标准
+
+版本：过渡的(Transitional)：允许你继续使用HTML4.01的标识
+      严格的(Strict)：你不能使用任何表现层的标识和属性，例如&lt;br&gt;
+      框架的(Frameset)：针对框架页面设计使用
+
+区别:①盒模型的处理差异:标准CSS盒模型的宽度和高度等于内容区的高度和宽度，不包含内边距和边框，而怪异模式是包含内边距和边框的；
+     ②行内元素的垂直对齐:怪异模式下它们会对齐至底部，而标准模式下是基线对齐。
+</code></pre><p>6.href和src<br>     href： 超文本引用，指向网络链接所在的位置，用来建立当前元素和文档之间的链接 用于link a<br>     src：  地址来源，src指向的内容会嵌入到文档中当前标签所在的位置 用于img iframe script<br>     简而言之，src用于替换当前元素；href用于在当前文档和引用资源之间建立联系。</p>
+<h2 id="CSS笔记"><a href="#CSS笔记" class="headerlink" title="CSS笔记"></a>CSS笔记</h2><p>1.权重<br>     ！important     无穷大<br>     行间样式         1000<br>     id              100<br>     CLASS/伪类/属性  10<br>     标签/伪元素      1<br>     通配符           0</p>
+<p>2.行内元素和块级元素<br>    块级元素(block)：div, p, form, ul, li, ol, dl, form, address, fieldset, hr, menu, table, h1~h6<br>    行内元素(inline)：span, a, strong, em, br, img, input, label, select, textarea, cite</p>
+
       
     </div>
     
@@ -531,7 +544,7 @@ Android 4.4 之后     chromiun
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#html笔记"><span class="nav-number">1.</span> <span class="nav-text">html笔记</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML笔记"><span class="nav-number">1.</span> <span class="nav-text">HTML笔记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS笔记"><span class="nav-number">2.</span> <span class="nav-text">CSS笔记</span></a></li></ol></div>
             
 
           </div>
