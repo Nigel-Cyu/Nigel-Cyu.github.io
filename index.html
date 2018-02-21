@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -257,7 +257,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T20:28:52+08:00">
                 2018-02-20
@@ -397,9 +397,23 @@ Android 4.4 之后     chromiun
 区别:①盒模型的处理差异:标准CSS盒模型的宽度和高度等于内容区的高度和宽度，不包含内边距和边框，而怪异模式是包含内边距和边框的；
      ②行内元素的垂直对齐:怪异模式下它们会对齐至底部，而标准模式下是基线对齐。
 </code></pre><p>6.href和src<br>     href： 超文本引用，指向网络链接所在的位置，用来建立当前元素和文档之间的链接 用于link a<br>     src：  地址来源，src指向的内容会嵌入到文档中当前标签所在的位置 用于img iframe script<br>     简而言之，src用于替换当前元素；href用于在当前文档和引用资源之间建立联系。</p>
-<h2 id="CSS笔记"><a href="#CSS笔记" class="headerlink" title="CSS笔记"></a>CSS笔记</h2><p>1.权重<br>     ！important     无穷大<br>     行间样式         1000<br>     id              100<br>     CLASS/伪类/属性  10<br>     标签/伪元素      1<br>     通配符           0</p>
+<p>7.web标准：行为、样式、结构相分离</p>
+<h2 id="CSS笔记"><a href="#CSS笔记" class="headerlink" title="CSS笔记"></a>CSS笔记</h2><p>1.权重<br>     !important     无穷大<br>     行间样式         1000<br>     id              100<br>     CLASS/伪类/属性  10<br>     标签/伪元素      1<br>     通配符           0</p>
 <p>2.行内元素和块级元素<br>    块级元素(block)：div, p, form, ul, li, ol, dl, form, address, fieldset, hr, menu, table, h1~h6<br>    行内元素(inline)：span, a, strong, em, br, img, input, label, select, textarea, cite</p>
+<p>3.css代码三种引入方式：<br>    行间样式：使用标签元素的style属性引入css<br>    内部样式：在style标签下书写css，style标签写入head标签中<br>    外部样式：①链接式：在link标签下的href属性中写入css文档<br>             ②导入式：在style标签下写 @import url(“css文档路径”)</p>
+<p>4.!important 无法提升继承样式的权重，也不会影响就近原则。</p>
+<p>5.em是一个字长是相对的单位，而px是像素的意思，是绝对的单位。</p>
+<p>6.bfc<br>    Block Formatting Context 块级格式上下文。BFC就是一种布局方式，在这种布局方式下，盒子们自所在的containing block顶部一个接一个垂直排列，水平方向上撑满整个宽度。</p>
+<pre><code>如何触发bfc: ①float属性不为none
+            ②overflow不为visible(可以是hidden、scroll、auto)
+            ③position为absolute或fixed
+            ④display为inline-block、table-cell、table-caption
 
+bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
+            对子元素设置浮动后，父元素会发生高度塌陷，也就是父元素的高度变为0(父子间 margin-top 取最大值)。解决方法是把父元素变成一个BFC。常用的办法是给父元素设置 overflow:hidden。
+          (2)解决margin合并问题
+            如果两个div上下排序，给上面div设置margin-bottom，给下面div设置margin-top，则两个margin会发生合并现象，合并后的值取较大的那个。解决方法是分别给父元素设置 overflow:hidden，再给其中一个div设置 display:inline-block。
+</code></pre>
           
         
       
@@ -476,7 +490,7 @@ Android 4.4 之后     chromiun
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-26T15:36:35+08:00">
                 2018-01-26
@@ -609,7 +623,7 @@ Android 4.4 之后     chromiun
                 <a href="/archives/">
               
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -659,7 +673,7 @@ Android 4.4 之后     chromiun
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
