@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/20/html与css/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="HTML笔记1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。 2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面 IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows">
-<meta property="og:updated_time" content="2018-02-21T15:07:26.712Z">
+<meta property="og:updated_time" content="2018-02-23T11:36:50.426Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html与css">
 <meta name="twitter:description" content="HTML笔记1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。 2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面 IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows">
@@ -397,8 +397,8 @@ Android 4.4 之后     chromiun
      ②行内元素的垂直对齐:怪异模式下它们会对齐至底部，而标准模式下是基线对齐。
 </code></pre><p>6.href和src<br>     href： 超文本引用，指向网络链接所在的位置，用来建立当前元素和文档之间的链接 用于link a<br>     src：  地址来源，src指向的内容会嵌入到文档中当前标签所在的位置 用于img iframe script<br>     简而言之，src用于替换当前元素；href用于在当前文档和引用资源之间建立联系。</p>
 <p>7.web标准：行为、样式、结构相分离</p>
-<h2 id="CSS笔记"><a href="#CSS笔记" class="headerlink" title="CSS笔记"></a>CSS笔记</h2><p>1.权重<br>     !important     无穷大<br>     行间样式         1000<br>     id              100<br>     CLASS/伪类/属性  10<br>     标签/伪元素      1<br>     通配符           0</p>
-<p>2.行内元素和块级元素<br>    块级元素(block)：div, p, form, ul, li, ol, dl, form, address, fieldset, hr, menu, table, h1~h6<br>    行内元素(inline)：span, a, strong, em, br, img, input, label, select, textarea, cite</p>
+<h2 id="CSS笔记"><a href="#CSS笔记" class="headerlink" title="CSS笔记"></a>CSS笔记</h2><p>1.权重<br>     !important         无穷大<br>     行间样式            1000<br>     id                 100<br>     CLASS/伪类/属性     10<br>     标签/伪元素         1<br>     通配符              0</p>
+<p>2.行内元素和块级元素<br>    块级元素(block)：div, p, form, ul, li, ol, dl, form, address, fieldset, hr, menu, table, h1~h6<br>    行内元素(inline)：span, a, strong, em, br, img, input, label, select, textarea, cite<br>    ps:行内元素无法设置宽高，但设置 display:inline-block 后可以。</p>
 <p>3.css代码三种引入方式：<br>    行间样式：使用标签元素的style属性引入css<br>    内部样式：在style标签下书写css，style标签写入head标签中<br>    外部样式：①链接式：在link标签下的href属性中写入css文档<br>             ②导入式：在style标签下写 @import url(“css文档路径”)</p>
 <p>4.!important 无法提升继承样式的权重，也不会影响就近原则。</p>
 <p>5.em是一个字长是相对的单位，而px是像素的意思，是绝对的单位。</p>
@@ -412,6 +412,45 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
             对子元素设置浮动后，父元素会发生高度塌陷，也就是父元素的高度变为0(父子间 margin-top 取最大值)。解决方法是把父元素变成一个BFC。常用的办法是给父元素设置 overflow:hidden。
           (2)解决margin合并问题
             如果两个div上下排序，给上面div设置margin-bottom，给下面div设置margin-top，则两个margin会发生合并现象，合并后的值取较大的那个。解决方法是分别给父元素设置 overflow:hidden，再给其中一个div设置 display:inline-block。
+</code></pre><p>7.浮动float</p>
+<pre><code>浮动的特点： Ø 块级元素浮动后变成inline-block
+            Ø 浮动的元素会脱离标准流，浮动以后的元素会覆盖在标准流的元素之上
+            Ø 浮动元素可以看到浮动元素，触发bfc的元素可以看到浮动元素
+            Ø 浮动规则：浮动找浮动，不浮动找不浮动
+                浮动找浮动：只有写在同一个结构下面的浮动才会浮动找浮动
+            Ø 浮动显示的位置与原本不浮动之前的位置是对应的
+            Ø 浮动的重点：同一等级，浮动的元素只会影响下面的元素，不会影响上面的元素！
+
+清除浮动的方法：Ø 在父元素上加:after{
+                                content: &quot;&quot;;
+                                display: block;
+                                clear: both;
+                            }
+                 ps:为了兼容ie6 父元素还要设置 zoom: 1 ,因为ie6版本不支持 overflow：hidden清除浮动
+               Ø 加一个元素并设置 clear：both
+               Ø 父元素上加overflow：hidden
+               Ø 父元素上加position：absolute
+</code></pre><p>8.单行文字打点<br>white-space: nowrap;<br>overflow: hidden;<br>text-overflow: ellipsis;</p>
+<p>9.语义化<br>具体来说，就是在书写html时，尽量使用具有语义信息的标签，例如header,nav,aside,section等代替那些没有语义信息的标签，例如big,center,strike,font等（完全可以用css来取代的标签）。这样不仅有利于页面DOM的组织，也有利于机器（主要是搜索引擎）的理解。<br>作用：(1)去掉样式后页面呈现清晰的结构<br>      (2)盲人使用读屏器可以更好的阅读<br>      (3)搜索引擎更好地理解页面，有利于收录<br>      (4)使团队的项目可以持续的运作和维护</p>
+<p>10.定位</p>
+<p>(1)static: 静态定位(默认)<br>    所有的标准流中的元素都是静态定位<br>(2)relative: 相对定位<br>    相对于自己原来的位置发生偏移，在页面上仍然占据位置，会覆盖其他内容，用于微调元素、做绝对定位的参考。<br>(3)absolute: 绝对定位<br>    绝对定位的参考点：<br>    Ø  如果这个元素没有父元素，相对于body来定位</p>
+<pre><code>Ø  如果绝对定位的元素有父元素，但是父元素没有定位，还是相对于body来定位的
+
+Ø  如果绝对定位的元素有“父”元素，而且父元素有非static定位，那么这个绝对定位的元素相对“父”元素来定位。要听最近的已经定位的祖先元素的，不一定是父亲，可能是爷爷！
+
+Ø  绝对定位的儿子，无视所参考的父元素的padding
+
+Ø  绝对定位之后的元素在页面不会占据位置（绝对定位以后的元素会脱离标准流）
+</code></pre><p>(4)fixed：固定定位<br>    Ø  不管页面有多大，固定定位的元素永远是相对于浏览器的边框来的。</p>
+<pre><code>Ø  固定定位的元素也脱离了标准流（不在页面上占据位置）
+</code></pre><p>(4)sticky: 粘性定位<br>    在屏幕范围内(viewport)时该元素的位置不会受到定位影响(设置left、top等属性无效)，但当其移出偏移范围时，定位效果变为fixed,并根据所设置的left、top等属性进行定位。<br>        注：<br>            Ø  仍然保留元素原本在文档流中的位置<br>            Ø  元素固定的相对偏移是相对于离它最近的具有滚动框的祖先元素，如果祖先元素都不可以滚动，那么是相对于viewport来计算元素的偏移量<br>            Ø  只兼容 FireFox 和 iOS 的 Safari</p>
+<p>11.伪元素<br>:first-letter    向文本的第一个字母添加特殊样式<br>:first-line        向文本的首行添加特殊样式<br>:before            在元素之前添加内容<br>:after            在元素之后添加内容</p>
+<p>12.伪类<br>Ø  a:link            给a标签设置没有被访问过的样式</p>
+<p>Ø  a:visited         给a标签设置被访问过的样式</p>
+<p>Ø  a:hover           给a标签设置鼠标悬停时的样式</p>
+<p>Ø  a:active          给a标签设置被点击的样式</p>
+<pre><code>注：在使用的时候一定遵守这样的顺序：a:link,a:visited,a:hover,a:active，否则会失效！
+    :link、:visited只能用于a标签，:hover、:active 其它标签也可以使用
 </code></pre>
       
     </div>
