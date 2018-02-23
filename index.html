@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -257,7 +257,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T20:28:52+08:00">
                 2018-02-20
@@ -394,7 +394,8 @@ Android 4.4 之后     chromiun
       严格的(Strict)：你不能使用任何表现层的标识和属性，例如&lt;br&gt;
       框架的(Frameset)：针对框架页面设计使用
 
-区别:①盒模型的处理差异:标准CSS盒模型的宽度和高度等于内容区的高度和宽度，不包含内边距和边框，而怪异模式是包含内边距和边框的；
+区别:①盒模型的处理差异:标准CSS盒模型的宽度和高度等于内容区的高度和宽度，不包含内边距和边框，而怪异模式
+                     是包含内边距和边框的；
      ②行内元素的垂直对齐:怪异模式下它们会对齐至底部，而标准模式下是基线对齐。
 </code></pre><p>6.href和src<br>     href： 超文本引用，指向网络链接所在的位置，用来建立当前元素和文档之间的链接 用于link a<br>     src：  地址来源，src指向的内容会嵌入到文档中当前标签所在的位置 用于img iframe script<br>     简而言之，src用于替换当前元素；href用于在当前文档和引用资源之间建立联系。</p>
 <p>7.web标准：行为、样式、结构相分离</p>
@@ -410,9 +411,12 @@ Android 4.4 之后     chromiun
             ④display为inline-block、table-cell、table-caption
 
 bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
-            对子元素设置浮动后，父元素会发生高度塌陷，也就是父元素的高度变为0(父子间 margin-top 取最大值)。解决方法是把父元素变成一个BFC。常用的办法是给父元素设置 overflow:hidden。
+            对子元素设置浮动后，父元素会发生高度塌陷，也就是父元素的高度变为0(父子间 margin-top 取最大值)。
+            解决方法是把父元素变成一个BFC。常用的办法是给父元素设置 overflow:hidden。
           (2)解决margin合并问题
-            如果两个div上下排序，给上面div设置margin-bottom，给下面div设置margin-top，则两个margin会发生合并现象，合并后的值取较大的那个。解决方法是分别给父元素设置 overflow:hidden，再给其中一个div设置 display:inline-block。
+            如果两个div上下排序，给上面div设置margin-bottom，给下面div设置margin-top，则两个margin会
+            发生合并现象，合并后的值取较大的那个。解决方法是分别给父元素设置 overflow:hidden，再给其中
+            一个div设置 display:inline-block。
 </code></pre><p>7.浮动float</p>
 <pre><code>浮动的特点： Ø 块级元素浮动后变成inline-block
             Ø 浮动的元素会脱离标准流，浮动以后的元素会覆盖在标准流的元素之上
@@ -432,19 +436,28 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
                Ø 父元素上加overflow：hidden
                Ø 父元素上加position：absolute
 </code></pre><p>8.单行文字打点<br>white-space: nowrap;<br>overflow: hidden;<br>text-overflow: ellipsis;</p>
-<p>9.语义化<br>具体来说，就是在书写html时，尽量使用具有语义信息的标签，例如header,nav,aside,section等代替那些没有语义信息的标签，例如big,center,strike,font等（完全可以用css来取代的标签）。这样不仅有利于页面DOM的组织，也有利于机器（主要是搜索引擎）的理解。<br>作用：(1)去掉样式后页面呈现清晰的结构<br>      (2)盲人使用读屏器可以更好的阅读<br>      (3)搜索引擎更好地理解页面，有利于收录<br>      (4)使团队的项目可以持续的运作和维护</p>
-<p>10.定位</p>
-<p>(1)static: 静态定位(默认)<br>    所有的标准流中的元素都是静态定位<br>(2)relative: 相对定位<br>    相对于自己原来的位置发生偏移，在页面上仍然占据位置，会覆盖其他内容，用于微调元素、做绝对定位的参考。<br>(3)absolute: 绝对定位<br>    绝对定位的参考点：<br>    Ø  如果这个元素没有父元素，相对于body来定位</p>
-<pre><code>Ø  如果绝对定位的元素有父元素，但是父元素没有定位，还是相对于body来定位的
+<p>9.语义化<br>具体来说，就是在书写html时，尽量使用具有语义信息的标签，例如header,nav,aside,section等代替那些没有语义信息的标签，例如big,center,strike,font等（完全可以用css来取代的标签）。这样不仅有利于页面DOM的组织，也有利于机器（主要是搜索引擎）的理解。</p>
+<pre><code>作用：   (1)去掉样式后页面呈现清晰的结构
+        (2)盲人使用读屏器可以更好的阅读
+        (3)搜索引擎更好地理解页面，有利于收录
+        (4)使团队的项目可以持续的运作和维护
+</code></pre><p>10.定位<br>(1)static: 静态定位(默认)<br>    所有的标准流中的元素都是静态定位</p>
+<p>(2)relative: 相对定位<br>    相对于自己原来的位置发生偏移，在页面上仍然占据位置，会覆盖其他内容，用于微调元素、做绝对定位的参考。</p>
+<p>(3)absolute: 绝对定位<br>    绝对定位的参考点：</p>
+<pre><code>Ø  如果这个元素没有父元素，相对于body来定位
+
+Ø  如果绝对定位的元素有父元素，但是父元素没有定位，还是相对于body来定位的
 
 Ø  如果绝对定位的元素有“父”元素，而且父元素有非static定位，那么这个绝对定位的元素相对“父”元素来定位。要听最近的已经定位的祖先元素的，不一定是父亲，可能是爷爷！
 
 Ø  绝对定位的儿子，无视所参考的父元素的padding
 
 Ø  绝对定位之后的元素在页面不会占据位置（绝对定位以后的元素会脱离标准流）
-</code></pre><p>(4)fixed：固定定位<br>    Ø  不管页面有多大，固定定位的元素永远是相对于浏览器的边框来的。</p>
-<pre><code>Ø  固定定位的元素也脱离了标准流（不在页面上占据位置）
-</code></pre><p>(4)sticky: 粘性定位<br>    在屏幕范围内(viewport)时该元素的位置不会受到定位影响(设置left、top等属性无效)，但当其移出偏移范围时，定位效果变为fixed,并根据所设置的left、top等属性进行定位。<br>        注：<br>            Ø  仍然保留元素原本在文档流中的位置<br>            Ø  元素固定的相对偏移是相对于离它最近的具有滚动框的祖先元素，如果祖先元素都不可以滚动，那么是相对于viewport来计算元素的偏移量<br>            Ø  只兼容 FireFox 和 iOS 的 Safari</p>
+</code></pre><p>(4)fixed：固定定位</p>
+<pre><code>Ø  不管页面有多大，固定定位的元素永远是相对于浏览器的边框来的。
+
+Ø  固定定位的元素也脱离了标准流（不在页面上占据位置）
+</code></pre><p>(5)sticky: 粘性定位<br>    在屏幕范围内(viewport)时该元素的位置不会受到定位影响(设置left、top等属性无效)，但当其移出偏移范围时，定位效果变为fixed,并根据所设置的left、top等属性进行定位。<br>        注：<br>            Ø  仍然保留元素原本在文档流中的位置<br>            Ø  元素固定的相对偏移是相对于离它最近的具有滚动框的祖先元素，如果祖先元素都不可以<br>               滚动，那么是相对于viewport来计算元素的偏移量<br>            Ø  只兼容 FireFox 和 iOS 的 Safari</p>
 <p>11.伪元素<br>:first-letter    向文本的第一个字母添加特殊样式<br>:first-line        向文本的首行添加特殊样式<br>:before            在元素之前添加内容<br>:after            在元素之后添加内容</p>
 <p>12.伪类<br>Ø  a:link            给a标签设置没有被访问过的样式</p>
 <p>Ø  a:visited         给a标签设置被访问过的样式</p>
@@ -529,7 +542,7 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-26T15:36:35+08:00">
                 2018-01-26
@@ -662,7 +675,7 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
                 <a href="/archives/">
               
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -712,7 +725,7 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
