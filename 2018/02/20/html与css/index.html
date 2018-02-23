@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/20/html与css/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="HTML笔记1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。 2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面 IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows">
-<meta property="og:updated_time" content="2018-02-23T11:45:39.886Z">
+<meta property="og:updated_time" content="2018-02-23T11:51:33.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html与css">
 <meta name="twitter:description" content="HTML笔记1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。 2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面 IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows">
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -258,7 +258,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T20:28:52+08:00">
                 2018-02-20
@@ -440,14 +440,15 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
         (2)盲人使用读屏器可以更好的阅读
         (3)搜索引擎更好地理解页面，有利于收录
         (4)使团队的项目可以持续的运作和维护
-</code></pre><p>10.定位<br>(1)static: 静态定位(默认)<br>    所有的标准流中的元素都是静态定位</p>
-<p>(2)relative: 相对定位<br>    相对于自己原来的位置发生偏移，在页面上仍然占据位置，会覆盖其他内容，用于微调元素、做绝对定位的参考。</p>
-<p>(3)absolute: 绝对定位<br>    绝对定位的参考点：</p>
+</code></pre><p>10.定位<br>(1)static： 静态定位(默认)<br>    所有的标准流中的元素都是静态定位</p>
+<p>(2)relative： 相对定位<br>    相对于自己原来的位置发生偏移，在页面上仍然占据位置，会覆盖其他内容，用于微调元素、做绝对定位的参考。</p>
+<p>(3)absolute： 绝对定位<br>    绝对定位的参考点：</p>
 <pre><code>Ø  如果这个元素没有父元素，相对于body来定位
 
 Ø  如果绝对定位的元素有父元素，但是父元素没有定位，还是相对于body来定位的
 
-Ø  如果绝对定位的元素有“父”元素，而且父元素有非static定位，那么这个绝对定位的元素相对“父”元素来定位。要听最近的已经定位的祖先元素的，不一定是父亲，可能是爷爷！
+Ø  如果绝对定位的元素有“父”元素，而且父元素有非static定位，那么这个绝对定位的元素相对“父”元素来定位。
+   要听最近的已经定位的祖先元素的，不一定是父亲，可能是爷爷！
 
 Ø  绝对定位的儿子，无视所参考的父元素的padding
 
@@ -456,7 +457,7 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
 <pre><code>Ø  不管页面有多大，固定定位的元素永远是相对于浏览器的边框来的。
 
 Ø  固定定位的元素也脱离了标准流（不在页面上占据位置）
-</code></pre><p>(5)sticky: 粘性定位<br>    在屏幕范围内(viewport)时该元素的位置不会受到定位影响(设置left、top等属性无效)，但当其移出偏移范围时，定位效果变为fixed,并根据所设置的left、top等属性进行定位。<br>        注：<br>            Ø  仍然保留元素原本在文档流中的位置<br>            Ø  元素固定的相对偏移是相对于离它最近的具有滚动框的祖先元素，如果祖先元素都不可以<br>               滚动，那么是相对于viewport来计算元素的偏移量<br>            Ø  只兼容 FireFox 和 iOS 的 Safari</p>
+</code></pre><p>(5)sticky：粘性定位<br>    在屏幕范围内(viewport)时该元素的位置不会受到定位影响(设置left、top等属性无效)，但当其移出偏移范围时，定位效果变为fixed,并根据所设置的left、top等属性进行定位。<br>        注：<br>            Ø  仍然保留元素原本在文档流中的位置<br>            Ø  元素固定的相对偏移是相对于离它最近的具有滚动框的祖先元素，如果祖先元素都不可以滚动，那么是相<br>                对于viewport来计算元素的偏移量<br>            Ø  只兼容 FireFox 和 iOS 的 Safari</p>
 <p>11.伪元素<br>:first-letter    向文本的第一个字母添加特殊样式<br>:first-line        向文本的首行添加特殊样式<br>:before            在元素之前添加内容<br>:after            在元素之后添加内容</p>
 <p>12.伪类<br>Ø  a:link            给a标签设置没有被访问过的样式</p>
 <p>Ø  a:visited         给a标签设置被访问过的样式</p>
@@ -550,10 +551,10 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -574,7 +575,7 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
                 <a href="/archives/">
               
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -640,7 +641,7 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
