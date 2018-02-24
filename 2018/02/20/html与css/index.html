@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/20/html与css/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="HTML笔记1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。 2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面 IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows">
-<meta property="og:updated_time" content="2018-02-23T11:51:33.902Z">
+<meta property="og:updated_time" content="2018-02-23T11:53:56.715Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html与css">
 <meta name="twitter:description" content="HTML笔记1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。 2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面 IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows">
@@ -457,7 +457,7 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
 <pre><code>Ø  不管页面有多大，固定定位的元素永远是相对于浏览器的边框来的。
 
 Ø  固定定位的元素也脱离了标准流（不在页面上占据位置）
-</code></pre><p>(5)sticky：粘性定位<br>    在屏幕范围内(viewport)时该元素的位置不会受到定位影响(设置left、top等属性无效)，但当其移出偏移范围时，定位效果变为fixed,并根据所设置的left、top等属性进行定位。<br>        注：<br>            Ø  仍然保留元素原本在文档流中的位置<br>            Ø  元素固定的相对偏移是相对于离它最近的具有滚动框的祖先元素，如果祖先元素都不可以滚动，那么是相<br>                对于viewport来计算元素的偏移量<br>            Ø  只兼容 FireFox 和 iOS 的 Safari</p>
+</code></pre><p>(5)sticky：粘性定位<br>    在屏幕范围内(viewport)时该元素的位置不会受到定位影响(设置left、top等属性无效)，但当其移出偏移范围时，定位效果变为fixed,并根据所设置的left、top等属性进行定位。<br>        注：<br>            Ø  仍然保留元素原本在文档流中的位置<br>            Ø  元素固定的相对偏移是相对于离它最近的具有滚动框的祖先元素，如果祖先元素都不可以滚动，那么是相对于<br>                viewport来计算元素的偏移量<br>            Ø  只兼容 FireFox 和 iOS 的 Safari</p>
 <p>11.伪元素<br>:first-letter    向文本的第一个字母添加特殊样式<br>:first-line        向文本的首行添加特殊样式<br>:before            在元素之前添加内容<br>:after            在元素之后添加内容</p>
 <p>12.伪类<br>Ø  a:link            给a标签设置没有被访问过的样式</p>
 <p>Ø  a:visited         给a标签设置被访问过的样式</p>
@@ -489,15 +489,15 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/26/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/24/JavaScript笔记/" rel="prev" title="JavaScript笔记">
+                JavaScript笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
