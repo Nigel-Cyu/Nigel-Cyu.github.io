@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="1.">
+<meta name="description" content="1.JavaScript的特点(1)用于向HTML页面添加交互行为(2)脚本语言,用于编写客户端脚本(3)单线程(4)解释性语言，解释一行执行一行(5)可以跨平台 2.typeof 返回值类型number(数字，NaN), string(字符串), boolean(true，False), undefined(undefined), object(null，数组，对象), function(fun">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript笔记">
 <meta property="og:url" content="http://yoursite.com/2018/02/24/JavaScript笔记/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1.">
-<meta property="og:updated_time" content="2018-02-24T07:47:28.090Z">
+<meta property="og:description" content="1.JavaScript的特点(1)用于向HTML页面添加交互行为(2)脚本语言,用于编写客户端脚本(3)单线程(4)解释性语言，解释一行执行一行(5)可以跨平台 2.typeof 返回值类型number(数字，NaN), string(字符串), boolean(true，False), undefined(undefined), object(null，数组，对象), function(fun">
+<meta property="og:updated_time" content="2018-02-27T14:22:27.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript笔记">
-<meta name="twitter:description" content="1.">
+<meta name="twitter:description" content="1.JavaScript的特点(1)用于向HTML页面添加交互行为(2)脚本语言,用于编写客户端脚本(3)单线程(4)解释性语言，解释一行执行一行(5)可以跨平台 2.typeof 返回值类型number(数字，NaN), string(字符串), boolean(true，False), undefined(undefined), object(null，数组，对象), function(fun">
 
 
 
@@ -298,8 +298,218 @@
       
 
       
-        <p>1.</p>
+        <p>1.JavaScript的特点<br>(1)用于向HTML页面添加交互行为<br>(2)脚本语言,用于编写客户端脚本<br>(3)单线程<br>(4)解释性语言，解释一行执行一行<br>(5)可以跨平台</p>
+<p>2.typeof 返回值类型<br>number(数字，NaN), string(字符串), boolean(true，False), undefined(undefined), object(null，数组，对象), function(function)<br>    注：(1) typeof 打印出来的变量类型都是字符串的形式。如：”number” “undefined”<br>        (2) typeof(null)–&gt;”object” 意义为null是“非对象”; 而typeof(undefined)–&gt;”undefined”</p>
+<p>3.函数<br>(1)系统函数<br>    ParseInt() 转换为整数<br>    isNaN() 判断是否为数字<br>    typeof() 判断数据类型<br>    eval() 计算表示式值</p>
+<p>(2)自定义函数<br>    Function 函数名() {javaScript代码}<br>    Function 函数名(参数1，参数2) {javaScript代码  return 返回值(可选)}</p>
+<p>4.引用值和原始值的区别<br>(1)复制时复制的是什么？<br>    原始值：复制的是变量真正的值<br>    引用值：复制的是变量的地址</p>
+<pre><code>例如：var num=123; num1=num; num=124; document.write(num1);
+      打印出num1的值为123，复制的是原始的值123，所以num的值改变不会影响到num1
 
+例如：var arr=[1,2,3,4]; var arr1=arr; arr.push(5); documemt.write(arr1);
+      打印出arr1的值为1,2,3,4,5，复制的是引用值arr的地址，所以arr改变，arr1也改变
+
+      var arr=[1,2,3,4]; var arr1=arr; arr=[1,2,3]; documemt.write(arr1);
+      打印出arr1的值为1,2,3,4。此时，arr放弃原来房间，又开辟出一个房间存1,2,3
+      通过这两个可以看出来，arr.push()是在原数组上添加成员，而arr=[1,2,3,4];后arr=[1, 2, 3];是重新赋值了一个数组
+</code></pre><p>(2)是否可截断？（通过减小length的值，是否可以减少内容或长度）<br>    原始值：不可改变。（在栈中存储，栈中的值不可能改变，要改变，只能改变地址，另辟房间）<br>    引用值：可改变。（堆中存储）</p>
+<pre><code>例如：var arr=[1,2,3,4]; arr.length=2; document.write(arr);
+      打印出arr的值为1,2，数组的长度可截断。
+
+例如：var str=”abc”; str.length=2; document.write(str);
+      打印出str的值为abc，字符串的长度不可截断。
+</code></pre><p>(3)原始值的比较是数值的比较；引用值的比较是引用的比较，当且仅当他们引用同一个对象时才相等</p>
+<p>5.类型转换</p>
+<p>(1)显示类型转换<br>    Ø  Number(n)：将n转换为数字类型   注：toFixed(n) 是保留 n 位小数<br>       true–&gt;1; false–&gt;0; undefined–&gt;NaN; “”–&gt;0; “abc”–&gt;NaN; “123abc”–&gt;NaN; []–&gt;0; {}–&gt;NaN</p>
+<pre><code>Ø  parseInt(string,radix)：转换为整型
+   &quot;123abc123&quot;--&gt;123（遇到字母，就停止了，不再看后面的东西，直接返回前面的123）
+   radix是基底：表示前面的数是几进制的数，取值为2-36之间的数字
+
+Ø  parseFloat(string)：转换为浮点型
+    123.1.2--&gt;123.1（只能找到一个小数点）; &quot;123abc123&quot;--&gt;123（遇到字母后面的就不看了）
+
+Ø  toString()：转换为字符串类型（对象上的一个方法，任何数据类型都可以使用）
+    使用方法有点改变：不是用括号，而是用.toString函数
+
+    注意：①undefined和null不能调用.toString，否则系统会出错
+          ②radix：以十进制为基础转换为目标进制（也是字符串类型）
+
+Ø  String(max)：任何类型都转化为字符串类型（类似number）
+Ø  Boolean()：将任何类型转化为boolean类型（类似number）
+</code></pre><p>(2)隐式类型转换<br>    Ø  isNaN()：判断是不是非数。（先转换为number类型，再判断是不是非数NaN）</p>
+<pre><code>Ø  ++/--  +/- (一元正负)：自动转化为number类型，再进行++/--/+/- 的运算
+
+Ø  + ：任何东西+字符串=字符串
+
+Ø  * / %（乘除）：先转化为number类型，再进行运算
+
+Ø  &amp;&amp;||！ :首先会将左右两边的式子转换为boolean来判断是否为真，最后返回的是原来的类型，不是boolean
+
+Ø  &lt; &gt; &lt;= &gt;= == != ：会将符号两边转化为相同的类型进行比较
+</code></pre><p>6.作用域</p>
+<p>(1)作用域定义：变量（变量作用域，又称上下文）和函数生效（能被访问）的区域。<br>   注：Javascript只有函数可以产生作用域。</p>
+<p>(2)[[scope]]：每个Javascript函数都是一个对象，对象中有些属性我们可以访问，有些不可以，这些属性仅供Javascript<br>              引擎存取，[[scope]]就是其中一种。（即：每个函数都有一个作用域[[scope]]）<br>              [[scope]]就是我们所说的作用域，其中存储了运行期的上下文</p>
+<p>(3)作用域链：[[scope]]中存储的执行期上下文对象的集合，这个集合成链式连接，我们把这种链式连接叫做作用域链。</p>
+<p>(4)执行期上下文：当函数执行时，会创建一个称为执行期上下文的内部对象。一个执行期上下文定义了一个函数执行时的环境<br>              （调用函数时，所执行的东西，如：定义变量，调用其他函数等即为执行期上下文。但是，如果只是定义了函数，<br>               则不产生执行期上下文）<br>        注意：函数每次执行时对应的执行期上下文都是独一无二的，所以多次调用一个函数会导致创建多个执行期上下文，<br>              当函数执行完毕，执行期上下文销毁。</p>
+<p>(5)查找变量：从作用域链的顶端依次查找<br>  例. function a () {<br>        function b () {<br>            var b = 234;<br>        }<br>        var a = 123;<br>        b();<br>        docunmet.write(a);<br>      }</p>
+<pre><code>  var glob = 100;
+  b();
+
+定义函数a时，则会将a能看见的全局变量和函数放在数组scope[0]处，当调用函数a时，会产生执行期上下文放在 scope 中，
+全局变量下移到scope[1]中，执行期上下文放在scope[0]中。当查找变量a时，先从scope[0]中找，找不到再从scope[1]找。
+
+函数a里面定义了函数b，函数b能看见的全局变量和函数=a的劳动成果+a的全局上下文（即为a的执行期上下文），当函数b执行
+时，会产生执行期上下文放在scope[0]位置，之前的依次往下窜。
+
+当函数b执行完，b的执行期上下文销毁，当函数a执行完，a的执行期上下文被销毁。
+</code></pre><p>7.闭包</p>
+<p>(1)闭包定义：当内部函数被保存到外部时，将会生成闭包。</p>
+<p>(2)闭包坏处：导致原有作用域链不释放，造成内存泄露。<br>   内存泄露：不断向内存里装东西，导致内存满了，不能再装东西，相当于内存泄露一样。而闭包会导致作用域链不释放，内存泄露。</p>
+<p>   例. function a () {<br>         function b () {<br>            var b = 234;<br>            console.log(a);<br>         }<br>         var a = 123;<br>         return b;<br>       }</p>
+<pre><code>var glob = 100;
+var c = a();
+c();
+函数a执行的结果是返回函数b，而b被赋给c，然后调用函数c，也就是函数b。此时函数a的执行期上下文已经被销毁，但仍然能
+打印出 a = 123。原因是函数a执行和函数b定义的空间相同，当a执行完，其执行期上下文释放后，b的也会被释放，但是我们
+将函数b赋予给了c，b和c具有一样的指向，所以c能访问到变量a。
+</code></pre><p>(3)闭包作用<br>    Ø  实现公有变量。例如：函数累加器（闭包作用域里的变量都是共有变量，每次访问的都是同一个）<br>    Ø  可以做缓存<br>    Ø  可以实现封装，属性私有化</p>
+<p>8.立即执行函数</p>
+<p>(1)定义：此类函数没有声明，在执行一次后就被释放，适合做初始化工作。<br>    产生原因：一些函数只使用一次，定义函数太浪费，不定义函数则不够模块化。</p>
+<p>(2)结构：①(function () {})()   ②(function () {} ())<br>        注：两种写法功能一样，但是第二种效率更高</p>
+<pre><code>立即执行函数里面定义的变量，在函数执行完就会被销毁，不能在访问；但是在函数外面定义的函数，在立即函数里面改变的话，可以访问
+</code></pre><p>(3)传参数：(function (形参) {函数体} (实参))</p>
+<p>(4)用途：立即执行函数解决闭包问题<br>    例. function a () {<br>           var arr = [];<br>           for(var i = 0;i &lt; 10;i++){<br>               arr[i] = function () {<br>                   console.log(i);<br>               }<br>           }<br>           return arr;<br>        }</p>
+<pre><code>    var b = a();
+    for(var i = 0;i &lt; b.length;i++){
+        b[i]();
+    }
+结果打印出 10 10 10 10....
+函数a里 arr[i] 可以访问外面传进来的参数i，通过函数b的接收产生闭包，每次 b[i]() 执行都会访问真实的 i 值，即最终最新的 i 值。
+
+使用立即执行函数
+    function a () {
+        var arr = [];
+        for(var i = 0;i &lt; 10;i++){
+            (function (index) {
+                arr[index] = function () {
+                    console.log(index);
+                }
+            })(i);
+        }
+    }
+使用立即执行函数后，将共有的全局变量i当做实参传给index，此时index相当于普通变量，相当于 i 值被锁定在 index 里。
+</code></pre><p>9.预编译<br>    ①创建AO对象。<br>    ②找形参和变量声明，将变量和形参作为AO属性名，值为undefined。<br>    ③将实参值和形参相统一。<br>    ④在函数体里找函数声明，将函数声明的名字作为AO属性名，值赋予函数体。</p>
+<pre><code>例. var a = 123;
+    function test () {
+        document.write(a);
+        a = 123;
+        if(!!undefined) {
+            var a = 0;
+        }
+        document.write(a);
+    }
+
+    test();
+预编译：AO = {a:undefined}
+解释执行：AO = {a:--&gt;123}
+打印：undefined 123
+注：查找顺序从作用域顶端，自己的执行期上下文有，就不看别的。而在该函数里第一次打印a之前，预编译过程a已经有值为
+    undefined，所以打印undefined而不是234
+注：if里的条件与预编译无关，只有执行时才有关系 。即预编译过程看不出来这种逻辑关系
+</code></pre><p>10.创建对象的方法<br>Ø  对象字面量 ： var obj = {};</p>
+<p>Ø  构造函数<br>    ①系统自带 new Object()/Array()/Number()/Boolean()/Date();</p>
+<pre><code>②自定义
+ 例.  function Person (name, age, height) {
+         //var this = {};
+         this.name = name;
+         this.age = age;
+         this.height = height;
+         this.say = function () {
+             console.log(this.name);
+         }
+         this.eat = function () {
+             this.height++;
+         }
+      }
+      var cnz = new Person(&quot;chu&quot;, 20, 174);
+
+自定义构造函数(1)函数最前隐式加上var this = {}; (2)执行this.xxx = xxx; (3)隐式返回this
+
+注：Ø  当没有构造函数时，预编译时执行期上下文中的this隐式指向window，当没有new时，function只是普通的函数；
+    Ø  当有new时，在person函数第一行隐式产生var this = {};此时，预编译时，this的指向由window变为{}，后面
+       的语句相当于给this加属性，然后，在最后一步隐式的返回this
+    Ø  如果Person返回的是引用值(比如 that )时，则不返回this；如果Person返回的是原始值(比如变量 a )时，默认
+       返回this（即：new操作符一定要返回对象）
+</code></pre><p>Ø  var obj = Object.create (原型)</p>
+<p>11.原型链</p>
+<pre><code>function Person() {}
+Person.prototype.name = &apos;nigel&apos;;
+Person.prototype.age  = 20;
+Person.prototype.job  = &apos;web Engineer&apos;;
+Person.prototype.sayName = function() {
+    alert(this.name);
+}
+var person1 = new Person();
+person1.sayName(); // &apos;nigel&apos;
+</code></pre><p>(1)原型对象<br>    Ø  每个对象都有 <strong>proto</strong> 属性，但只有函数对象才有 prototype 属性。</p>
+<pre><code>原型对象，顾名思义，它就是一个普通对象。
+在默认情况下，所有的原型对象都会自动获得一个 constructor（构造函数）默认属性，这个属性(是一个指针)指向 prototype 
+属性所在的函数（Person）。
+
+    person1.constructor == Person
+    Person.prototype.constructor == Person
+
+Ø  在 Person 创建的时候，创建了一个它的实例对象并赋值给它的 prototype，原型对象（Person.prototype）其实是构造
+   函数（Person）的一个实例。
+
+Ø  凡是通过 new Function() 产生的对象都是函数对象，所以Function.prototype 是函数对象，且没有 prototype 属性。
+</code></pre><p>(2)<strong>proto</strong><br>    JS 在创建对象(不论是普通对象还是函数对象)的时候，都有一个叫做<strong>proto</strong> 的内置属性，用于指向创建它的构造函数的原型<br>    对象，即 person1.<strong>proto</strong> == Person.prototype 。</p>
+<pre><code>Number、String、Boolean、Array、Function、Object的__proto__都是 Function.prototype，因为它们都是函数对象，由
+Function 所构造出来的。
+Function.prototype是一个空的函数，且Function.prototype.__proto__ === Object.prototype。
+</code></pre><p>12.call/apply<br>    作用：改变this指向。<br>    区别：后面传的形参形式不同。</p>
+<pre><code>function test (a, b) {
+    console.log(this.name);
+    console.log(a + b);
+}
+
+window.name = &apos;abc&apos;;
+
+var obj = {name: &apos;aaa&apos;};
+test.call(obj, 1, 2);
+//test.apply(obj, [1, 2]);
+
+执行text函数时传入obj，会将text()函数里面的this更改为obj，所以会打印obj的name。
+    注：text()和text.call()作用一样，都是执行该函数。
+apply与call的第一个参数用法一样，就是后面的参数形式不一样，apply传的是数组。
+</code></pre><p>13.继承</p>
+<p>(1)传统形式<br>    方法：一层一层的原型链<br>    缺点：过多的继承了没用的属性，思维价值高、实用价值低。</p>
+<p>(2)借用构造函数<br>    function Foo (name, age) {<br>        this.name = name;<br>        this.age = age;<br>    }<br>    function Son (name, age) {<br>        Foo.call(this, name, age);<br>    }<br>    var son = new Son(‘nigel’, 20);</p>
+<pre><code>缺点：①没有实现真正意义上的继承，不能继承借用构造函数的原型；②每次构造一个对象都需要调用两个构造方法，多走一个函数。
+</code></pre><p>(3)共享原型<br>    function inherit(p, c) {<br>        c.prototype = p.prototype;<br>    }<br>    P.prototype.name = “nigel”;<br>    function P () {}<br>    function C () {}<br>    inherit(P, C);<br>    console.log(new C().name);</p>
+<pre><code>缺点：C 和P共用一个原型，一个的原型改变，则另一个原型也会改变。
+</code></pre><p>(4)圣杯模式<br>    function inherit (P, C) {<br>        function F () {}<br>        F.prototype = P.prototype;<br>        C.prototype = new F();<br>        C.prototype.constructor = C;<br>        C.prototype.uber = P.prototype;   //此行可以省略，这只是为了找到C.prototype最终的源头<br>    }</p>
+<pre><code>Foo.prototype.age = 20;
+function Foo () {}
+function Son () {}
+inherit(Foo, Son);
+console.log(new Son().age);   //输出20
+
+Son.prototype.name = &quot;nigel&quot;;
+console.log(Foo.prototype.name);   //输出undefined，C.prototype是F类的对象，该对象的原型和P.prototype相等。
+                                     所以Son.prototype改变，Foo.prototype不会改变。
+
+高级写法：var inherit = (function () {
+            var F = function () {};
+            return function (P, C) {
+                     F.prototype = P.prototype;
+                     C.prototype = new F();
+                     C.prototype.constructor = C;
+                     C.prototype.uber = P.prototype;
+                   }
+         }())
+    函数所需要的私有化的东西，通常放在闭包里，如 F。
+</code></pre>
       
     </div>
     
