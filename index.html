@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -214,6 +214,204 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/DOM笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/28/DOM笔记/" itemprop="url">DOM笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-28T16:43:12+08:00">
+                2018-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-DOM的定义"><a href="#1-DOM的定义" class="headerlink" title="1.DOM的定义"></a>1.DOM的定义</h3><p>DOM（Document Object Model）：用来操作html和css的标准编程接口。</p>
+<h3 id="2-查看元素节点"><a href="#2-查看元素节点" class="headerlink" title="2.查看元素节点"></a>2.查看元素节点</h3><p>(1)document.getElementById(“Id”)：通过 Id 找到对应的元素</p>
+<p>(2)getElementsByTagName(“标签名”)：通过标签获取元素们</p>
+<p>(3)getElementByName()：通过name<br>         注：只有部分标签可以生效。如：表单、表单元素、img、iframe</p>
+<p>(4)getElementsByClassName()：通过类名class</p>
+<p>(5)querySelector(“”)：””里面的内容添加正常的各种css选择器<br>        注: querySelector(“”)只能选择一个标签，即使可以选出一组div，也只返回一组中的第一个</p>
+<pre><code>querySelectorAll(&quot;&quot;)：&quot;&quot;里面也是加css选择器，但是他可以选择多个，返回一个类数组
+注：querySelector和querySelectorAll选择的东西是非实时的
+</code></pre><h3 id="3-节点"><a href="#3-节点" class="headerlink" title="3.节点"></a>3.节点</h3><p>获取节点类型 nodeType ：返回数字，根据数字判断类型</p>
+<pre><code>元素节点-----1
+属性节点-----2
+文本节点-----3
+注释节点-----8
+Document------9
+documentFragment-----11
+
+注：文本节点为文字、空格等，每一个节点都有自己的属性和方法，Document为文档节点，是dom树的根节点
+
+parentNode--&gt;父节点 （最顶端的parentNode为#document） 注：获取的是最邻近的上一级
+childNodes--&gt;子节点们（六种类型节点）
+firstNode--&gt;第一个子节点
+lastNode--&gt;最后一个子节点
+nextSibling--&gt;后一个兄弟节点
+previousSibling--&gt;前一个兄弟节点
+
+针对元素节点（不包括文本、注释节点）
+parentElement--&gt;返回当前元素的父元素节点(最顶端parentElement是html,document不是元素,IE不兼容)
+Children--&gt;只返回当前元素的元素子节点们，返回类数组
+nodechildElementCount === node.children.length--&gt;当前元素节点的子元素节点个数（IE不兼容）
+firstElementChild--&gt;返回的是第一个元素的节点（IE不兼容）
+lastElementChild--&gt;返回的是最后一个元素的节点（IE不兼容）
+nextElementSibling--&gt; 返回后一个兄弟元素节点（IE不兼容）
+previousElementSibling--&gt;返回前一个兄弟元素节点（IE不兼容）
+
+节点的四个属性：
+nodeName（节点名称）：1)元素的标签名，以大写形式表示，只读 2)文本#text、注释#comment、文档#document
+nodeValue（节点值）：Text节点或Comment节点的文本内容，可读可写（对于文档节点document和元素节点是不可用的）
+nodeType（节点类型）：该节点的类型，只读
+attributes：Element节点的属性集合
+
+节点树总结：
+Document和Element是并列关系，所以定义在Document上的东西，Element上不能用
+ByID ：只能document上用
+ByTagName/byClassName/querySelectorAll/querySelector ：Element和document上都能用
+Document.body 指代body；document.head指代head
+Document.documentElement 指代html
+</code></pre><h3 id="4-DOM基本操作"><a href="#4-DOM基本操作" class="headerlink" title="4.DOM基本操作"></a>4.DOM基本操作</h3><p>(1)增<br>document.createElement()：创建标签<br>document.createTextNode()：创建文本节点<br>document.createComment()：创建注释节点<br>document.createDocumentFragment()</p>
+<p>(2)插<br>parentNode.appendChild()：将节点插入子节点的尾部，同时具有剪切功能<br>parentNode.insertBefore(a, b)：读作insert a before b，在b前面插入a</p>
+<p>(3)删<br>parent.removeChild()</p>
+<p>(4)替换<br>parent.replaceChild(new, origin)：new为要替换的新元素，origin为被替换的老元素</p>
+<h3 id="5-Element节点"><a href="#5-Element节点" class="headerlink" title="5.Element节点"></a>5.Element节点</h3><p>(1)属性<br>innerHTML：将标签拿出来<br>innerText（火狐不兼容）/textContent（老版本IE不好使）：将文本拿出来</p>
+<p>(2)方法<br>ele.setAttribute()<br>ele.getAttribute()<br>ele.className</p>
+<h3 id="6-DOM其他操作"><a href="#6-DOM其他操作" class="headerlink" title="6.DOM其他操作"></a>6.DOM其他操作</h3><p>(1)查看滚动条的滚动距离<br>    window.pageXOffset/pageYOffset（IE8及IE8以下不兼容）</p>
+<pre><code>document.body/documentElement.scrollLeft/scrollTop（IE8及IE8以下使用）
+用法：兼容性比较混乱，用时取两个值相加，因为不可能存在两个同时有值
+    比如 var left = document.body.scrollLeft + document.documentElement.scrollLeft
+</code></pre><p>(2)查看视口尺寸<br>    window.innerWidth/innerHeight（IE8及IE8以下不兼容）</p>
+<pre><code>document.documentElement.clientWidth/clientHeight（标准模式下，任意浏览器都兼容）
+
+document.body.clientWidth/clientHeight（适用于怪异模式下的浏览器）
+</code></pre><p>(3)查看元素的几何尺寸<br>    domEle.getBoundingClientRect() （兼容性很好）<br>     该方法返回一个对象，对象里面有left,top,right,bottom等属性。left和top代表该元素左上角的X和Y坐标，<br>     right和bottom代表元素右下角的X和Y坐标。</p>
+<pre><code>domEle.offsetWidth   domEle.offsetHeight
+</code></pre><p>(4)查看元素的位置：与最近的有定位的父级之间的距离<br>    dom.offsetLeft, dom.offsetTop<br>      对于无定位父级的元素，返回相对文档的坐标。对于有定位父级的元素，返回相对于最近的有定位的父级的坐标（不在乎自己是否有定位）</p>
+<pre><code>dom.offsetParent
+  返回自己最近的有定位的父级，如无，返回body， body.offsetParent 返回null
+</code></pre><p>(5)让滚动条滚动：<br>    window上有三个方法：<br>        scroll(),scrollTo(),scrollBy();<br>    三个方法功能类似，用法都是将x,y坐标传入。即实现让滚动轮滚动到当前位置。<br>    区别：scrollBy()会在之前的数据基础之上做累加。Scroll()和scrollTo是对定点，不累加</p>
+<h3 id="7-脚本化css（即操作css）"><a href="#7-脚本化css（即操作css）" class="headerlink" title="7.脚本化css（即操作css）"></a>7.脚本化css（即操作css）</h3><p>(1)读写元素css属性：（dom中只有style这种方式可以写、更改行间样式css，其余的只能读）<br>    dom.style.prop</p>
+<p>(2)查询计算样式：（只能读，但不要求非得是行间）<br>    window.getComputedStyle(ele,null)    IE8 及 IE8以下不兼容<br>    ①查看普通元素：第一个参数：要查询的元素；第二个参数：false<br>    ②查看伪元素：第一个参数:要查看伪元素的元素;第二个参数:要看的什么伪元素（before/after）</p>
+<pre><code>ele.currentStyle     IE独有的属性（只能在IE上用）
+这是某个标签的一个属性（不是window上的）。
+
+封装兼容性方法
+function getStyle(obj, propStyle) {
+    if(obj.currentStyle) {
+        return obj.currentStyle;
+    }else{
+        return window.getComputedStyle(obj, false)[propStyle];
+    }
+}
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -257,7 +455,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-24T15:45:13+08:00">
                 2018-02-24
@@ -555,9 +753,7 @@ console.log(Foo.prototype.name);   //输出undefined，C.prototype是F类的对�
     }
 }
 </code></pre><p>(2)深度克隆：针对引用值</p>
-<blockquote>
-<p>  function deepClone(origin, product) {<br>        var strFunc = Object.prototype.toString;<br>        var arrStr = ‘[Object Array]’;<br>        for(var prop in origin) {<br>            if(origin.hasOwnProperty(prop)) {<br>                //处理clone引用值问题<br>                if(typeof(origin[prop]) != null &amp;&amp; typeof(origin[prop]) == ‘Object’){<br>                    if(strFunc.call(origin[prop]) === arrStr){<br>                        product[prop] = [];<br>                    }else{<br>                        product[prop] = {};<br>                    }<br>                    deepClone(origin[prop], product[prop]);  //递归到最后克隆的不是对象或数组，而是原始值<br>                }else{<br>                    product[prop] = origin[prop];<br>                }<br>            }<br>        }<br>    }</p>
-</blockquote>
+<p>   function deepClone(origin, product) {<br>        var strFunc = Object.prototype.toString;<br>        var arrStr = ‘[Object Array]’;<br>        for(var prop in origin) {<br>            if(origin.hasOwnProperty(prop)) {<br>                //处理clone引用值问题<br>                if(typeof(origin[prop]) != null &amp;&amp; typeof(origin[prop]) == ‘Object’){<br>                    if(strFunc.call(origin[prop]) === arrStr){<br>                        product[prop] = [];<br>                    }else{<br>                        product[prop] = {};<br>                    }<br>                    deepClone(origin[prop], product[prop]);  //递归到最后克隆的不是对象或数组，而是原始值<br>                }else{<br>                    product[prop] = origin[prop];<br>                }<br>            }<br>        }<br>    }</p>
 <h3 id="19-数组"><a href="#19-数组" class="headerlink" title="19.数组"></a>19.数组</h3><p>(1)数组的创建<br>    1) 数组字面量：如：arr = [1, 2, 3];<br>    2) arr = new Array(123, 2);</p>
 <blockquote>
 <p>注： 当arr = new Array(n)的形参只有一个时，表示申请一个长度为n的数组[undefined*n]，并且n必须是整数，不能是小数。</p>
@@ -610,7 +806,10 @@ console.log(Foo.prototype.name);   //输出undefined，C.prototype是F类的对�
  所以obj[0]到obj[6]分别是undefined undefined b e f undefined undefined ,最终length = 5。
 </code></pre><h3 id="21-es5严格模式"><a href="#21-es5严格模式" class="headerlink" title="21.es5严格模式"></a>21.es5严格模式</h3><p>两种用法：<br>  ①全局的：在 <script></script> 第一行写 “use strict”; 这样所有的js代码都严格遵循es5的严格模式。<br>  ②局部的：只想在某个函数里用时，只需要在这个函数里第一行加 “use strict”; 即可</p>
 <p>不支持：<br>  with, arguments.callee, func.caller, 变量赋值前必须声明、局部this必须被声明（person.call(null/undefined)赋值什么就是什么）、拒绝重复属性和参数</p>
-
+<h3 id="22-日期对象"><a href="#22-日期对象" class="headerlink" title="22.日期对象"></a>22.日期对象</h3><p>(1)Date：是系统内部提供的构造函数（和Array相似），内部有各种属性，可通过new创建对象。</p>
+<p>(2)内部函数<br>Date() getDate() getDay() getFullYear() getMonth() getHours() getMinutes() getSeconds()<br>setDate() setMonth() setFullYear() setHours() setMinutes() setSeconds() setTime()</p>
+<pre><code>注：getTime不具有实时性，创建一个Date对象时只能记录当前时刻，无论调用多少次getTime，都返回创建该对象时的时间，只有再创建另一个     对象时，才能返回另一个时间。
+</code></pre>
           
         
       
@@ -687,7 +886,7 @@ console.log(Foo.prototype.name);   //输出undefined，C.prototype是F类的对�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T20:28:52+08:00">
                 2018-02-20
@@ -817,8 +1016,8 @@ Android 4.4 之后     chromiun
         display 禁用； required 必须填写项； placeholder 提示词（显示灰色）；multiple 可多选；min max 最小值、最大值；width 和 height  input属性；
         input 的 type 属性还有其他值，比如，email，url,number, search,range,color,data,aurofocus
 </code></pre><p>5.渲染模式：标准模式和怪异模式<br>    &lt;!doctype html&gt;严格模式 以最高标准来加载<br>    没有则为混杂(怪异)模式 向前兼容</p>
-<pre><code>document.compatMode   BackCompat     怪异模式
-                      CSS1Compat     标准模式   w3c标准
+<pre><code>判断：document.compatMode   BackCompat     怪异模式
+                            CSS1Compat  标准模式   w3c标准
 
 版本：过渡的(Transitional)：允许你继续使用HTML4.01的标识
       严格的(Strict)：你不能使用任何表现层的标识和属性，例如&lt;br&gt;
@@ -977,8 +1176,8 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -1028,7 +1227,7 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

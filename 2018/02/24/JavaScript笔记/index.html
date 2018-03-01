@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/24/JavaScript笔记/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1.JavaScript的特点(1)用于向HTML页面添加交互行为(2)脚本语言,用于编写客户端脚本(3)单线程(4)解释性语言，解释一行执行一行(5)可以跨平台 2.typeof 返回值类型number(数字，NaN), string(字符串), boolean(true，False), undefined(undefined), object(null，数组，对象), function(fun">
-<meta property="og:updated_time" content="2018-02-28T08:20:51.357Z">
+<meta property="og:updated_time" content="2018-02-28T14:55:48.755Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript基础笔记">
 <meta name="twitter:description" content="1.JavaScript的特点(1)用于向HTML页面添加交互行为(2)脚本语言,用于编写客户端脚本(3)单线程(4)解释性语言，解释一行执行一行(5)可以跨平台 2.typeof 返回值类型number(数字，NaN), string(字符串), boolean(true，False), undefined(undefined), object(null，数组，对象), function(fun">
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -258,7 +258,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-24T15:45:13+08:00">
                 2018-02-24
@@ -554,9 +554,7 @@ console.log(Foo.prototype.name);   //输出undefined，C.prototype是F类的对�
     }
 }
 </code></pre><p>(2)深度克隆：针对引用值</p>
-<blockquote>
-<p>  function deepClone(origin, product) {<br>        var strFunc = Object.prototype.toString;<br>        var arrStr = ‘[Object Array]’;<br>        for(var prop in origin) {<br>            if(origin.hasOwnProperty(prop)) {<br>                //处理clone引用值问题<br>                if(typeof(origin[prop]) != null &amp;&amp; typeof(origin[prop]) == ‘Object’){<br>                    if(strFunc.call(origin[prop]) === arrStr){<br>                        product[prop] = [];<br>                    }else{<br>                        product[prop] = {};<br>                    }<br>                    deepClone(origin[prop], product[prop]);  //递归到最后克隆的不是对象或数组，而是原始值<br>                }else{<br>                    product[prop] = origin[prop];<br>                }<br>            }<br>        }<br>    }</p>
-</blockquote>
+<p>   function deepClone(origin, product) {<br>        var strFunc = Object.prototype.toString;<br>        var arrStr = ‘[Object Array]’;<br>        for(var prop in origin) {<br>            if(origin.hasOwnProperty(prop)) {<br>                //处理clone引用值问题<br>                if(typeof(origin[prop]) != null &amp;&amp; typeof(origin[prop]) == ‘Object’){<br>                    if(strFunc.call(origin[prop]) === arrStr){<br>                        product[prop] = [];<br>                    }else{<br>                        product[prop] = {};<br>                    }<br>                    deepClone(origin[prop], product[prop]);  //递归到最后克隆的不是对象或数组，而是原始值<br>                }else{<br>                    product[prop] = origin[prop];<br>                }<br>            }<br>        }<br>    }</p>
 <h3 id="19-数组"><a href="#19-数组" class="headerlink" title="19.数组"></a>19.数组</h3><p>(1)数组的创建<br>    1) 数组字面量：如：arr = [1, 2, 3];<br>    2) arr = new Array(123, 2);</p>
 <blockquote>
 <p>注： 当arr = new Array(n)的形参只有一个时，表示申请一个长度为n的数组[undefined*n]，并且n必须是整数，不能是小数。</p>
@@ -609,7 +607,10 @@ console.log(Foo.prototype.name);   //输出undefined，C.prototype是F类的对�
  所以obj[0]到obj[6]分别是undefined undefined b e f undefined undefined ,最终length = 5。
 </code></pre><h3 id="21-es5严格模式"><a href="#21-es5严格模式" class="headerlink" title="21.es5严格模式"></a>21.es5严格模式</h3><p>两种用法：<br>  ①全局的：在 <script></script> 第一行写 “use strict”; 这样所有的js代码都严格遵循es5的严格模式。<br>  ②局部的：只想在某个函数里用时，只需要在这个函数里第一行加 “use strict”; 即可</p>
 <p>不支持：<br>  with, arguments.callee, func.caller, 变量赋值前必须声明、局部this必须被声明（person.call(null/undefined)赋值什么就是什么）、拒绝重复属性和参数</p>
-
+<h3 id="22-日期对象"><a href="#22-日期对象" class="headerlink" title="22.日期对象"></a>22.日期对象</h3><p>(1)Date：是系统内部提供的构造函数（和Array相似），内部有各种属性，可通过new创建对象。</p>
+<p>(2)内部函数<br>Date() getDate() getDay() getFullYear() getMonth() getHours() getMinutes() getSeconds()<br>setDate() setMonth() setFullYear() setHours() setMinutes() setSeconds() setTime()</p>
+<pre><code>注：getTime不具有实时性，创建一个Date对象时只能记录当前时刻，无论调用多少次getTime，都返回创建该对象时的时间，只有再创建另一个     对象时，才能返回另一个时间。
+</code></pre>
       
     </div>
     
@@ -642,6 +643,10 @@ console.log(Foo.prototype.name);   //输出undefined，C.prototype是F类的对�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/28/DOM笔记/" rel="prev" title="DOM笔记">
+                DOM笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -695,10 +700,10 @@ console.log(Foo.prototype.name);   //输出undefined，C.prototype是F类的对�
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -718,8 +723,8 @@ console.log(Foo.prototype.name);   //输出undefined，C.prototype是F类的对�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -755,7 +760,7 @@ console.log(Foo.prototype.name);   //输出undefined，C.prototype是F类的对�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-JavaScript的特点"><span class="nav-number">1.</span> <span class="nav-text">1.JavaScript的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-typeof-返回值类型"><span class="nav-number">2.</span> <span class="nav-text">2.typeof 返回值类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-函数"><span class="nav-number">3.</span> <span class="nav-text">3.函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-引用值和原始值的区别"><span class="nav-number">4.</span> <span class="nav-text">4.引用值和原始值的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-类型转换"><span class="nav-number">5.</span> <span class="nav-text">5.类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-作用域"><span class="nav-number">6.</span> <span class="nav-text">6.作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-闭包"><span class="nav-number">7.</span> <span class="nav-text">7.闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-立即执行函数"><span class="nav-number">8.</span> <span class="nav-text">8.立即执行函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-预编译"><span class="nav-number">9.</span> <span class="nav-text">9.预编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-创建对象的方法"><span class="nav-number">10.</span> <span class="nav-text">10.创建对象的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-原型链"><span class="nav-number">11.</span> <span class="nav-text">11.原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-call-apply"><span class="nav-number">12.</span> <span class="nav-text">12.call/apply</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-继承"><span class="nav-number">13.</span> <span class="nav-text">13.继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-命名空间"><span class="nav-number">14.</span> <span class="nav-text">14.命名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-对象的枚举"><span class="nav-number">15.</span> <span class="nav-text">15.对象的枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-属性的表示方法"><span class="nav-number">16.</span> <span class="nav-text">16.属性的表示方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-arguments-callee-和-函数名-caller"><span class="nav-number">17.</span> <span class="nav-text">17.arguments.callee 和 函数名.caller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-克隆"><span class="nav-number">18.</span> <span class="nav-text">18.克隆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-数组"><span class="nav-number">19.</span> <span class="nav-text">19.数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-类数组"><span class="nav-number">20.</span> <span class="nav-text">20.类数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-es5严格模式"><span class="nav-number">21.</span> <span class="nav-text">21.es5严格模式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-JavaScript的特点"><span class="nav-number">1.</span> <span class="nav-text">1.JavaScript的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-typeof-返回值类型"><span class="nav-number">2.</span> <span class="nav-text">2.typeof 返回值类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-函数"><span class="nav-number">3.</span> <span class="nav-text">3.函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-引用值和原始值的区别"><span class="nav-number">4.</span> <span class="nav-text">4.引用值和原始值的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-类型转换"><span class="nav-number">5.</span> <span class="nav-text">5.类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-作用域"><span class="nav-number">6.</span> <span class="nav-text">6.作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-闭包"><span class="nav-number">7.</span> <span class="nav-text">7.闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-立即执行函数"><span class="nav-number">8.</span> <span class="nav-text">8.立即执行函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-预编译"><span class="nav-number">9.</span> <span class="nav-text">9.预编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-创建对象的方法"><span class="nav-number">10.</span> <span class="nav-text">10.创建对象的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-原型链"><span class="nav-number">11.</span> <span class="nav-text">11.原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-call-apply"><span class="nav-number">12.</span> <span class="nav-text">12.call/apply</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-继承"><span class="nav-number">13.</span> <span class="nav-text">13.继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-命名空间"><span class="nav-number">14.</span> <span class="nav-text">14.命名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-对象的枚举"><span class="nav-number">15.</span> <span class="nav-text">15.对象的枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-属性的表示方法"><span class="nav-number">16.</span> <span class="nav-text">16.属性的表示方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-arguments-callee-和-函数名-caller"><span class="nav-number">17.</span> <span class="nav-text">17.arguments.callee 和 函数名.caller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-克隆"><span class="nav-number">18.</span> <span class="nav-text">18.克隆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-数组"><span class="nav-number">19.</span> <span class="nav-text">19.数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-类数组"><span class="nav-number">20.</span> <span class="nav-text">20.类数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-es5严格模式"><span class="nav-number">21.</span> <span class="nav-text">21.es5严格模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-日期对象"><span class="nav-number">22.</span> <span class="nav-text">22.日期对象</span></a></li></ol></div>
             
 
           </div>
@@ -785,7 +790,7 @@ console.log(Foo.prototype.name);   //输出undefined，C.prototype是F类的对�
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

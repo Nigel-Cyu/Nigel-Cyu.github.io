@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.DOM的定义DOM（Document Object Model）：用来操作html和css的标准编程接口。 2.查看元素节点(1)document.getElementById(“Id”)：通过 Id 找到对应的元素 (2)getElementsByTagName(“标签名”)：通过标签获取元素们 (3)getElementByName()：通过name         注：只有部分标签可以生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM笔记">
+<meta property="og:url" content="http://yoursite.com/2018/02/28/DOM笔记/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.DOM的定义DOM（Document Object Model）：用来操作html和css的标准编程接口。 2.查看元素节点(1)document.getElementById(“Id”)：通过 Id 找到对应的元素 (2)getElementsByTagName(“标签名”)：通过标签获取元素们 (3)getElementByName()：通过name         注：只有部分标签可以生">
+<meta property="og:updated_time" content="2018-03-01T09:08:38.094Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DOM笔记">
+<meta name="twitter:description" content="1.DOM的定义DOM（Document Object Model）：用来操作html和css的标准编程接口。 2.查看元素节点(1)document.getElementById(“Id”)：通过 Id 找到对应的元素 (2)getElementsByTagName(“标签名”)：通过标签获取元素们 (3)getElementByName()：通过name         注：只有部分标签可以生">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/28/DOM笔记/"/>
+
+
+
+
+
+  <title>DOM笔记 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/DOM笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">DOM笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-28T16:43:12+08:00">
+                2018-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-DOM的定义"><a href="#1-DOM的定义" class="headerlink" title="1.DOM的定义"></a>1.DOM的定义</h3><p>DOM（Document Object Model）：用来操作html和css的标准编程接口。</p>
+<h3 id="2-查看元素节点"><a href="#2-查看元素节点" class="headerlink" title="2.查看元素节点"></a>2.查看元素节点</h3><p>(1)document.getElementById(“Id”)：通过 Id 找到对应的元素</p>
+<p>(2)getElementsByTagName(“标签名”)：通过标签获取元素们</p>
+<p>(3)getElementByName()：通过name<br>         注：只有部分标签可以生效。如：表单、表单元素、img、iframe</p>
+<p>(4)getElementsByClassName()：通过类名class</p>
+<p>(5)querySelector(“”)：””里面的内容添加正常的各种css选择器<br>        注: querySelector(“”)只能选择一个标签，即使可以选出一组div，也只返回一组中的第一个</p>
+<pre><code>querySelectorAll(&quot;&quot;)：&quot;&quot;里面也是加css选择器，但是他可以选择多个，返回一个类数组
+注：querySelector和querySelectorAll选择的东西是非实时的
+</code></pre><h3 id="3-节点"><a href="#3-节点" class="headerlink" title="3.节点"></a>3.节点</h3><p>获取节点类型 nodeType ：返回数字，根据数字判断类型</p>
+<pre><code>元素节点-----1
+属性节点-----2
+文本节点-----3
+注释节点-----8
+Document------9
+documentFragment-----11
+
+注：文本节点为文字、空格等，每一个节点都有自己的属性和方法，Document为文档节点，是dom树的根节点
+
+parentNode--&gt;父节点 （最顶端的parentNode为#document） 注：获取的是最邻近的上一级
+childNodes--&gt;子节点们（六种类型节点）
+firstNode--&gt;第一个子节点
+lastNode--&gt;最后一个子节点
+nextSibling--&gt;后一个兄弟节点
+previousSibling--&gt;前一个兄弟节点
+
+针对元素节点（不包括文本、注释节点）
+parentElement--&gt;返回当前元素的父元素节点(最顶端parentElement是html,document不是元素,IE不兼容)
+Children--&gt;只返回当前元素的元素子节点们，返回类数组
+nodechildElementCount === node.children.length--&gt;当前元素节点的子元素节点个数（IE不兼容）
+firstElementChild--&gt;返回的是第一个元素的节点（IE不兼容）
+lastElementChild--&gt;返回的是最后一个元素的节点（IE不兼容）
+nextElementSibling--&gt; 返回后一个兄弟元素节点（IE不兼容）
+previousElementSibling--&gt;返回前一个兄弟元素节点（IE不兼容）
+
+节点的四个属性：
+nodeName（节点名称）：1)元素的标签名，以大写形式表示，只读 2)文本#text、注释#comment、文档#document
+nodeValue（节点值）：Text节点或Comment节点的文本内容，可读可写（对于文档节点document和元素节点是不可用的）
+nodeType（节点类型）：该节点的类型，只读
+attributes：Element节点的属性集合
+
+节点树总结：
+Document和Element是并列关系，所以定义在Document上的东西，Element上不能用
+ByID ：只能document上用
+ByTagName/byClassName/querySelectorAll/querySelector ：Element和document上都能用
+Document.body 指代body；document.head指代head
+Document.documentElement 指代html
+</code></pre><h3 id="4-DOM基本操作"><a href="#4-DOM基本操作" class="headerlink" title="4.DOM基本操作"></a>4.DOM基本操作</h3><p>(1)增<br>document.createElement()：创建标签<br>document.createTextNode()：创建文本节点<br>document.createComment()：创建注释节点<br>document.createDocumentFragment()</p>
+<p>(2)插<br>parentNode.appendChild()：将节点插入子节点的尾部，同时具有剪切功能<br>parentNode.insertBefore(a, b)：读作insert a before b，在b前面插入a</p>
+<p>(3)删<br>parent.removeChild()</p>
+<p>(4)替换<br>parent.replaceChild(new, origin)：new为要替换的新元素，origin为被替换的老元素</p>
+<h3 id="5-Element节点"><a href="#5-Element节点" class="headerlink" title="5.Element节点"></a>5.Element节点</h3><p>(1)属性<br>innerHTML：将标签拿出来<br>innerText（火狐不兼容）/textContent（老版本IE不好使）：将文本拿出来</p>
+<p>(2)方法<br>ele.setAttribute()<br>ele.getAttribute()<br>ele.className</p>
+<h3 id="6-DOM其他操作"><a href="#6-DOM其他操作" class="headerlink" title="6.DOM其他操作"></a>6.DOM其他操作</h3><p>(1)查看滚动条的滚动距离<br>    window.pageXOffset/pageYOffset（IE8及IE8以下不兼容）</p>
+<pre><code>document.body/documentElement.scrollLeft/scrollTop（IE8及IE8以下使用）
+用法：兼容性比较混乱，用时取两个值相加，因为不可能存在两个同时有值
+    比如 var left = document.body.scrollLeft + document.documentElement.scrollLeft
+</code></pre><p>(2)查看视口尺寸<br>    window.innerWidth/innerHeight（IE8及IE8以下不兼容）</p>
+<pre><code>document.documentElement.clientWidth/clientHeight（标准模式下，任意浏览器都兼容）
+
+document.body.clientWidth/clientHeight（适用于怪异模式下的浏览器）
+</code></pre><p>(3)查看元素的几何尺寸<br>    domEle.getBoundingClientRect() （兼容性很好）<br>     该方法返回一个对象，对象里面有left,top,right,bottom等属性。left和top代表该元素左上角的X和Y坐标，<br>     right和bottom代表元素右下角的X和Y坐标。</p>
+<pre><code>domEle.offsetWidth   domEle.offsetHeight
+</code></pre><p>(4)查看元素的位置：与最近的有定位的父级之间的距离<br>    dom.offsetLeft, dom.offsetTop<br>      对于无定位父级的元素，返回相对文档的坐标。对于有定位父级的元素，返回相对于最近的有定位的父级的坐标（不在乎自己是否有定位）</p>
+<pre><code>dom.offsetParent
+  返回自己最近的有定位的父级，如无，返回body， body.offsetParent 返回null
+</code></pre><p>(5)让滚动条滚动：<br>    window上有三个方法：<br>        scroll(),scrollTo(),scrollBy();<br>    三个方法功能类似，用法都是将x,y坐标传入。即实现让滚动轮滚动到当前位置。<br>    区别：scrollBy()会在之前的数据基础之上做累加。Scroll()和scrollTo是对定点，不累加</p>
+<h3 id="7-脚本化css（即操作css）"><a href="#7-脚本化css（即操作css）" class="headerlink" title="7.脚本化css（即操作css）"></a>7.脚本化css（即操作css）</h3><p>(1)读写元素css属性：（dom中只有style这种方式可以写、更改行间样式css，其余的只能读）<br>    dom.style.prop</p>
+<p>(2)查询计算样式：（只能读，但不要求非得是行间）<br>    window.getComputedStyle(ele,null)    IE8 及 IE8以下不兼容<br>    ①查看普通元素：第一个参数：要查询的元素；第二个参数：false<br>    ②查看伪元素：第一个参数:要查看伪元素的元素;第二个参数:要看的什么伪元素（before/after）</p>
+<pre><code>ele.currentStyle     IE独有的属性（只能在IE上用）
+这是某个标签的一个属性（不是window上的）。
+
+封装兼容性方法
+function getStyle(obj, propStyle) {
+    if(obj.currentStyle) {
+        return obj.currentStyle;
+    }else{
+        return window.getComputedStyle(obj, false)[propStyle];
+    }
+}
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/24/JavaScript笔记/" rel="next" title="JavaScript基础笔记">
+                <i class="fa fa-chevron-left"></i> JavaScript基础笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-DOM的定义"><span class="nav-number">1.</span> <span class="nav-text">1.DOM的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-查看元素节点"><span class="nav-number">2.</span> <span class="nav-text">2.查看元素节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-节点"><span class="nav-number">3.</span> <span class="nav-text">3.节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-DOM基本操作"><span class="nav-number">4.</span> <span class="nav-text">4.DOM基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Element节点"><span class="nav-number">5.</span> <span class="nav-text">5.Element节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-DOM其他操作"><span class="nav-number">6.</span> <span class="nav-text">6.DOM其他操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-脚本化css（即操作css）"><span class="nav-number">7.</span> <span class="nav-text">7.脚本化css（即操作css）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
