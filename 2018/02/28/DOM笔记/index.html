@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/28/DOM笔记/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1.DOM的定义DOM（Document Object Model）：用来操作html和css的标准编程接口。 2.查看元素节点(1)document.getElementById(“Id”)：通过 Id 找到对应的元素 (2)getElementsByTagName(“标签名”)：通过标签获取元素们 (3)getElementByName()：通过name         注：只有部分标签可以生">
-<meta property="og:updated_time" content="2018-03-01T09:08:38.094Z">
+<meta property="og:updated_time" content="2018-03-01T09:33:59.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM笔记">
 <meta name="twitter:description" content="1.DOM的定义DOM（Document Object Model）：用来操作html和css的标准编程接口。 2.查看元素节点(1)document.getElementById(“Id”)：通过 Id 找到对应的元素 (2)getElementsByTagName(“标签名”)：通过标签获取元素们 (3)getElementByName()：通过name         注：只有部分标签可以生">
@@ -306,7 +306,8 @@
 <p>(5)querySelector(“”)：””里面的内容添加正常的各种css选择器<br>        注: querySelector(“”)只能选择一个标签，即使可以选出一组div，也只返回一组中的第一个</p>
 <pre><code>querySelectorAll(&quot;&quot;)：&quot;&quot;里面也是加css选择器，但是他可以选择多个，返回一个类数组
 注：querySelector和querySelectorAll选择的东西是非实时的
-</code></pre><h3 id="3-节点"><a href="#3-节点" class="headerlink" title="3.节点"></a>3.节点</h3><p>获取节点类型 nodeType ：返回数字，根据数字判断类型</p>
+</code></pre><a id="more"></a>
+<h3 id="3-节点"><a href="#3-节点" class="headerlink" title="3.节点"></a>3.节点</h3><p>获取节点类型 nodeType ：返回数字，根据数字判断类型</p>
 <pre><code>元素节点-----1
 属性节点-----2
 文本节点-----3
@@ -365,8 +366,12 @@ document.body.clientWidth/clientHeight（适用于怪异模式下的浏览器）
   返回自己最近的有定位的父级，如无，返回body， body.offsetParent 返回null
 </code></pre><p>(5)让滚动条滚动：<br>    window上有三个方法：<br>        scroll(),scrollTo(),scrollBy();<br>    三个方法功能类似，用法都是将x,y坐标传入。即实现让滚动轮滚动到当前位置。<br>    区别：scrollBy()会在之前的数据基础之上做累加。Scroll()和scrollTo是对定点，不累加</p>
 <h3 id="7-脚本化css（即操作css）"><a href="#7-脚本化css（即操作css）" class="headerlink" title="7.脚本化css（即操作css）"></a>7.脚本化css（即操作css）</h3><p>(1)读写元素css属性：（dom中只有style这种方式可以写、更改行间样式css，其余的只能读）<br>    dom.style.prop</p>
-<p>(2)查询计算样式：（只能读，但不要求非得是行间）<br>    window.getComputedStyle(ele,null)    IE8 及 IE8以下不兼容<br>    ①查看普通元素：第一个参数：要查询的元素；第二个参数：false<br>    ②查看伪元素：第一个参数:要查看伪元素的元素;第二个参数:要看的什么伪元素（before/after）</p>
-<pre><code>ele.currentStyle     IE独有的属性（只能在IE上用）
+<p>(2)查询计算样式：（只能读，但不要求非得是行间）</p>
+<pre><code>window.getComputedStyle(ele,null)    IE8 及 IE8以下不兼容
+①查看普通元素：第一个参数：要查询的元素；第二个参数：false
+②查看伪元素：第一个参数:要查看伪元素的元素;第二个参数:要看的什么伪元素（before/after）
+
+ele.currentStyle     IE独有的属性（只能在IE上用）
 这是某个标签的一个属性（不是window上的）。
 
 封装兼容性方法

@@ -298,8 +298,7 @@
 
       
         
-          
-            <h3 id="1-DOM的定义"><a href="#1-DOM的定义" class="headerlink" title="1.DOM的定义"></a>1.DOM的定义</h3><p>DOM（Document Object Model）：用来操作html和css的标准编程接口。</p>
+          <h3 id="1-DOM的定义"><a href="#1-DOM的定义" class="headerlink" title="1.DOM的定义"></a>1.DOM的定义</h3><p>DOM（Document Object Model）：用来操作html和css的标准编程接口。</p>
 <h3 id="2-查看元素节点"><a href="#2-查看元素节点" class="headerlink" title="2.查看元素节点"></a>2.查看元素节点</h3><p>(1)document.getElementById(“Id”)：通过 Id 找到对应的元素</p>
 <p>(2)getElementsByTagName(“标签名”)：通过标签获取元素们</p>
 <p>(3)getElementByName()：通过name<br>         注：只有部分标签可以生效。如：表单、表单元素、img、iframe</p>
@@ -307,79 +306,14 @@
 <p>(5)querySelector(“”)：””里面的内容添加正常的各种css选择器<br>        注: querySelector(“”)只能选择一个标签，即使可以选出一组div，也只返回一组中的第一个</p>
 <pre><code>querySelectorAll(&quot;&quot;)：&quot;&quot;里面也是加css选择器，但是他可以选择多个，返回一个类数组
 注：querySelector和querySelectorAll选择的东西是非实时的
-</code></pre><h3 id="3-节点"><a href="#3-节点" class="headerlink" title="3.节点"></a>3.节点</h3><p>获取节点类型 nodeType ：返回数字，根据数字判断类型</p>
-<pre><code>元素节点-----1
-属性节点-----2
-文本节点-----3
-注释节点-----8
-Document------9
-documentFragment-----11
-
-注：文本节点为文字、空格等，每一个节点都有自己的属性和方法，Document为文档节点，是dom树的根节点
-
-parentNode--&gt;父节点 （最顶端的parentNode为#document） 注：获取的是最邻近的上一级
-childNodes--&gt;子节点们（六种类型节点）
-firstNode--&gt;第一个子节点
-lastNode--&gt;最后一个子节点
-nextSibling--&gt;后一个兄弟节点
-previousSibling--&gt;前一个兄弟节点
-
-针对元素节点（不包括文本、注释节点）
-parentElement--&gt;返回当前元素的父元素节点(最顶端parentElement是html,document不是元素,IE不兼容)
-Children--&gt;只返回当前元素的元素子节点们，返回类数组
-nodechildElementCount === node.children.length--&gt;当前元素节点的子元素节点个数（IE不兼容）
-firstElementChild--&gt;返回的是第一个元素的节点（IE不兼容）
-lastElementChild--&gt;返回的是最后一个元素的节点（IE不兼容）
-nextElementSibling--&gt; 返回后一个兄弟元素节点（IE不兼容）
-previousElementSibling--&gt;返回前一个兄弟元素节点（IE不兼容）
-
-节点的四个属性：
-nodeName（节点名称）：1)元素的标签名，以大写形式表示，只读 2)文本#text、注释#comment、文档#document
-nodeValue（节点值）：Text节点或Comment节点的文本内容，可读可写（对于文档节点document和元素节点是不可用的）
-nodeType（节点类型）：该节点的类型，只读
-attributes：Element节点的属性集合
-
-节点树总结：
-Document和Element是并列关系，所以定义在Document上的东西，Element上不能用
-ByID ：只能document上用
-ByTagName/byClassName/querySelectorAll/querySelector ：Element和document上都能用
-Document.body 指代body；document.head指代head
-Document.documentElement 指代html
-</code></pre><h3 id="4-DOM基本操作"><a href="#4-DOM基本操作" class="headerlink" title="4.DOM基本操作"></a>4.DOM基本操作</h3><p>(1)增<br>document.createElement()：创建标签<br>document.createTextNode()：创建文本节点<br>document.createComment()：创建注释节点<br>document.createDocumentFragment()</p>
-<p>(2)插<br>parentNode.appendChild()：将节点插入子节点的尾部，同时具有剪切功能<br>parentNode.insertBefore(a, b)：读作insert a before b，在b前面插入a</p>
-<p>(3)删<br>parent.removeChild()</p>
-<p>(4)替换<br>parent.replaceChild(new, origin)：new为要替换的新元素，origin为被替换的老元素</p>
-<h3 id="5-Element节点"><a href="#5-Element节点" class="headerlink" title="5.Element节点"></a>5.Element节点</h3><p>(1)属性<br>innerHTML：将标签拿出来<br>innerText（火狐不兼容）/textContent（老版本IE不好使）：将文本拿出来</p>
-<p>(2)方法<br>ele.setAttribute()<br>ele.getAttribute()<br>ele.className</p>
-<h3 id="6-DOM其他操作"><a href="#6-DOM其他操作" class="headerlink" title="6.DOM其他操作"></a>6.DOM其他操作</h3><p>(1)查看滚动条的滚动距离<br>    window.pageXOffset/pageYOffset（IE8及IE8以下不兼容）</p>
-<pre><code>document.body/documentElement.scrollLeft/scrollTop（IE8及IE8以下使用）
-用法：兼容性比较混乱，用时取两个值相加，因为不可能存在两个同时有值
-    比如 var left = document.body.scrollLeft + document.documentElement.scrollLeft
-</code></pre><p>(2)查看视口尺寸<br>    window.innerWidth/innerHeight（IE8及IE8以下不兼容）</p>
-<pre><code>document.documentElement.clientWidth/clientHeight（标准模式下，任意浏览器都兼容）
-
-document.body.clientWidth/clientHeight（适用于怪异模式下的浏览器）
-</code></pre><p>(3)查看元素的几何尺寸<br>    domEle.getBoundingClientRect() （兼容性很好）<br>     该方法返回一个对象，对象里面有left,top,right,bottom等属性。left和top代表该元素左上角的X和Y坐标，<br>     right和bottom代表元素右下角的X和Y坐标。</p>
-<pre><code>domEle.offsetWidth   domEle.offsetHeight
-</code></pre><p>(4)查看元素的位置：与最近的有定位的父级之间的距离<br>    dom.offsetLeft, dom.offsetTop<br>      对于无定位父级的元素，返回相对文档的坐标。对于有定位父级的元素，返回相对于最近的有定位的父级的坐标（不在乎自己是否有定位）</p>
-<pre><code>dom.offsetParent
-  返回自己最近的有定位的父级，如无，返回body， body.offsetParent 返回null
-</code></pre><p>(5)让滚动条滚动：<br>    window上有三个方法：<br>        scroll(),scrollTo(),scrollBy();<br>    三个方法功能类似，用法都是将x,y坐标传入。即实现让滚动轮滚动到当前位置。<br>    区别：scrollBy()会在之前的数据基础之上做累加。Scroll()和scrollTo是对定点，不累加</p>
-<h3 id="7-脚本化css（即操作css）"><a href="#7-脚本化css（即操作css）" class="headerlink" title="7.脚本化css（即操作css）"></a>7.脚本化css（即操作css）</h3><p>(1)读写元素css属性：（dom中只有style这种方式可以写、更改行间样式css，其余的只能读）<br>    dom.style.prop</p>
-<p>(2)查询计算样式：（只能读，但不要求非得是行间）<br>    window.getComputedStyle(ele,null)    IE8 及 IE8以下不兼容<br>    ①查看普通元素：第一个参数：要查询的元素；第二个参数：false<br>    ②查看伪元素：第一个参数:要查看伪元素的元素;第二个参数:要看的什么伪元素（before/after）</p>
-<pre><code>ele.currentStyle     IE独有的属性（只能在IE上用）
-这是某个标签的一个属性（不是window上的）。
-
-封装兼容性方法
-function getStyle(obj, propStyle) {
-    if(obj.currentStyle) {
-        return obj.currentStyle;
-    }else{
-        return window.getComputedStyle(obj, false)[propStyle];
-    }
-}
 </code></pre>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/28/DOM笔记/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -496,321 +430,15 @@ function getStyle(obj, propStyle) {
 
       
         
-          
-            <h3 id="1-JavaScript的特点"><a href="#1-JavaScript的特点" class="headerlink" title="1.JavaScript的特点"></a>1.JavaScript的特点</h3><p>(1)用于向HTML页面添加交互行为<br>(2)脚本语言,用于编写客户端脚本<br>(3)单线程<br>(4)解释性语言，解释一行执行一行<br>(5)可以跨平台</p>
+          <h3 id="1-JavaScript的特点"><a href="#1-JavaScript的特点" class="headerlink" title="1.JavaScript的特点"></a>1.JavaScript的特点</h3><p>(1)用于向HTML页面添加交互行为<br>(2)脚本语言,用于编写客户端脚本<br>(3)单线程<br>(4)解释性语言，解释一行执行一行<br>(5)可以跨平台</p>
 <h3 id="2-typeof-返回值类型"><a href="#2-typeof-返回值类型" class="headerlink" title="2.typeof 返回值类型"></a>2.typeof 返回值类型</h3><p>number(数字，NaN), string(字符串), boolean(true，False), undefined(undefined), object(null，数组，对象), function(function)<br>    注：(1) typeof 打印出来的变量类型都是字符串的形式。如：”number” “undefined”<br>        (2) typeof(null)–&gt;”object” 意义为null是“非对象”; 而typeof(undefined)–&gt;”undefined”</p>
-<h3 id="3-函数"><a href="#3-函数" class="headerlink" title="3.函数"></a>3.函数</h3><p>(1)系统函数<br>    ParseInt() 转换为整数<br>    isNaN() 判断是否为数字<br>    typeof() 判断数据类型<br>    eval() 计算表示式值</p>
-<p>(2)自定义函数<br>    Function 函数名() {javaScript代码}<br>    Function 函数名(参数1，参数2) {javaScript代码  return 返回值(可选)}</p>
-<h3 id="4-引用值和原始值的区别"><a href="#4-引用值和原始值的区别" class="headerlink" title="4.引用值和原始值的区别"></a>4.引用值和原始值的区别</h3><p>(1)复制时复制的是什么？<br>    原始值：复制的是变量真正的值<br>    引用值：复制的是变量的地址</p>
-<pre><code>例如：var num=123; num1=num; num=124; document.write(num1);
-      打印出num1的值为123，复制的是原始的值123，所以num的值改变不会影响到num1
-
-例如：var arr=[1,2,3,4]; var arr1=arr; arr.push(5); documemt.write(arr1);
-      打印出arr1的值为1,2,3,4,5，复制的是引用值arr的地址，所以arr改变，arr1也改变
-
-      var arr=[1,2,3,4]; var arr1=arr; arr=[1,2,3]; documemt.write(arr1);
-      打印出arr1的值为1,2,3,4。此时，arr放弃原来房间，又开辟出一个房间存1,2,3
-      通过这两个可以看出来，arr.push()是在原数组上添加成员，而arr=[1,2,3,4];后arr=[1, 2, 3];是重新赋值了一个数组
-</code></pre><p>(2)是否可截断？（通过减小length的值，是否可以减少内容或长度）<br>    原始值：不可改变。（在栈中存储，栈中的值不可能改变，要改变，只能改变地址，另辟房间）<br>    引用值：可改变。（堆中存储）</p>
-<pre><code>例如：var arr=[1,2,3,4]; arr.length=2; document.write(arr);
-      打印出arr的值为1,2，数组的长度可截断。
-
-例如：var str=”abc”; str.length=2; document.write(str);
-      打印出str的值为abc，字符串的长度不可截断。
-</code></pre><p>(3)原始值的比较是数值的比较；引用值的比较是引用的比较，当且仅当他们引用同一个对象时才相等</p>
-<h3 id="5-类型转换"><a href="#5-类型转换" class="headerlink" title="5.类型转换"></a>5.类型转换</h3><p>(1)显示类型转换</p>
-<pre><code>Ø  Number(n)：将n转换为数字类型   注：toFixed(n) 是保留 n 位小数
-   true--&gt;1; false--&gt;0; undefined--&gt;NaN; &quot;&quot;--&gt;0; &quot;abc&quot;--&gt;NaN; &quot;123abc&quot;--&gt;NaN; []--&gt;0; {}--&gt;NaN
-
-Ø  parseInt(string,radix)：转换为整型
-   &quot;123abc123&quot;--&gt;123（遇到字母，就停止了，不再看后面的东西，直接返回前面的123）
-   radix是基底：表示前面的数是几进制的数，取值为2-36之间的数字
-
-Ø  parseFloat(string)：转换为浮点型
-    123.1.2--&gt;123.1（只能找到一个小数点）; &quot;123abc123&quot;--&gt;123（遇到字母后面的就不看了）
-
-Ø  toString()：转换为字符串类型（对象上的一个方法，任何数据类型都可以使用）
-    使用方法有点改变：不是用括号，而是用.toString函数
-
-    注意：①undefined和null不能调用.toString，否则系统会出错
-          ②radix：以十进制为基础转换为目标进制（也是字符串类型）
-
-Ø  String(max)：任何类型都转化为字符串类型（类似number）
-Ø  Boolean()：将任何类型转化为boolean类型（类似number）
-</code></pre><p>(2)隐式类型转换</p>
-<pre><code>Ø  isNaN()：判断是不是非数。（先转换为number类型，再判断是不是非数NaN）
-
-Ø  ++/--  +/- (一元正负)：自动转化为number类型，再进行++/--/+/- 的运算
-
-Ø  + ：任何东西+字符串=字符串
-
-Ø  * / %（乘除）：先转化为number类型，再进行运算
-
-Ø  &amp;&amp;||！ :首先会将左右两边的式子转换为boolean来判断是否为真，最后返回的是原来的类型，不是boolean
-
-Ø  &lt; &gt; &lt;= &gt;= == != ：会将符号两边转化为相同的类型进行比较
-</code></pre><h3 id="6-作用域"><a href="#6-作用域" class="headerlink" title="6.作用域"></a>6.作用域</h3><p>(1)作用域定义：变量（变量作用域，又称上下文）和函数生效（能被访问）的区域。<br>   注：Javascript只有函数可以产生作用域。</p>
-<p>(2)[[scope]]：每个Javascript函数都是一个对象，对象中有些属性我们可以访问，有些不可以，这些属性仅供Javascript<br>              引擎存取，[[scope]]就是其中一种。（即：每个函数都有一个作用域[[scope]]）<br>              [[scope]]就是我们所说的作用域，其中存储了运行期的上下文</p>
-<p>(3)作用域链：[[scope]]中存储的执行期上下文对象的集合，这个集合成链式连接，我们把这种链式连接叫做作用域链。</p>
-<p>(4)执行期上下文：当函数执行时，会创建一个称为执行期上下文的内部对象。一个执行期上下文定义了一个函数执行时的环境<br>              （调用函数时，所执行的东西，如：定义变量，调用其他函数等即为执行期上下文。但是，如果只是定义了函数，<br>               则不产生执行期上下文）<br>        注意：函数每次执行时对应的执行期上下文都是独一无二的，所以多次调用一个函数会导致创建多个执行期上下文，<br>              当函数执行完毕，执行期上下文销毁。</p>
-<p>(5)查找变量：从作用域链的顶端依次查找</p>
-<p>  例. function a () {<br>        function b () {<br>            var b = 234;<br>        }<br>        var a = 123;<br>        b();<br>        docunmet.write(a);<br>      }</p>
-<pre><code>  var glob = 100;
-  b();
-
-定义函数a时，则会将a能看见的全局变量和函数放在数组scope[0]处，当调用函数a时，会产生执行期上下文放在 scope 中，
-全局变量下移到scope[1]中，执行期上下文放在scope[0]中。当查找变量a时，先从scope[0]中找，找不到再从scope[1]找。
-
-函数a里面定义了函数b，函数b能看见的全局变量和函数=a的劳动成果+a的全局上下文（即为a的执行期上下文），当函数b执行
-时，会产生执行期上下文放在scope[0]位置，之前的依次往下窜。
-
-当函数b执行完，b的执行期上下文销毁，当函数a执行完，a的执行期上下文被销毁。
-</code></pre><h3 id="7-闭包"><a href="#7-闭包" class="headerlink" title="7.闭包"></a>7.闭包</h3><p>(1)闭包定义：当内部函数被保存到外部时，将会生成闭包。</p>
-<p>(2)闭包坏处：导致原有作用域链不释放，造成内存泄露。<br>   内存泄露：不断向内存里装东西，导致内存满了，不能再装东西，相当于内存泄露一样。而闭包会导致作用域链不释放，内存泄露。</p>
-<p>   例. function a () {<br>         function b () {<br>            var b = 234;<br>            console.log(a);<br>         }<br>         var a = 123;<br>         return b;<br>       }</p>
-<pre><code>var glob = 100;
-var c = a();
-c();
-函数a执行的结果是返回函数b，而b被赋给c，然后调用函数c，也就是函数b。此时函数a的执行期上下文已经被销毁，但仍然能
-打印出 a = 123。原因是函数a执行和函数b定义的空间相同，当a执行完，其执行期上下文释放后，b的也会被释放，但是我们
-将函数b赋予给了c，b和c具有一样的指向，所以c能访问到变量a。
-</code></pre><p>(3)闭包作用<br>    Ø  实现公有变量。例如：函数累加器（闭包作用域里的变量都是共有变量，每次访问的都是同一个）<br>    Ø  可以做缓存<br>    Ø  可以实现封装，属性私有化</p>
-<h3 id="8-立即执行函数"><a href="#8-立即执行函数" class="headerlink" title="8.立即执行函数"></a>8.立即执行函数</h3><p>(1)定义：此类函数没有声明，在执行一次后就被释放，适合做初始化工作。<br>    产生原因：一些函数只使用一次，定义函数太浪费，不定义函数则不够模块化。</p>
-<p>(2)结构：①(function () {})()   ②(function () {} ())<br>        注：两种写法功能一样，但是第二种效率更高</p>
-<pre><code>立即执行函数里面定义的变量，在函数执行完就会被销毁，不能在访问；但是在函数外面定义的函数，在立即函数里面改变的话，可以访问
-</code></pre><p>(3)传参数：(function (形参) {函数体} (实参))</p>
-<p>(4)用途：立即执行函数解决闭包问题<br>    例. function a () {<br>           var arr = [];<br>           for(var i = 0;i &lt; 10;i++){<br>               arr[i] = function () {<br>                   console.log(i);<br>               }<br>           }<br>           return arr;<br>        }</p>
-<pre><code>    var b = a();
-    for(var i = 0;i &lt; b.length;i++){
-        b[i]();
-    }
-结果打印出 10 10 10 10....
-函数a里 arr[i] 可以访问外面传进来的参数i，通过函数b的接收产生闭包，每次 b[i]() 执行都会访问真实的 i 值，即最终最新的 i 值。
-
-使用立即执行函数
-    function a () {
-        var arr = [];
-        for(var i = 0;i &lt; 10;i++){
-            (function (index) {
-                arr[index] = function () {
-                    console.log(index);
-                }
-            })(i);
-        }
-    }
-使用立即执行函数后，将共有的全局变量i当做实参传给index，此时index相当于普通变量，相当于 i 值被锁定在 index 里。
-</code></pre><h3 id="9-预编译"><a href="#9-预编译" class="headerlink" title="9.预编译"></a>9.预编译</h3><pre><code>①创建AO对象。
-②找形参和变量声明，将变量和形参作为AO属性名，值为undefined。
-③将实参值和形参相统一。
-④在函数体里找函数声明，将函数声明的名字作为AO属性名，值赋予函数体。
-
-例. var a = 123;
-    function test () {
-        document.write(a);
-        a = 123;
-        if(!!undefined) {
-            var a = 0;
-        }
-        document.write(a);
-    }
-
-    test();
-预编译：AO = {a:undefined}
-解释执行：AO = {a:--&gt;123}
-打印：undefined 123
-注：查找顺序从作用域顶端，自己的执行期上下文有，就不看别的。而在该函数里第一次打印a之前，预编译过程a已经有值为
-    undefined，所以打印undefined而不是234
-注：if里的条件与预编译无关，只有执行时才有关系 。即预编译过程看不出来这种逻辑关系
-</code></pre><h3 id="10-创建对象的方法"><a href="#10-创建对象的方法" class="headerlink" title="10.创建对象的方法"></a>10.创建对象的方法</h3><p>Ø  对象字面量 ： var obj = {};</p>
-<p>Ø  构造函数<br>    ①系统自带 new Object()/Array()/Number()/Boolean()/Date();</p>
-<pre><code>②自定义
- 例.  function Person (name, age, height) {
-         //var this = {};
-         this.name = name;
-         this.age = age;
-         this.height = height;
-         this.say = function () {
-             console.log(this.name);
-         }
-         this.eat = function () {
-             this.height++;
-         }
-      }
-      var cnz = new Person(&quot;chu&quot;, 20, 174);
-
-自定义构造函数(1)函数最前隐式加上var this = {}; (2)执行this.xxx = xxx; (3)隐式返回this
-
-注：Ø  当没有构造函数时，预编译时执行期上下文中的this隐式指向window，当没有new时，function只是普通的函数；
-    Ø  当有new时，在person函数第一行隐式产生var this = {};此时，预编译时，this的指向由window变为{}，后面
-       的语句相当于给this加属性，然后，在最后一步隐式的返回this
-    Ø  如果Person返回的是引用值(比如 that )时，则不返回this；如果Person返回的是原始值(比如变量 a )时，默认
-       返回this（即：new操作符一定要返回对象）
-</code></pre><p>Ø  var obj = Object.create (原型)</p>
-<h3 id="11-原型链"><a href="#11-原型链" class="headerlink" title="11.原型链"></a>11.原型链</h3><pre><code>function Person() {}
-Person.prototype.name = &apos;nigel&apos;;
-Person.prototype.age  = 20;
-Person.prototype.job  = &apos;web Engineer&apos;;
-Person.prototype.sayName = function() {
-    alert(this.name);
-}
-var person1 = new Person();
-person1.sayName(); // &apos;nigel&apos;
-</code></pre><p>(1)原型对象<br>    Ø  每个对象都有 <strong>proto</strong> 属性，但只有函数对象才有 prototype 属性。</p>
-<pre><code>原型对象，顾名思义，它就是一个普通对象。
-在默认情况下，所有的原型对象都会自动获得一个 constructor（构造函数）默认属性，这个属性(是一个指针)指向 prototype 
-属性所在的函数（Person）。
-
-    person1.constructor == Person
-    Person.prototype.constructor == Person
-
-Ø  在 Person 创建的时候，创建了一个它的实例对象并赋值给它的 prototype，原型对象（Person.prototype）其实是构造
-   函数（Person）的一个实例。
-
-Ø  凡是通过 new Function() 产生的对象都是函数对象，所以Function.prototype 是函数对象，且没有 prototype 属性。
-</code></pre><p>(2)<strong>proto</strong><br>    JS 在创建对象(不论是普通对象还是函数对象)的时候，都有一个叫做<strong>proto</strong> 的内置属性，用于指向创建它的构造函数的原型<br>    对象，即 person1.<strong>proto</strong> == Person.prototype 。</p>
-<pre><code>Number、String、Boolean、Array、Function、Object的__proto__都是 Function.prototype，因为它们都是函数对象，由
-Function 所构造出来的。
-Function.prototype是一个空的函数，且Function.prototype.__proto__ === Object.prototype。
-</code></pre><h3 id="12-call-apply"><a href="#12-call-apply" class="headerlink" title="12.call/apply"></a>12.call/apply</h3><pre><code>作用：改变this指向。
-区别：后面传的形参形式不同。
-
-function test (a, b) {
-    console.log(this.name);
-    console.log(a + b);
-}
-
-window.name = &apos;abc&apos;;
-
-var obj = {name: &apos;aaa&apos;};
-test.call(obj, 1, 2);
-//test.apply(obj, [1, 2]);
-
-执行text函数时传入obj，会将text()函数里面的this更改为obj，所以会打印obj的name。
-    注：text()和text.call()作用一样，都是执行该函数。
-apply与call的第一个参数用法一样，就是后面的参数形式不一样，apply传的是数组。
-</code></pre><h3 id="13-继承"><a href="#13-继承" class="headerlink" title="13.继承"></a>13.继承</h3><p>(1)传统形式<br>    方法：一层一层的原型链<br>    缺点：过多的继承了没用的属性，思维价值高、实用价值低。</p>
-<p>(2)借用构造函数<br>    function Foo (name, age) {<br>        this.name = name;<br>        this.age = age;<br>    }<br>    function Son (name, age) {<br>        Foo.call(this, name, age);<br>    }<br>    var son = new Son(‘nigel’, 20);</p>
-<pre><code>缺点：①没有实现真正意义上的继承，不能继承借用构造函数的原型；②每次构造一个对象都需要调用两个构造方法，多走一个函数。
-</code></pre><p>(3)共享原型<br>    function inherit(p, c) {<br>        c.prototype = p.prototype;<br>    }<br>    P.prototype.name = “nigel”;<br>    function P () {}<br>    function C () {}<br>    inherit(P, C);<br>    console.log(new C().name);</p>
-<pre><code>缺点：C 和P共用一个原型，一个的原型改变，则另一个原型也会改变。
-</code></pre><p>(4)圣杯模式<br>    function inherit (P, C) {<br>        function F () {}<br>        F.prototype = P.prototype;<br>        C.prototype = new F();<br>        C.prototype.constructor = C;<br>        C.prototype.uber = P.prototype;   //此行可以省略，这只是为了找到C.prototype最终的源头<br>    }</p>
-<pre><code>Foo.prototype.age = 20;
-function Foo () {}
-function Son () {}
-inherit(Foo, Son);
-console.log(new Son().age);   //输出20
-
-Son.prototype.name = &quot;nigel&quot;;
-console.log(Foo.prototype.name);   //输出undefined，C.prototype是F类的对象，该对象的原型和P.prototype相等。
-                                     所以Son.prototype改变，Foo.prototype不会改变。
-
-高级写法：var inherit = (function () {
-            var F = function () {};
-            return function (P, C) {
-                     F.prototype = P.prototype;
-                     C.prototype = new F();
-                     C.prototype.constructor = C;
-                     C.prototype.uber = P.prototype;
-                   }
-         }())
-    函数所需要的私有化的东西，通常放在闭包里，如 F。
-</code></pre><h3 id="14-命名空间"><a href="#14-命名空间" class="headerlink" title="14.命名空间"></a>14.命名空间</h3><p>(1)作用：管理变量，防止污染全局，适用于模块化开发。<br>(2)产生原因：当不同的人编写js代码时，总是会有定义重复变量的时候，这就会影响变量的使用。</p>
-<pre><code>var store = {
-    eat: {},
-    wear: {
-        shoes: {
-            name: &quot;adidas&quot;
-        },
-        pants: {
-            name: &quot;supreme&quot;
-        }
-    },
-    live: {}
-}
-一个软件由不同部门负责，每一个部门又由不同的人负责，这样结构更规范好看。
-当调用某个变量名字过长，可以新定义一个变量来接收。
-</code></pre><h3 id="15-对象的枚举"><a href="#15-对象的枚举" class="headerlink" title="15.对象的枚举"></a>15.对象的枚举</h3><p>(1)for…in循环<br>格式：for(var prop in obj){<br>      }<br>      其中prop是变量，obj是对象。prop每一次循环会充当对象里的一个属性。  注：prop变量类型是String</p>
-<p>(2)hasOwnProperty 过滤原型<br>对象.hasOwnProperty(属性)，如果属性是原型里面的，则返回false，如果属性是构造函数里面的，则返回true。所以把该语句放在if语句中，即可过滤原型。</p>
-<p>(3)in操作符<br>格式：属性 in 对象<br>   如果属性（包括原型链上的属性）在对象里面返回true，不在，则返回false。<br>   即：只要是对象能访问到的属性都返回true。<br>   注：属性是字符串类型，用时需要加单引号</p>
-<p>(4)instanceof<br>格式：对象 instanceof 构造器<br>    表示前面的对象是不是后面的构造器构造出来的，是则返回true，不是则返回false<br>    注：构造器包括对象的构造函数和所有的原型对应的构造函数（如原型object.prototype的构造函数Object）<br>    注：instanceof与constructor的区别：<br>        instanceof的构造器是原型链上所有原型的构造函数，而constructor只是最近的构造函数</p>
-<h3 id="16-属性的表示方法"><a href="#16-属性的表示方法" class="headerlink" title="16.属性的表示方法"></a>16.属性的表示方法</h3><p>(1)对象.属性名<br>如：obj.name  son.xing</p>
-<p>(2)对象[‘属性名’]<br>如：obj[‘name’]  son[‘xing’]<br>  注: 二者的功能相同，但是只要用了方法(1)，系统最终会转化为方法(2)<br>  注：因为对象的属性名都是字符串类型，所以所以方法(2)会有一对单引号</p>
-<h3 id="17-arguments-callee-和-函数名-caller"><a href="#17-arguments-callee-和-函数名-caller" class="headerlink" title="17.arguments.callee 和 函数名.caller"></a>17.arguments.callee 和 函数名.caller</h3><p>(1)arguments.callee：表示本函数的引用，即函数的名字<br>    用处：在立即执行函数里面无法找到函数名字时使用。<br>    例如：求5的阶乘的立即执行函数</p>
-<pre><code>var num = (function (n) {
-    if(n === 1) {
-        return 1;
-    }
-    return n * argument.callee(n-1);   //想要利用递归，再次调用这个函数
-}(5))
-</code></pre><p>(2)函数名.caller：表示当前这个函数是在哪个函数里面调用的</p>
-<h3 id="18-克隆"><a href="#18-克隆" class="headerlink" title="18.克隆"></a>18.克隆</h3><p>(1)浅层克隆：针对原始值</p>
-<pre><code>function clone (parent, child) {
-    var child = child || {};
-    for(var prop in parent){
-        if(parent.hasOwnProperty(prop)){
-            child[prop] = parent[prop];
-        }
-    }
-}
-</code></pre><p>(2)深度克隆：针对引用值</p>
-<p>   function deepClone(origin, product) {<br>        var strFunc = Object.prototype.toString;<br>        var arrStr = ‘[Object Array]’;<br>        for(var prop in origin) {<br>            if(origin.hasOwnProperty(prop)) {<br>                //处理clone引用值问题<br>                if(typeof(origin[prop]) != null &amp;&amp; typeof(origin[prop]) == ‘Object’){<br>                    if(strFunc.call(origin[prop]) === arrStr){<br>                        product[prop] = [];<br>                    }else{<br>                        product[prop] = {};<br>                    }<br>                    deepClone(origin[prop], product[prop]);  //递归到最后克隆的不是对象或数组，而是原始值<br>                }else{<br>                    product[prop] = origin[prop];<br>                }<br>            }<br>        }<br>    }</p>
-<h3 id="19-数组"><a href="#19-数组" class="headerlink" title="19.数组"></a>19.数组</h3><p>(1)数组的创建<br>    1) 数组字面量：如：arr = [1, 2, 3];<br>    2) arr = new Array(123, 2);</p>
-<blockquote>
-<p>注： 当arr = new Array(n)的形参只有一个时，表示申请一个长度为n的数组[undefined*n]，并且n必须是整数，不能是小数。</p>
-</blockquote>
-<p>(2)数组常用的方法</p>
-<pre><code>#改变原数组
-    reverse：数组反转。如：arr = [1, 2, 3];变为arr = [3, 2, 1]
-
-    sort：排序
-        ·默认：升序排列
-        ·定义自己想要的排序
-            回调函数：当满足一定条件时，系统自己调用的函数。
-            形参a、b表示数组里面任意的两个数，当返回的数是负数时，让前面的数在前；当返回的数是正数时，让后面的数在前。
-        升序 arr.sort(function (a, b) {
-                if(a &gt; b) {
-                    return 1;             简化为=&gt;   arr.sort(function (a, b) {return a - b;});
-                }else{
-                    return -1;
-                }
-            }); 
-        降序 arr.sort(function (a, b) {
-                if(a &gt; b) {
-                    return -1;            简化为=&gt;   arr.sort(function (a, b) {return b - a;});
-                }else{
-                    return 1;
-                }
-            }); 
-
-    push：在数组的最后一位添加任意个数据
-    pop：从数组末尾删一位而且只能删一位，而且这里的删是剪切到arr.pop()中，可以保留到num = arr.pop()
-    shift：从数组的头开始删，每次删一位
-    unshift：从数组的头加数，可以一次加任意个
-
-    splice：arr.splice(pos, len, a, b, c) 截取
-        其中pos是从第几位截取，len是截取几位，a, b, c是截取后要插入的数字(任意个)，同时arr.splice返回的是所截取的东西
-
-#不可改变原数组
-    concat：把a数组和b数组相连接,返回一个新数组，且a、b不变
-    join：用join()里面的参数将数组每一位连接起来
-    split：与join正好相反，是根据split()里的内容将一大串字符串拆成很多个小的字符串
-</code></pre><h3 id="20-类数组"><a href="#20-类数组" class="headerlink" title="20.类数组"></a>20.类数组</h3><pre><code>利用对象的属性名模拟数组的特性
-</code></pre><blockquote>
-<p> 例. 问obj[1]到obj[6]都是什么？<br>        var obj = {<br>            “2”: “b”,<br>            “3”: “c”,<br>            “4”: “d”,<br>            “length”: 3,<br>            “push”: Array.prototype.push<br>        }<br>        obj.push(“e”);<br>        obj.push(“f”);</p>
-</blockquote>
-<pre><code>首先要清楚：Array.prototype.push = function (num) {
-             this[this.length] = num;
-             this.length++;
-           }
- 其次，当添加 e、f 时，实际上是obj[3] = &quot;e&quot;和obj[&quot;4&quot;] = &quot;f&quot;,同时length++。
- 所以obj[0]到obj[6]分别是undefined undefined b e f undefined undefined ,最终length = 5。
-</code></pre><h3 id="21-es5严格模式"><a href="#21-es5严格模式" class="headerlink" title="21.es5严格模式"></a>21.es5严格模式</h3><p>两种用法：<br>  ①全局的：在 <script></script> 第一行写 “use strict”; 这样所有的js代码都严格遵循es5的严格模式。<br>  ②局部的：只想在某个函数里用时，只需要在这个函数里第一行加 “use strict”; 即可</p>
-<p>不支持：<br>  with, arguments.callee, func.caller, 变量赋值前必须声明、局部this必须被声明（person.call(null/undefined)赋值什么就是什么）、拒绝重复属性和参数</p>
-<h3 id="22-日期对象"><a href="#22-日期对象" class="headerlink" title="22.日期对象"></a>22.日期对象</h3><p>(1)Date：是系统内部提供的构造函数（和Array相似），内部有各种属性，可通过new创建对象。</p>
-<p>(2)内部函数<br>Date() getDate() getDay() getFullYear() getMonth() getHours() getMinutes() getSeconds()<br>setDate() setMonth() setFullYear() setHours() setMinutes() setSeconds() setTime()</p>
-<pre><code>注：getTime不具有实时性，创建一个Date对象时只能记录当前时刻，无论调用多少次getTime，都返回创建该对象时的时间，只有再创建另一个     对象时，才能返回另一个时间。
-</code></pre>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/24/JavaScript笔记/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -927,8 +555,7 @@ console.log(Foo.prototype.name);   //输出undefined，C.prototype是F类的对�
 
       
         
-          
-            <h2 id="HTML笔记"><a href="#HTML笔记" class="headerlink" title="HTML笔记"></a>HTML笔记</h2><p>1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。</p>
+          <h2 id="HTML笔记"><a href="#HTML笔记" class="headerlink" title="HTML笔记"></a>HTML笔记</h2><p>1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。</p>
 <p>2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面</p>
 <pre><code>IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多
 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows、 BSD、Linux 和 Mac OS X 中使用
@@ -942,161 +569,14 @@ Safari(苹果)   webkit   代码结构清晰、渲染速度快
 iPhone 和 iPad       webkit
 Android 4.4 之前     webkit
 Android 4.4 之后     chromiun
-</code></pre><p>3.chrome V8引擎：<br>   ① 快速属性访问<br>        不会像查字典一样查询属性位置。而是动态创建隐藏类，每次属性的增、删会在原来基础上创建新的隐藏类<br>   ② 动态机器码生成<br>        js代码直接生成为机器码<br>   ③ 高效分代垃圾回收机制</p>
-<p>4.部分常用标签</p>
-<pre><code>标题：&lt;h1&gt;,&lt;h2&gt;,&lt;h3&gt;,&lt;h4&gt;,&lt;h5&gt;,&lt;h6&gt;     显示在页面上字体按顺序由大到小    
-段落：&lt;p&gt;&lt;/p&gt;
-换行：&lt;br/&gt;
-分割线：&lt;hr/&gt;
-引用短的句子：&lt;q&gt;&lt;/q&gt;   显示在页面中就是将句子加了一个“双引号”，但是不要只为了需要双引号而是用&lt;q&gt;
-引用大块的句子或段落：&lt;blockquote cite=&quot;&quot;&gt;&lt;/blockquote&gt;    显示在页面是整体缩进,但是不要只为了需要缩进而使用&lt;blockquote&gt;,cite属性值是引用的出处
-定义作品标题：&lt;cite&gt;&lt;/cite&gt;
-粗体：&lt;b&gt;&lt;/b&gt;
-斜体：&lt;i&gt;&lt;/i&gt;
-强调：&lt;em&gt;&lt;/em&gt;            显示为斜体，不要为了使用斜体而是用em
-强调：&lt;strong&gt;&lt;/strong&gt;    比em更强烈的强调，显示为粗体,不要为了使用粗体而是用strong
-计算机代码：&lt;code&gt;&lt;/code&gt;
-保留：&lt;pre&gt;&lt;/pre&gt;          可以保留文档中的空格、换行和TAB
-上标：&lt;sup&gt;&lt;/sup&gt;
-下标：&lt;sub&gt;&lt;/sub&gt;
-无意义标签：&lt;div&gt;&lt;/div&gt;,可作为容器，用来布局；&lt;span&gt;&lt;/span&gt;,可以用来和css配合改变文字的样式
-实体字符：   
-        &lt;      &amp;lt;
-        &gt;      &amp;gt;
-        &amp;      &amp;amp;
-        空格   &amp;nbsp;
-        ©      &amp;copy;
-图像：&lt;img src=&quot;图像所在路径&quot; alt=&quot;&quot; /&gt; 图片占位符 alt 当页面加载不出来图片的时候就会显示alt中的文本；图片提示符 title
-表格：&lt;table&gt;&lt;/table&gt; 为什么不用：强制下载完成才执行，用户体验差，样式不好加，自己带有样式 tr行 td单元格
-超链接：&lt;a&gt;&lt;/a&gt;
-    &lt;a href=&quot;某个网址&quot; target=&quot;_blank&quot; title=&quot;超链接&quot;&gt;超链接&lt;/a&gt;，其中target属性有 _self (默认，在当前页面打开链接页面)，_blank (在新的窗口打开连接页面)，_top (在整个窗口中打开被链接文档)
-
-    定义锚点    &lt;a id=&quot;tips&quot;&gt;锚点&lt;/a&gt;        // id 或者 name 都可以
-               &lt;a href=&quot;#tips&quot;&gt;回到锚点&lt;/a&gt;
-无序列表：&lt;ul&gt;
-            &lt;li&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-有序列表：&lt;ol&gt;
-            &lt;li&gt;&lt;/li&gt;
-        &lt;/ol&gt;
-自定义列表：&lt;dl&gt;
-                &lt;dt&gt;标题&lt;/dt&gt;
-                &lt;dd&gt;内容&lt;/dd&gt;
-            &lt;/dl&gt;
-            ul ol dl之间可以互相嵌套
-表单：&lt;form action=&quot;&quot; method=&quot;&quot;&gt;      // actioin 表单提交地址; method 表单提交方式 post 或者 get; 定义id属性，可以让表单外      的表单元素用 form 属性关联到此表单中
-        &lt;fieldset&gt;                   // 分区
-            &lt;legend&gt;分区标题&lt;/legend&gt;    
-            账号：&lt;input type=&quot;text&quot; name=&quot;&quot; /&gt;&lt;br/&gt;                 
-            密码：&lt;input type=&quot;password&quot; name=&quot;&quot; /&gt;&lt;br/&gt;
-            技能:&lt;br/&gt;
-            &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;ht&quot; checked=&quot;checked&quot; /&gt;html&lt;/label&gt;      // 同一组(单选) radio 的 name 值必须相同；checked 默认选中
-            &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;ht&quot; /&gt;css&lt;/label&gt;                         // input 外加 label 为了点击字体的时候也可选中radio ;另一种方法是&lt;label&gt; 中的 for 属性和 radio 的 id 属性值相同 
-            &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;ht&quot; /&gt;javascript&lt;/label&gt;&lt;br/&gt;
-            兴趣:&lt;br/&gt;
-            &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;l&quot; value=&quot;骑行&quot; /&gt;摄影&lt;/label&gt;
-            &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;l&quot; value=&quot;书法&quot; checked=&quot;checked&quot; /&gt;蹦迪&lt;/label&gt;
-            &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;l&quot; value=&quot;旅行&quot; /&gt;旅行&lt;/label&gt;
-        &lt;/fieldset&gt;
-        城市：
-        &lt;select&gt;
-            &lt;option&gt;北京&lt;/option&gt;
-            &lt;option selected=&quot;selected&quot;&gt;上海&lt;/option&gt;       // selected 默认选中
-            &lt;option&gt;广州&lt;/option&gt;
-        &lt;/select&gt;&lt;br/&gt;
-        简介：&lt;br/&gt;
-        &lt;textarea cols=&quot;30&quot; rows=&quot;5&quot;&gt;&lt;/textarea&gt;&lt;br/&gt;
-        &lt;input type=&quot;submit&quot; name=&quot;&quot; /&gt;
-        &lt;input type=&quot;reset&quot; name=&quot;&quot; /&gt;
-        &lt;input type=&quot;button&quot; name=&quot;&quot; value=&quot;按钮&quot; /&gt;      // 按钮还是用 &lt;button&gt; 标签好一些 
-        &lt;br/&gt;
-        &lt;button type=&quot;submit&quot;&gt;提交&lt;/button&gt;
-    &lt;/form&gt;
-
-        display 禁用； required 必须填写项； placeholder 提示词（显示灰色）；multiple 可多选；min max 最小值、最大值；width 和 height  input属性；
-        input 的 type 属性还有其他值，比如，email，url,number, search,range,color,data,aurofocus
-</code></pre><p>5.渲染模式：标准模式和怪异模式<br>    &lt;!doctype html&gt;严格模式 以最高标准来加载<br>    没有则为混杂(怪异)模式 向前兼容</p>
-<pre><code>判断：document.compatMode   BackCompat     怪异模式
-                            CSS1Compat  标准模式   w3c标准
-
-版本：过渡的(Transitional)：允许你继续使用HTML4.01的标识
-      严格的(Strict)：你不能使用任何表现层的标识和属性，例如&lt;br&gt;
-      框架的(Frameset)：针对框架页面设计使用
-
-区别:①盒模型的处理差异:标准CSS盒模型的宽度和高度等于内容区的高度和宽度，不包含内边距和边框，而怪异模式
-                     是包含内边距和边框的；
-     ②行内元素的垂直对齐:怪异模式下它们会对齐至底部，而标准模式下是基线对齐。
-</code></pre><p>6.href和src<br>     href： 超文本引用，指向网络链接所在的位置，用来建立当前元素和文档之间的链接 用于link a<br>     src：  地址来源，src指向的内容会嵌入到文档中当前标签所在的位置 用于img iframe script<br>     简而言之，src用于替换当前元素；href用于在当前文档和引用资源之间建立联系。</p>
-<p>7.web标准：行为、样式、结构相分离</p>
-<h2 id="CSS笔记"><a href="#CSS笔记" class="headerlink" title="CSS笔记"></a>CSS笔记</h2><p>1.权重<br>     !important         无穷大<br>     行间样式            1000<br>     id                 100<br>     CLASS/伪类/属性     10<br>     标签/伪元素         1<br>     通配符              0</p>
-<p>2.行内元素和块级元素<br>    块级元素(block)：div, p, form, ul, li, ol, dl, form, address, fieldset, hr, menu, table, h1~h6<br>    行内元素(inline)：span, a, strong, em, br, img, input, label, select, textarea, cite<br>    ps:行内元素无法设置宽高，但设置 display:inline-block 后可以。</p>
-<p>3.css代码三种引入方式：<br>    行间样式：使用标签元素的style属性引入css<br>    内部样式：在style标签下书写css，style标签写入head标签中<br>    外部样式：①链接式：在link标签下的href属性中写入css文档<br>             ②导入式：在style标签下写 @import url(“css文档路径”)</p>
-<p>4.!important 无法提升继承样式的权重，也不会影响就近原则。</p>
-<p>5.em是一个字长是相对的单位，而px是像素的意思，是绝对的单位。</p>
-<p>6.bfc<br>    Block Formatting Context 块级格式上下文。BFC就是一种布局方式，在这种布局方式下，盒子们自所在的containing block顶部一个接一个垂直排列，水平方向上撑满整个宽度。</p>
-<pre><code>如何触发bfc: ①float属性不为none
-            ②overflow不为visible(可以是hidden、scroll、auto)
-            ③position为absolute或fixed
-            ④display为inline-block、table-cell、table-caption
-
-bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
-            对子元素设置浮动后，父元素会发生高度塌陷，也就是父元素的高度变为0(父子间 margin-top 取最大值)。
-            解决方法是把父元素变成一个BFC。常用的办法是给父元素设置 overflow:hidden。
-          (2)解决margin合并问题
-            如果两个div上下排序，给上面div设置margin-bottom，给下面div设置margin-top，则两个margin会
-            发生合并现象，合并后的值取较大的那个。解决方法是分别给父元素设置 overflow:hidden，再给其中
-            一个div设置 display:inline-block。
-</code></pre><p>7.浮动float</p>
-<pre><code>浮动的特点： Ø 块级元素浮动后变成inline-block
-            Ø 浮动的元素会脱离标准流，浮动以后的元素会覆盖在标准流的元素之上
-            Ø 浮动元素可以看到浮动元素，触发bfc的元素可以看到浮动元素
-            Ø 浮动规则：浮动找浮动，不浮动找不浮动
-                浮动找浮动：只有写在同一个结构下面的浮动才会浮动找浮动
-            Ø 浮动显示的位置与原本不浮动之前的位置是对应的
-            Ø 浮动的重点：同一等级，浮动的元素只会影响下面的元素，不会影响上面的元素！
-
-清除浮动的方法：Ø 在父元素上加:after{
-                                content: &quot;&quot;;
-                                display: block;
-                                clear: both;
-                            }
-                 ps:为了兼容ie6 父元素还要设置 zoom: 1 ,因为ie6版本不支持 overflow：hidden清除浮动
-               Ø 加一个元素并设置 clear：both
-               Ø 父元素上加overflow：hidden
-               Ø 父元素上加position：absolute
-</code></pre><p>8.单行文字打点<br>white-space: nowrap;<br>overflow: hidden;<br>text-overflow: ellipsis;</p>
-<p>9.语义化<br>具体来说，就是在书写html时，尽量使用具有语义信息的标签，例如header,nav,aside,section等代替那些没有语义信息的标签，例如big,center,strike,font等（完全可以用css来取代的标签）。这样不仅有利于页面DOM的组织，也有利于机器（主要是搜索引擎）的理解。</p>
-<pre><code>作用：   (1)去掉样式后页面呈现清晰的结构
-        (2)盲人使用读屏器可以更好的阅读
-        (3)搜索引擎更好地理解页面，有利于收录
-        (4)使团队的项目可以持续的运作和维护
-</code></pre><p>10.定位<br>(1)static： 静态定位(默认)<br>    所有的标准流中的元素都是静态定位</p>
-<p>(2)relative： 相对定位<br>    相对于自己原来的位置发生偏移，在页面上仍然占据位置，会覆盖其他内容，用于微调元素、做绝对定位的参考。</p>
-<p>(3)absolute： 绝对定位<br>    绝对定位的参考点：</p>
-<pre><code>Ø  如果这个元素没有父元素，相对于body来定位
-
-Ø  如果绝对定位的元素有父元素，但是父元素没有定位，还是相对于body来定位的
-
-Ø  如果绝对定位的元素有“父”元素，而且父元素有非static定位，那么这个绝对定位的元素相对“父”元素来定位。
-   要听最近的已经定位的祖先元素的，不一定是父亲，可能是爷爷！
-
-Ø  绝对定位的儿子，无视所参考的父元素的padding
-
-Ø  绝对定位之后的元素在页面不会占据位置（绝对定位以后的元素会脱离标准流）
-</code></pre><p>(4)fixed：固定定位</p>
-<pre><code>Ø  不管页面有多大，固定定位的元素永远是相对于浏览器的边框来的。
-
-Ø  固定定位的元素也脱离了标准流（不在页面上占据位置）
-</code></pre><p>(5)sticky：粘性定位<br>    在屏幕范围内(viewport)时该元素的位置不会受到定位影响(设置left、top等属性无效)，但当其移出偏移范围时，定位效果变为fixed,并根据所设置的left、top等属性进行定位。<br>        注：<br>            Ø  仍然保留元素原本在文档流中的位置<br>            Ø  元素固定的相对偏移是相对于离它最近的具有滚动框的祖先元素，如果祖先元素都不可以滚动，那么是相对于<br>                viewport来计算元素的偏移量<br>            Ø  只兼容 FireFox 和 iOS 的 Safari</p>
-<p>11.伪元素<br>:first-letter    向文本的第一个字母添加特殊样式<br>:first-line        向文本的首行添加特殊样式<br>:before            在元素之前添加内容<br>:after            在元素之后添加内容</p>
-<p>12.伪类<br>Ø  a:link            给a标签设置没有被访问过的样式</p>
-<p>Ø  a:visited         给a标签设置被访问过的样式</p>
-<p>Ø  a:hover           给a标签设置鼠标悬停时的样式</p>
-<p>Ø  a:active          给a标签设置被点击的样式</p>
-<pre><code>注：在使用的时候一定遵守这样的顺序：a:link,a:visited,a:hover,a:active，否则会失效！
-    :link、:visited只能用于a标签，:hover、:active 其它标签也可以使用
 </code></pre>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/20/html与css/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
