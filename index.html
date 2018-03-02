@@ -228,6 +228,264 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/Javascript-事件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/01/Javascript-事件/" itemprop="url">Javascript-事件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-01T21:57:01+08:00">
+                2018-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h3><blockquote>
+<p>事件：用户和电脑之间的交互。如：用户点击鼠标、敲键盘等动作，我们需要给这些动作一个回复，即绑定一个回调函数。<br>    注：回调函数：满足一定条件后执行的函数</p>
+</blockquote>
+<h3 id="2-如何绑定事件"><a href="#2-如何绑定事件" class="headerlink" title="2.如何绑定事件"></a>2.如何绑定事件</h3><p>(1)ele.onxxx = function (event) {}    注：this指向ele元素本身<br>   ①兼容性很好，但是一个元素只能绑定一个处理程序（当一个事件想绑定多个处理函数时就不行了）</p>
+<p>   ②基本等同于写在HTML行间上</p>
+<p>   ③同setInterval()一样，其他部分监听，同步执行<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/01/Javascript-事件/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/定时器及异步加载/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/01/定时器及异步加载/" itemprop="url">定时器及异步加载</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-01T18:42:01+08:00">
+                2018-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><ol>
+<li>setInterval()</li>
+</ol>
+<p>用法：(1)var timer = setInterval( function(){}, time);  直接传函数<br>            注：setInterval(“func()”,1000);第一个参数可以是字符串，字符串里是要执行的代码。</p>
+<pre><code>(2)或者var timer = setInterval(text, time); function text(){}  传函数的引用
+</code></pre><p>作用：间隔 time 时间执行 function() {} 函数里面的内容，不会停下来。<br>        注：这里timer的值是数字1、2、3…，表示这是第几个计时器<br>        注：这里time不太准，虽然可以异步监听，但是同步执行。<br>            浏览器的其他部分间隔time时间将function(){}插入到执行队列里面等待执行，<br>            而不是马上执行，需等到前面的任务执行完。所以这里的time时间不准，他会<br>            每隔time时间将函数插入到队列里面，但是不会每隔time时间都能执行，需<br>            等待前面的执行完。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/01/定时器及异步加载/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/DOM笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -656,7 +914,7 @@ Android 4.4 之后     chromiun
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
