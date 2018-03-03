@@ -299,7 +299,9 @@
       
         
           
-            
+            <p>1.作用<br>匹配特殊字符或有特殊搭配原则的字符的最佳选择。</p>
+<p>2.</p>
+
           
         
       
@@ -417,16 +419,16 @@
 
       
         
-          
-            <p>1.定义<br>Browser Object Model，定义了操作浏览器的接口</p>
+          <p>1.定义<br>Browser Object Model，定义了操作浏览器的接口</p>
 <p>2.BOM对象<br>    注：由于浏览器厂商不同，Bom对象的兼容性极低，一般情况下只使用其中的部分功能。</p>
-<p>① Window   JavaScript 层级中的顶层对象，表示浏览器窗口<br>  alert()：显示一段消息和和一个确认按钮的警告框。<br>  clearInterval()：<br>  clearTimeout()：<br>  confirm()：返回一个确认框<br>  moveBy()：相对窗口当前坐标移动指定像素<br>  moveTo()：将敞口左上角移动到指定坐标<br>  open()：打开一个新的窗口<br>  Print()：打印当前窗口的内容<br>  Prompt()：输入<br>    属性：<br>        Closed: 打开的窗口是否关闭<br>        Opener: 返回对创建此窗口的窗口的引用<br>        innerHeight: 窗口文档显示区的高度<br>        innerwidth: 窗口文档显示区的宽度</p>
-<p>② Navigator  包含客户端浏览器的信息<br>  方法：<br>    Javaenable: 规定浏览器是否启用 Java<br>  属性：<br>    appCodeName: 只读；返回浏览器的代码名<br>    appName: 浏览器名字（区别IE和非IE）<br>    userAgent: 返回电脑或手机详细信息（区别是手机端还是PC端，区别哪个浏览器）</p>
-<p>③ Screen  包含客户端显示屏的信息<br>  属性：<br>    Avilheight：显示器的高度<br>    deviceXDPI: 返回显示器，每英寸水平点数<br>    deviceYDPI: 返回没英寸垂直点数</p>
-<p>④ History  包含了浏览器窗口访问过的 URL<br>  属性：<br>    History.length: 浏览记录的个数<br>  方法：<br>    History.back: 后退一个历史记录<br>    History.forword: 前进一个历史记录<br>    History.go(a): 若a=-2，后退两个历史记录，若a=3，前进两个历史记录</p>
-<p>⑤ Location   包含了当前 URL 的信息<br>    属性：<br>        href： 设置或返回完整的 URL<br>        hash：做锚点（和a标签类似，但只能一次）<br>    方法：<br>        assign()： 加载新的文档<br>        reload()： 重新加载当前文档<br>        replace()： 用新的文档替换当前文档</p>
-
-          
+<p>① Window   JavaScript 层级中的顶层对象，表示浏览器窗口<br>  alert()：显示一段消息和和一个确认按钮的警告框。<br>  clearInterval()：<br>  clearTimeout()：<br>  confirm()：返回一个确认框<br>  moveBy()：相对窗口当前坐标移动指定像素<br>  moveTo()：将敞口左上角移动到指定坐标<br>  open()：打开一个新的窗口<br>  Print()：打印当前窗口的内容<br>  Prompt()：输入<br>    属性：<br>        Closed: 打开的窗口是否关闭<br>        Opener: 返回对创建此窗口的窗口的引用<br>        innerHeight: 窗口文档显示区的高度<br>        innerwidth: 窗口文档显示区的宽度<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/02/BOM笔记/#espandi" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -551,7 +553,7 @@
 <p>   ③同setInterval()一样，其他部分监听，同步执行<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/01/Javascript-事件/#more" rel="contents">
+            <a class="btn" href="/2018/03/01/Javascript-事件/#espandi" rel="contents">
               Weiterlesen &raquo;
             </a>
           </div>
@@ -678,7 +680,7 @@
 </code></pre><p>作用：间隔 time 时间执行 function() {} 函数里面的内容，不会停下来。<br>        注：这里timer的值是数字1、2、3…，表示这是第几个计时器<br>        注：这里time不太准，虽然可以异步监听，但是同步执行。<br>            浏览器的其他部分间隔time时间将function(){}插入到执行队列里面等待执行，<br>            而不是马上执行，需等到前面的任务执行完。所以这里的time时间不准，他会<br>            每隔time时间将函数插入到队列里面，但是不会每隔time时间都能执行，需<br>            等待前面的执行完。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/01/定时器及异步加载/#more" rel="contents">
+            <a class="btn" href="/2018/03/01/定时器及异步加载/#espandi" rel="contents">
               Weiterlesen &raquo;
             </a>
           </div>
@@ -810,7 +812,7 @@
 </code></pre>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/02/28/DOM笔记/#more" rel="contents">
+            <a class="btn" href="/2018/02/28/DOM笔记/#espandi" rel="contents">
               Weiterlesen &raquo;
             </a>
           </div>
@@ -935,7 +937,7 @@
 <h3 id="2-typeof-返回值类型"><a href="#2-typeof-返回值类型" class="headerlink" title="2.typeof 返回值类型"></a>2.typeof 返回值类型</h3><p>number(数字，NaN), string(字符串), boolean(true，False), undefined(undefined), object(null，数组，对象), function(function)<br>    注：(1) typeof 打印出来的变量类型都是字符串的形式。如：”number” “undefined”<br>        (2) typeof(null)–&gt;”object” 意义为null是“非对象”; 而typeof(undefined)–&gt;”undefined”</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/02/24/JavaScript笔记/#more" rel="contents">
+            <a class="btn" href="/2018/02/24/JavaScript笔记/#espandi" rel="contents">
               Weiterlesen &raquo;
             </a>
           </div>
@@ -1073,7 +1075,7 @@ Android 4.4 之后     chromiun
 </code></pre>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/02/20/html与css/#more" rel="contents">
+            <a class="btn" href="/2018/02/20/html与css/#espandi" rel="contents">
               Weiterlesen &raquo;
             </a>
           </div>
