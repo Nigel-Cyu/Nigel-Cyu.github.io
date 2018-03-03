@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/02/正则笔记/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1.作用匹配特殊字符或有特殊搭配原则的字符的最佳选择。 2.如何创建 ①正则表达式直接量  var regExp = /abc/g; ②创建对象    参数1为表达式的内容，参数2为表达式的属性    var regExp1 = new RegExp(“abc”, “g”); 若 var regExp2 = new RegExp(regExp); 直接把已有的regExp放进来，则没有第二个参数">
-<meta property="og:updated_time" content="2018-03-03T14:04:23.745Z">
+<meta property="og:updated_time" content="2018-03-03T15:10:18.278Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则笔记">
 <meta name="twitter:description" content="1.作用匹配特殊字符或有特殊搭配原则的字符的最佳选择。 2.如何创建 ①正则表达式直接量  var regExp = /abc/g; ②创建对象    参数1为表达式的内容，参数2为表达式的属性    var regExp1 = new RegExp(“abc”, “g”); 若 var regExp2 = new RegExp(regExp); 直接把已有的regExp放进来，则没有第二个参数">
@@ -104,7 +104,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Penulis'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Beranda
+            Startseite
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Arsip
+            Archiv
           </a>
         </li>
       
@@ -258,7 +258,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-02T22:47:34+08:00">
                 2018-03-02
@@ -304,9 +304,9 @@
 <p>②创建对象<br>    参数1为表达式的内容，参数2为表达式的属性<br>    var regExp1 = new RegExp(“abc”, “g”);</p>
 <pre><code>若 var regExp2 = new RegExp(regExp); 直接把已有的regExp放进来，则没有第二个参数
 
-    注：去掉new操作符，仍然可以。区别是：new RegExp(regExp)相当于创建新的对象，该对象不会随着regExp的改变而改变；而RegExp        (reg)相当于reg的引用，会随着reg的改变而改变。
-
-属性：g：（global全局匹配）i：（ignore忽略大小写）m：（多行匹配）
+    注：去掉new操作符，仍然可以。区别是：new RegExp(regExp)相当于创建新的对象，该对象不会随着regExp的改变而改变；而RegExp(reg)相当于reg的引用，会随着reg的改变而改变。
+</code></pre><a id="more"></a>
+<pre><code>属性：g：（global全局匹配）i：（ignore忽略大小写）m：（多行匹配）
         //默认是只匹配一个、原来的大写/小写、只匹配一行
 </code></pre><p>3.Reg对象的方法</p>
 <p>① reg.exec() ：检索字符串中指定的值。返回找到的值，并确定其位置<br>    例.  var reg = /(a)(b)(c)/g;<br>         var str = “cbabcdabcdb”;<br>         reg.exec(str);  //返回[“abc”, “a”, “b”, “c”, index: 2, input: “cbabcdabcdb”]<br>         reg.exec(str);  //返回[“abc”, “a”, “b”, “c”, index: 6, input: “cbabcdabcdb”]<br>            注：返回数组里的”a”、”b”、”c”是三个子表达式中的内容(即(a)(b)(c))，lastIndex决定了全局g情况下，index从哪里开始匹配</p>
@@ -460,7 +460,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">posting</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -510,7 +510,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -518,7 +518,7 @@
 
 
 
-  <div class="theme-info">Tema &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
