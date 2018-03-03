@@ -100,7 +100,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: 'Penulis'
     },
     algolia: {
       applicationID: '',
@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Beranda
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Arsip
           </a>
         </li>
       
@@ -257,7 +257,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-02T22:47:34+08:00">
                 2018-03-02
@@ -300,7 +300,66 @@
         
           
             <p>1.作用<br>匹配特殊字符或有特殊搭配原则的字符的最佳选择。</p>
-<p>2.</p>
+<p>2.如何创建</p>
+<p>①正则表达式直接量  var regExp = /abc/g;</p>
+<p>②创建对象<br>    参数1为表达式的内容，参数2为表达式的属性<br>    var regExp1 = new RegExp(“abc”, “g”);</p>
+<pre><code>若 var regExp2 = new RegExp(regExp); 直接把已有的regExp放进来，则没有第二个参数
+
+    注：去掉new操作符，仍然可以。区别是：new RegExp(regExp)相当于创建新的对象，该对象不会随着regExp的改变而改变；而RegExp        (reg)相当于reg的引用，会随着reg的改变而改变。
+
+属性：g：（global全局匹配）i：（ignore忽略大小写）m：（多行匹配）
+        //默认是只匹配一个、原来的大写/小写、只匹配一行
+</code></pre><p>3.Reg对象的方法</p>
+<p>① reg.exec() ：检索字符串中指定的值。返回找到的值，并确定其位置<br>    例.  var reg = /(a)(b)(c)/g;<br>         var str = “cbabcdabcdb”;<br>         reg.exec(str);  //返回[“abc”, “a”, “b”, “c”, index: 2, input: “cbabcdabcdb”]<br>         reg.exec(str);  //返回[“abc”, “a”, “b”, “c”, index: 6, input: “cbabcdabcdb”]<br>            注：返回数组里的”a”、”b”、”c”是三个子表达式中的内容(即(a)(b)(c))，lastIndex决定了全局g情况下，index从哪里开始匹配</p>
+<p>② reg.test() ：判断字符串str上是否有reg，返回布尔值true或false</p>
+<p>4.字符串上的方法</p>
+<p>① str.search(reg)：返回与正则表达式相匹配的字符串的位置</p>
+<p>② str.match(reg)：匹配str上与reg相同的字符串，并返回数组</p>
+<p>③ str.split(reg)：将字符串拆分成字符数组<br>    例.  var reg = /[-/d]/g;<br>         var str = “a-b-c-d0f-e”;<br>         str.split(reg);  //返回[“a”,”b”,”c”,”d”,”f”,”e”]，将字符串按照”—“或者数字”\d”拆分成字符数组</p>
+<p>④ str.replace(str1, str2)：替换与正则表达式匹配的字符串<br>    Str1：要被替换的表达式（可为正则表达式）；str2：要替换成的表达式</p>
+<pre><code>注：参数str1如果是字符串，则只替换第一个；如果是正则表达式，并且加上g，则全部替换
+注：参数str2可以是function($, $1, $2){return XXX;};
+    $代表要被替换的字符串str，$1代表第一个子表达式，$2代表第二个子表达式
+</code></pre><p>5.表达式</p>
+<p>①[abc]：匹配[ ]中的任何字符，每次只匹配一个字符，[ ]中的字母表示匹配的范围<br>    例.  var reg = /[abc]/g;<br>         var str = “abcebcd”;<br>         str.match(reg);  //返回[“a”,”b”,”c”,”b”,”c”],匹配a或b或c，每次只匹配一个字母</p>
+<p>②[^abc]：匹配除了a/b/c的任意字符</p>
+<p>③( )：如果括号里面只有一个字符，则与没有括号没有什么区别</p>
+<pre><code>当括号里面加东西了
+例.  var reg = /(a|b)c/g;
+     var str = &quot;ab&quot;;
+     str.match(reg);  //返回[&quot;ab&quot;],&quot;|&quot;表示&quot;或&quot;
+
+     var reg = /(blue|red)b/g;
+     var str = &quot;bluebredb&quot;;
+     str.match(reg);  //返回[&quot;blueb&quot;,&quot;redb&quot;],()里可以选择多个字符，而[ ]中只能选择其中的一个
+</code></pre><p>6.元字符</p>
+<p>① “.”：查找除了 “\n” 和 “\r” 的任意一个字符</p>
+<p>② \w（word）：匹配A-Z a-z 0-9 中任意一个字符（包括下划线 “_”）</p>
+<p>③ \W ：匹配 除了A-Z a-z 0-9 下划线”_”</p>
+<p>④ \d（data）：数字 0-9</p>
+<p>⑤ \D ：非数字</p>
+<p>⑥ \s（space）: 匹配空白字符 \n（换行）\r（回车）\t（制表符）\f（换页符）\v（垂直制表符）即 \s == [\t\n\r\v\f]<br>                注意：匹配完str.match(reg)的到的数组全部是空串，而不是\n\r等</p>
+<p>⑦ \S ：匹配非空白字符（除了\n\r\t\f\v）</p>
+<p>⑧ \b ：单词边界（加上\b，证明这边是单词边界，加在哪表示哪就是边界）</p>
+<p>⑨ \B ：非单词边界   </p>
+<p>7.量词<br>   注：这里多有的n都代表一个或多个变量</p>
+<p>① n+ ：至少有一个，至多匹配(贪心原则)</p>
+<p>② n* ：至少有0个，至多匹配</p>
+<p>③ n? ：匹配任何包含0个或者1个的字符串（符合最小匹配，与贪心原则相反）<br>    例.  var reg = /(aa|b)?/g;<br>         var str = “aaaaacb”;<br>         str.match(reg);   //返回[“aa”,”aa”,””,””,”b”,””]，如果某个字符没有匹配上，相当于匹配0个的字符串，会返回空串</p>
+<p>④ n{X} ：匹配包含 X 个 n 的字符串</p>
+<p>⑤ n{X, Y} ：匹配 X 到 Y 个n ，有 Y 个就匹配 Y 个，贪心原则</p>
+<p>⑥ n{X, } ：匹配 X 到 正无穷个 n<br>    例. var str = “aaaaacc”;<br>        var reg = /a{2,}?/g;<br>        str.match(reg);   //返回[“aa”,”aa”] , n? 符合最小匹配，取最少的aa</p>
+<p>⑧ ^n ：匹配以 n 开头的字符</p>
+<p>⑨ n$ ：匹配以 n 结尾的字符（一个字符结尾）<br>    例.  var reg = /^abc$/g;<br>         var str = “abcabc”;<br>         str.match(reg);   //返回null , 这种方法是唯一一种可以固定某一个字符串的方法</p>
+<p>⑩ ?=n : 正向预查（或正向断言），表示XXX的后面是(跟着) n ，只有满足后面是 n 的 XXX 才能选中（多个字符结尾）<br>    例.  var reg = /\w(?=abc)/g;<br>         var str = “xabcyabc”;<br>         str.match(reg);   //返回[‘x’, ‘y’]</p>
+<p>  ?!n ：匹配后面不以n结尾的XXX</p>
+<p>8.对象的属性<br>① global：判断对象是否有标志g</p>
+<p>② ignoreCase：判断对象是否有标志i</p>
+<p>③ multiline：判断对象是否具有标志m</p>
+<p>④ source：正则表达式的源文本。（取出两个斜杠之间的东西）</p>
+<p>⑤ lastIndex:（很有用）一个整数，表示开始下一次匹配的字符的位置（可改变）</p>
+<p>9.Reg对象的方法</p>
+<p>① exec：检索字符串中指定的值。返回找到的值，并确定其位置</p>
 
           
         
@@ -378,7 +437,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-02T22:47:16+08:00">
                 2018-03-02
@@ -424,8 +483,8 @@
 <p>① Window   JavaScript 层级中的顶层对象，表示浏览器窗口<br>  alert()：显示一段消息和和一个确认按钮的警告框。<br>  clearInterval()：<br>  clearTimeout()：<br>  confirm()：返回一个确认框<br>  moveBy()：相对窗口当前坐标移动指定像素<br>  moveTo()：将敞口左上角移动到指定坐标<br>  open()：打开一个新的窗口<br>  Print()：打印当前窗口的内容<br>  Prompt()：输入<br>    属性：<br>        Closed: 打开的窗口是否关闭<br>        Opener: 返回对创建此窗口的窗口的引用<br>        innerHeight: 窗口文档显示区的高度<br>        innerwidth: 窗口文档显示区的宽度<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/02/BOM笔记/#espandi" rel="contents">
-              Weiterlesen &raquo;
+            <a class="btn" href="/2018/03/02/BOM笔记/#more" rel="contents">
+              Baca lebih &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -504,7 +563,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-01T21:57:01+08:00">
                 2018-03-01
@@ -553,8 +612,8 @@
 <p>   ③同setInterval()一样，其他部分监听，同步执行<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/01/Javascript-事件/#espandi" rel="contents">
-              Weiterlesen &raquo;
+            <a class="btn" href="/2018/03/01/Javascript-事件/#more" rel="contents">
+              Baca lebih &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -633,7 +692,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-01T18:42:01+08:00">
                 2018-03-01
@@ -680,8 +739,8 @@
 </code></pre><p>作用：间隔 time 时间执行 function() {} 函数里面的内容，不会停下来。<br>        注：这里timer的值是数字1、2、3…，表示这是第几个计时器<br>        注：这里time不太准，虽然可以异步监听，但是同步执行。<br>            浏览器的其他部分间隔time时间将function(){}插入到执行队列里面等待执行，<br>            而不是马上执行，需等到前面的任务执行完。所以这里的time时间不准，他会<br>            每隔time时间将函数插入到队列里面，但是不会每隔time时间都能执行，需<br>            等待前面的执行完。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/01/定时器及异步加载/#espandi" rel="contents">
-              Weiterlesen &raquo;
+            <a class="btn" href="/2018/03/01/定时器及异步加载/#more" rel="contents">
+              Baca lebih &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -760,7 +819,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-28T16:43:12+08:00">
                 2018-02-28
@@ -812,8 +871,8 @@
 </code></pre>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/02/28/DOM笔记/#espandi" rel="contents">
-              Weiterlesen &raquo;
+            <a class="btn" href="/2018/02/28/DOM笔记/#more" rel="contents">
+              Baca lebih &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -892,7 +951,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-24T15:45:13+08:00">
                 2018-02-24
@@ -937,8 +996,8 @@
 <h3 id="2-typeof-返回值类型"><a href="#2-typeof-返回值类型" class="headerlink" title="2.typeof 返回值类型"></a>2.typeof 返回值类型</h3><p>number(数字，NaN), string(字符串), boolean(true，False), undefined(undefined), object(null，数组，对象), function(function)<br>    注：(1) typeof 打印出来的变量类型都是字符串的形式。如：”number” “undefined”<br>        (2) typeof(null)–&gt;”object” 意义为null是“非对象”; 而typeof(undefined)–&gt;”undefined”</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/02/24/JavaScript笔记/#espandi" rel="contents">
-              Weiterlesen &raquo;
+            <a class="btn" href="/2018/02/24/JavaScript笔记/#more" rel="contents">
+              Baca lebih &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1017,7 +1076,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T20:28:52+08:00">
                 2018-02-20
@@ -1075,8 +1134,8 @@ Android 4.4 之后     chromiun
 </code></pre>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/02/20/html与css/#espandi" rel="contents">
-              Weiterlesen &raquo;
+            <a class="btn" href="/2018/02/20/html与css/#more" rel="contents">
+              Baca lebih &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1160,7 +1219,7 @@ Android 4.4 之后     chromiun
                 <a href="/archives/">
               
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posting</span>
                 </a>
               </div>
             
@@ -1210,7 +1269,7 @@ Android 4.4 之后     chromiun
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -1218,7 +1277,7 @@ Android 4.4 之后     chromiun
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">Tema &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
