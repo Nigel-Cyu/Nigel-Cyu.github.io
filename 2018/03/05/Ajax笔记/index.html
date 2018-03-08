@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="定时器1.setInterval() 用法：(1)var timer = setInterval( function(){}, time);  直接传函数            注：setInterval(“func()”,1000);第一个参数可以是字符串，字符串里是要执行的代码。 (2)或者var timer = setInterval(text, time); function text()">
+<meta name="description" content="1.同源策略：同域名、同协议、同端口 2.封装Ajax函数 function ajax(method, url, flag, data, callBack) {     var xml;     if(window.XMLHttpRequest()) {         xml = new window.XMLHttpRequest();     }else{         xml = new">
 <meta property="og:type" content="article">
-<meta property="og:title" content="定时器及异步加载">
-<meta property="og:url" content="http://yoursite.com/2018/03/01/定时器及异步加载/index.html">
+<meta property="og:title" content="Ajax笔记">
+<meta property="og:url" content="http://yoursite.com/2018/03/05/Ajax笔记/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="定时器1.setInterval() 用法：(1)var timer = setInterval( function(){}, time);  直接传函数            注：setInterval(“func()”,1000);第一个参数可以是字符串，字符串里是要执行的代码。 (2)或者var timer = setInterval(text, time); function text()">
-<meta property="og:updated_time" content="2018-03-02T14:46:27.038Z">
+<meta property="og:description" content="1.同源策略：同域名、同协议、同端口 2.封装Ajax函数 function ajax(method, url, flag, data, callBack) {     var xml;     if(window.XMLHttpRequest()) {         xml = new window.XMLHttpRequest();     }else{         xml = new">
+<meta property="og:updated_time" content="2018-03-08T08:07:48.427Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="定时器及异步加载">
-<meta name="twitter:description" content="定时器1.setInterval() 用法：(1)var timer = setInterval( function(){}, time);  直接传函数            注：setInterval(“func()”,1000);第一个参数可以是字符串，字符串里是要执行的代码。 (2)或者var timer = setInterval(text, time); function text()">
+<meta name="twitter:title" content="Ajax笔记">
+<meta name="twitter:description" content="1.同源策略：同域名、同协议、同端口 2.封装Ajax函数 function ajax(method, url, flag, data, callBack) {     var xml;     if(window.XMLHttpRequest()) {         xml = new window.XMLHttpRequest();     }else{         xml = new">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/01/定时器及异步加载/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/05/Ajax笔记/"/>
 
 
 
 
 
-  <title>定时器及异步加载 | Hexo</title>
+  <title>Ajax笔记 | Hexo</title>
   
 
 
@@ -231,7 +231,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/定时器及异步加载/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/Ajax笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -248,7 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">定时器及异步加载</h1>
+          <h1 class="post-title" itemprop="name headline">Ajax笔记</h1>
         
 
         <div class="post-meta">
@@ -260,8 +260,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-01T18:42:01+08:00">
-                2018-03-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T22:24:02+08:00">
+                2018-03-05
               </time>
             
 
@@ -298,58 +298,67 @@
       
 
       
-        <h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><p>1.setInterval()</p>
-<p>用法：(1)var timer = setInterval( function(){}, time);  直接传函数<br>            注：setInterval(“func()”,1000);第一个参数可以是字符串，字符串里是要执行的代码。</p>
-<pre><code>(2)或者var timer = setInterval(text, time); function text(){}  传函数的引用
-</code></pre><p>作用：间隔 time 时间执行 function() {} 函数里面的内容，不会停下来。<br>        注：这里timer的值是数字1、2、3…，表示这是第几个计时器<br>        注：这里time不太准，虽然可以异步监听，但是同步执行。<br>            浏览器的其他部分间隔time时间将function(){}插入到执行队列里面等待执行，<br>            而不是马上执行，需等到前面的任务执行完。所以这里的time时间不准，他会<br>            每隔time时间将函数插入到队列里面，但是不会每隔time时间都能执行，需<br>            等待前面的执行完。<br><a id="more"></a><br>2.setTimeout()</p>
-<p>用法：var timer = window.setTimeout(function(){}, time);</p>
-<p>作用：推迟 time 时间，执行一次 function() {} 函数，并且只执行一次</p>
-<p>3.clearInterval()</p>
-<p>用法：window.clearInterval(timer);</p>
-<p>作用：让计时器setInterval()停止<br>      注：如果timer = 1; 也可以window.clearInterval(1); </p>
-<p>4.clearTimeout()</p>
-<p>用法：window.clearInterval(timer);</p>
-<p>作用：让计时器setTimeout()停止<br>        注：全局对象window上的方法，内部函数this指向window，不加window也可以执行</p>
-<h3 id="Json"><a href="#Json" class="headerlink" title="Json"></a>Json</h3><p>1.JSON是一种传输数据的格式（以对象为样板，本质上就是对象，但用途有区别，对象就是本地用的，json是用来传输的）<br>   为了与对象有区别：json的属性名用双引号</p>
-<p>2.JSON.parse();  string — &gt; json</p>
-<p>  JSON.stringify(); json — &gt; string</p>
-<h3 id="异步加载js"><a href="#异步加载js" class="headerlink" title="异步加载js"></a>异步加载js</h3><p>1.js加载的缺点<br>    加载工具方法没必要阻塞文档，使得js加载会影响页面效率，一旦网速不好，那么整个网站将等待js加载而不进行后续渲染等工作。</p>
-<p>2.javascript 异步加载的三种方案</p>
-<p>①defer 异步加载，但要等到dom文档全部解析完js才会被执行。只有IE能用。</p>
-<p>②async 异步加载，加载完js就执行，async只能加载外部脚本，不能把js写在 script 标签里。</p>
-<p>③动态创建script，插入到DOM中，加载完毕后执行callBack<br>        注：这种方法可以实现异步加载、异步执行</p>
-<blockquote>
-<pre><code>function asyncLoaded (url, callback) {
-          var script = document.createElement(&apos;script&apos;);
-          script.type = &quot;text/javasript&quot;;
-          if(script.readyState) {  //IE独有，用于监听readyState状态
-                  script.onreadystatechange = function () {
-                          if(script.readyState === &quot;complete&quot; || script.readyState === &quot;loaded&quot;){//判断是否加载完url
-                                  script.onreadystatechange = null;  //加载完就清空事件
-                                  callback();  //加载完就回调callback
-                          }
-                  }
-          }else{
-                  script.onload = function () {
-                          script.onloaded = null;  //加载完就清空事件
-                          callback();  //加载完就回调callback
-                  }
-          }
-          script.src = url;   //开始加载url里的js，在动态创建的script标签中会异步加载
-          document.body.appendChild(script);
-  }
-</code></pre></blockquote>
-<p>3.Js加载时间线<br>(1)创建Document对象，开始解析web页面，此时document.readyState = ‘loading’;</p>
-<p>(2)遇到link外部css，创建线程加载，并继续解析文档;</p>
-<p>(3)遇到script外部js，并且未设置async、defer，浏览器加载，并阻塞，等待js加载完并执行该脚本，然后继续解析文档;</p>
-<p>(4)遇到script外部js，并且设置有async、defer，浏览器创建线程加载，并继续解析文档。对于async属性的脚本，脚本加载完后立即执行;</p>
-<p>(5)遇到img等，先正常解析dom结构，然后浏览器异步加载src，并继续解析文档;</p>
-<p>(6)当文档解析完成，document.readyState = ‘interactive’;</p>
-<p>(7)文档解析完后，所有设置defer的脚本开始按顺序执行</p>
-<p>(8)document对象触发DOMContentLoaded事件，这也标志着程序执行由同步脚本执行阶段，变为事件驱动阶段;</p>
-<p>(9)当所有设置async的脚本加载并执行完，img等加载完后，document.readyState = ‘complete’，window对象触发load事件;</p>
-<p>(10)至此，以异步响应的方式处理用户输入、网络事件等。</p>
+        <p>1.同源策略：<br>同域名、同协议、同端口</p>
+<p>2.封装Ajax函数</p>
+<pre><code>function ajax(method, url, flag, data, callBack) {
+    var xml;
+    if(window.XMLHttpRequest()) {
+        xml = new window.XMLHttpRequest();
+    }else{
+        xml = new window.ActiveXObject(&quot;Microsoft.XMLHttp&quot;);
+    }
+    method = method.toUpperCase();  //全部转换大写
+</code></pre><a id="more"></a>
+<pre><code>    if(method === &apos;GET&apos;) {
+        xml.open(method, url + &apos;?&apos; + data, flag);  //建立对服务器的调用
+        xml.send();                                //向服务器发送给请求
+    }else if(method === &apos;POST&apos;) {
+        xml.open(method, url, flag);
+        xml.setRequestHeader(&apos;Content-type&apos;, &apos;application/x-www-form-urlencoded&apos;);
+        xml.send(data);
+    }
+    xml.onreadystatechange = function () {
+        if(xml.readyState === 4) {
+            if(xml.status === 200) {
+                callBack(xml.responseText);
+            }else{
+                alert(&apos;error&apos;);
+            }
+        }
+    }
+}
+</code></pre><p>3.URL</p>
+<p>(1) URL：统一资源定位符<br>    URI：统一资源标识符   注：URL、URN是URI的子集<br>    URN：统一资源名称   </p>
+<p>(2) url的构成 ——&gt; 协议://域名（端口号、参数、查询等）</p>
+<pre><code>协议:http / https   注：https中的s就是ssl安全协议，被加在tcp和各应用层之间
 
+域名: www.zhidao.baidu.com
+
+端口: 80/ 90 / 3000  等    注：一般默认 80 或者 8080
+</code></pre><p>(3)浏览器输入一个URL地址后发生的事情</p>
+<p>1)域名解析：浏览器获取url地址，向操作系统获取url对应的IP地址，操作系统查询DNS（先查询本地HOST文件，没有则查询网络）获得对应的IP地址<br>    注：在这个过程中，如果浏览器询问DNS时无法找到对应的IP地址，就会向它的上级服务器询问，这样一层一层向上级找，最高达到根节点，直到找到或找不到为止。</p>
+<p>2)确认好IP地址和端口号后，则可以向该IP地址对应的服务器的该端口号发送TCP连接请求</p>
+<p>3)服务器收到TCP连接请求后，回复可以连接请求</p>
+<p>4)浏览器收到回传的数据后，还会向服务器发送数据包，表示三次握手结束</p>
+<p>5)三次握手成功后，开始通讯，根据HTTP协议的要求，组织一个请求的数据包，里面包含请求的资源路径、用户身份等信息。<br>  发送后，服务器相应请求，将数据返回给浏览器，数据可以是html网页，也可以是图片或脚本程序。如果资源路径指定的资<br>  源不存在，服务器会返回404错误；如果返回的是一个页面，则根据页面里的外链URL地址，重复上述步骤，再次获取。</p>
+<p>6)渲染页面，并开始响应用户的操作</p>
+<p>7)窗口关闭时，浏览器终止与服务器的连接(四次挥手)</p>
+<p>(4)TCP</p>
+<p>TCP表示传输控制协议，是一种面向连接的、可靠的、基于字节流的传输层通信协议。</p>
+<p>TCP三次握手：所谓三次握手，就是建立一个TCP连接时，需要客户端和服务器之间发送三个数据包。</p>
+<pre><code>第一次握手：建立连接时，客户端发送syn包(syn=j)到服务器
+第二次握手：服务器收到syn包，向客户端发送ACK包(ack=j+1),并且发送一个自己的syn包(syn=k)，若不同意发送RST+ACK包
+第三次握手：客户端收到服务器ACK+SYN包，向服务器发送确认ACK包(ack=k+1)
+
+需要三次握手的原因：防止客户端的连接请求因错误延时而导致服务器资源浪费，确保可靠性。
+</code></pre><p>TCP四次挥手：TCP连接的拆除需要发送四个包，客户端或者服务器端均可主动发起挥手动作。</p>
+<pre><code>第一次挥手：客户端发送一个Fin报文，告诉服务器关闭连接
+第二次挥手：服务器收到这个包后，发送ACK包给客户端，告诉他未准备好，此时客户端进入FIN_WAIT状态，等待服务器的Fin报文
+第三次挥手: 服务器向客户端发送Fin报文，服务器断开与客户端的连接
+第四次挥手：客户端收到Fin报文后，发送一个ACK包并进入FIN_WAIT状态，等待了2MSL后仍未收到回复就表示挥手结束
+
+注：SYN（建立连接）、ACK（ACK=1时，确认字号才有效）、RST（释放/拒绝连接）、FIN（释放一个连接）
+</code></pre>
       
     </div>
     
@@ -373,8 +382,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/28/DOM笔记/" rel="next" title="DOM笔记">
-                <i class="fa fa-chevron-left"></i> DOM笔记
+              <a href="/2018/03/02/正则笔记/" rel="next" title="正则笔记">
+                <i class="fa fa-chevron-left"></i> 正则笔记
               </a>
             
           </div>
@@ -382,10 +391,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/01/Javascript-事件/" rel="prev" title="Javascript-事件">
-                Javascript-事件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -437,17 +442,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -489,22 +485,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#定时器"><span class="nav-number">1.</span> <span class="nav-text">定时器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Json"><span class="nav-number">2.</span> <span class="nav-text">Json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步加载js"><span class="nav-number">3.</span> <span class="nav-text">异步加载js</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
