@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="1.同源策略：同域名、同协议、同端口 2.封装Ajax函数 function ajax(method, url, flag, data, callBack) {     var xml;     if(window.XMLHttpRequest()) {         xml = new window.XMLHttpRequest();     }else{         xml = new">
+<meta name="description" content="1.同源策略：同域名、同协议、同端口 2.封装Ajax函数function ajax(method, url, flag, data, callBack) {     var xml;     if(window.XMLHttpRequest()) {         xml = new window.XMLHttpRequest();     }else{         xml = new w">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ajax笔记">
 <meta property="og:url" content="http://yoursite.com/2018/03/05/Ajax笔记/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1.同源策略：同域名、同协议、同端口 2.封装Ajax函数 function ajax(method, url, flag, data, callBack) {     var xml;     if(window.XMLHttpRequest()) {         xml = new window.XMLHttpRequest();     }else{         xml = new">
-<meta property="og:updated_time" content="2018-03-08T08:07:48.427Z">
+<meta property="og:description" content="1.同源策略：同域名、同协议、同端口 2.封装Ajax函数function ajax(method, url, flag, data, callBack) {     var xml;     if(window.XMLHttpRequest()) {         xml = new window.XMLHttpRequest();     }else{         xml = new w">
+<meta property="og:updated_time" content="2018-03-09T08:57:23.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax笔记">
-<meta name="twitter:description" content="1.同源策略：同域名、同协议、同端口 2.封装Ajax函数 function ajax(method, url, flag, data, callBack) {     var xml;     if(window.XMLHttpRequest()) {         xml = new window.XMLHttpRequest();     }else{         xml = new">
+<meta name="twitter:description" content="1.同源策略：同域名、同协议、同端口 2.封装Ajax函数function ajax(method, url, flag, data, callBack) {     var xml;     if(window.XMLHttpRequest()) {         xml = new window.XMLHttpRequest();     }else{         xml = new w">
 
 
 
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -258,7 +258,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T22:24:02+08:00">
                 2018-03-05
@@ -298,9 +298,8 @@
       
 
       
-        <p>1.同源策略：<br>同域名、同协议、同端口</p>
-<p>2.封装Ajax函数</p>
-<pre><code>function ajax(method, url, flag, data, callBack) {
+        <h3 id="1-同源策略："><a href="#1-同源策略：" class="headerlink" title="1.同源策略："></a>1.同源策略：</h3><p>同域名、同协议、同端口</p>
+<h3 id="2-封装Ajax函数"><a href="#2-封装Ajax函数" class="headerlink" title="2.封装Ajax函数"></a>2.封装Ajax函数</h3><pre><code>function ajax(method, url, flag, data, callBack) {
     var xml;
     if(window.XMLHttpRequest()) {
         xml = new window.XMLHttpRequest();
@@ -327,8 +326,7 @@
         }
     }
 }
-</code></pre><p>3.URL</p>
-<p>(1) URL：统一资源定位符<br>    URI：统一资源标识符   注：URL、URN是URI的子集<br>    URN：统一资源名称   </p>
+</code></pre><h3 id="3-URL"><a href="#3-URL" class="headerlink" title="3.URL"></a>3.URL</h3><p>(1) URL：统一资源定位符<br>    URI：统一资源标识符   注：URL、URN是URI的子集<br>    URN：统一资源名称   </p>
 <p>(2) url的构成 ——&gt; 协议://域名（端口号、参数、查询等）</p>
 <pre><code>协议:http / https   注：https中的s就是ssl安全协议，被加在tcp和各应用层之间
 
@@ -358,6 +356,56 @@
 第四次挥手：客户端收到Fin报文后，发送一个ACK包并进入FIN_WAIT状态，等待了2MSL后仍未收到回复就表示挥手结束
 
 注：SYN（建立连接）、ACK（ACK=1时，确认字号才有效）、RST（释放/拒绝连接）、FIN（释放一个连接）
+</code></pre><p>TCP(传输控制协议) 和 UDP(用户数据协议)的区别<br>    a.tcp基于连接，udp基于非连接<br>    b.tcp保证可靠交付，udp尽最大努力交付<br>    c.tcp首部20字节，udp首部8字节<br>    d.tcp面向字节流的，udp面向数据报的</p>
+<h3 id="4-HTTP、HTTPS"><a href="#4-HTTP、HTTPS" class="headerlink" title="4.HTTP、HTTPS"></a>4.HTTP、HTTPS</h3><p>(1)HTTP 超文本传输协议，运用极其广泛；HTTPS是HTTP的安全版<br>    注：HTTP 协议是TCP/IP协议族中的子集，TCP/IP协议包括：http、tftp、dns、ip、icmp、arp、rarp等。</p>
+<p>   HTTP协议是无连接、无状态的协议。<br>    无连接的意思是：建立一次连接只能发送一次请求和返回一次响应。<br>    无状态的意思是：发送完请求后不记录任何东西，无法对之前发生过的请求和响应的状态进行管理</p>
+<p>   结构：<br>     应用层：向用户提供应用服务时通信的活动(HTTP协议)<br>     表示层<br>     会话层<br>     传输层：对应上层应用层，提供处于网络连接中的两台计算机之间的数据传输(TCP协议)<br>     网络层：用来处理网络上流动的数据包(IP)<br>     数据链路层：用来处理连接网络的硬件部分<br>     物理层(硬件)</p>
+<p>(2)HTTP报文<br>    报文又分为请求报文和响应报文</p>
+<pre><code>请求报文
+    请求行： 请求方法(get post head等) + 请求资源 url + 请求协议版本
+
+    请求头： referer 用户从何点击过来的
+            Content-Type application/x-www-form-urlencoded
+            Host 端口
+            Content-Length 报文长度
+
+    请求体： 表单提交的数据等
+
+响应报文
+    响应行： 响应协议版本号 + 响应状态码 + 响应状态文字
+
+    响应头： Server  服务器
+            Content-Type application/json
+            Date  日期
+
+    响应体：用户需要的数据
+</code></pre><h3 id="5-Get和Post的区别"><a href="#5-Get和Post的区别" class="headerlink" title="5.Get和Post的区别"></a>5.Get和Post的区别</h3><pre><code>(1)Get用于获取、查询数据，它不会修改服务器上的数据；Post用来传输，改变数据，Post可以向服务器发送修改请求来修改服务器的数据
+
+(2)Get将请求数据放在url后，以？拼接；Post把数据放在Http正文中
+
+(3)Get保密性差，效率高，数据不大于2kb;Post保密性高，效率低，大小不受限制
+</code></pre><h3 id="6-ajax跨域"><a href="#6-ajax跨域" class="headerlink" title="6.ajax跨域"></a>6.ajax跨域</h3><p>(1)ajax本身是不可以跨域的，通过产生一个script标签来实现跨域，因为script标签的src属性是没有跨域的限制的。</p>
+<p>(2)于是把数据放到服务器上，并且数据为json形式（因为js可以轻松处理json数据）</p>
+<p>(3)定义好能处理跨域获取数据的函数，如 function doJSON（data）{ //可以让数据为我调用的步骤 } (名字可随便)</p>
+<p>(4)用src获取数据的时候以？添加一个参数cb=’doJSON’ </p>
+<p>(5)后台服务端看到cb=’doJSON’后，会把数据作为参数传入doJSON()中，再一并返回给客户端</p>
+<h3 id="7-cookie"><a href="#7-cookie" class="headerlink" title="7.cookie"></a>7.cookie</h3><p>Cookie是由服务器端生成，发送给User-Agent（一般是浏览器），浏览器会将Cookie以key/value保存到某个目录下的文本文件内，下次请求同一网站时就发送该Cookie给服务器（前提是浏览器设置为启用cookie）。</p>
+<p>Cookie就是一个小型文件，有个数和大小的限制，大小一般是4k，本地可以更改。</p>
+<p>Cookie 具有保质期，满足同源策略，可以设置document.domain = ‘xxx.com’，使不同源域名之间共用cookie。</p>
+<p>封装cookie的使用(增、删、查)<br>    var manageCookie = {<br>        setCookie: function (key, value, date) {<br>            var oDate = new Date();<br>            oDate.setDate(oDate.getDate() + date);<br>            document.cookie = key + ‘=’ + value + ‘;expires=’ + oDate;<br>            return this;<br>        },<br>        removeCookie: function (key) {<br>            this.setCookie(key, ‘’, -1);<br>            return this;<br>        },<br>        getCookie: function (key, callback) {<br>            var cookieStr = document.cookie,<br>                cookieArr = cookieStr.split(‘;’),<br>                len = cookieArr.length;<br>            for (var i = 0;i &lt; len;i++) {<br>                var cookieItem = cookieArr[i].split(‘=’);<br>                if (cookieItem[0] == key) {<br>                    callback(cookieItem[1]);<br>                    break;<br>                }<br>            }<br>            return this;<br>        }<br>    };</p>
+<h3 id="8-iframe"><a href="#8-iframe" class="headerlink" title="8.iframe"></a>8.iframe</h3><p>(1)iframe就是一个标签dom元素,可以一个网页里嵌入另一个网页。</p>
+<p>(2)iframes 阻塞页面加载<br>    window.onload 事件需要在所有 iframe 加载完毕后(包含里面的元素)才会触发。在 Safari 和 Chrome 里，<br>    通过 JavaScript 动态设置 iframe 的 src 可以避免这种阻塞情况。</p>
+<p>(3)如何获取iframe内的window<br>    1.document.getElementsByTagName(‘iframe’)[0].contentWindow (子窗口)<br>    2.document.getElementsById(‘iFr’).contentWindow<br>    简易写法<br>    window.iframeName (iframe的name)</p>
+<pre><code>IE专用
+3.document.iframes[name].contentWindow
+4.document.iframes[i].contentWindow
+</code></pre><p>(4)如何解决iframe受跨域限制问题<br>    1.document.domain: 解决跨域限制最好的办法<br>        注：两个域名必须属于同一个基础域名，而且所用的协议，端口都要一致，否则无法跨域</p>
+<pre><code>2.window.location.hash: 解决子页面访问父页面数据问题(window.location.href)
+    父页面引入子页面时，在iframe的src里添加 # + 数据值，而在子页面里可以访问自己的loaction.hash来获取数据
+
+3.window.name: 解决父页面访问子页面的数据问题
+    与父页面不同源的子页面1利用window.name将数据储存在其iframe窗口下，父页面将子页面1更换为与父页面同源的
+    子页面2，子页面2可以读取同一iframe窗口下的window.name，再将该数据传给父页面。
 </code></pre>
       
     </div>
@@ -442,8 +490,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -459,7 +516,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">8</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -486,6 +543,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-同源策略："><span class="nav-number">1.</span> <span class="nav-text">1.同源策略：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-封装Ajax函数"><span class="nav-number">2.</span> <span class="nav-text">2.封装Ajax函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-URL"><span class="nav-number">3.</span> <span class="nav-text">3.URL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-HTTP、HTTPS"><span class="nav-number">4.</span> <span class="nav-text">4.HTTP、HTTPS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Get和Post的区别"><span class="nav-number">5.</span> <span class="nav-text">5.Get和Post的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-ajax跨域"><span class="nav-number">6.</span> <span class="nav-text">6.ajax跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-cookie"><span class="nav-number">7.</span> <span class="nav-text">7.cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-iframe"><span class="nav-number">8.</span> <span class="nav-text">8.iframe</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -509,7 +582,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
