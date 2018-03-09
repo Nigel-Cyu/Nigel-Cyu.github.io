@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/05/Ajax笔记/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1.同源策略：同域名、同协议、同端口 2.封装Ajax函数function ajax(method, url, flag, data, callBack) {     var xml;     if(window.XMLHttpRequest()) {         xml = new window.XMLHttpRequest();     }else{         xml = new w">
-<meta property="og:updated_time" content="2018-03-09T08:57:23.924Z">
+<meta property="og:updated_time" content="2018-03-09T09:11:30.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax笔记">
 <meta name="twitter:description" content="1.同源策略：同域名、同协议、同端口 2.封装Ajax函数function ajax(method, url, flag, data, callBack) {     var xml;     if(window.XMLHttpRequest()) {         xml = new window.XMLHttpRequest();     }else{         xml = new w">
@@ -338,7 +338,7 @@
 <p>2)确认好IP地址和端口号后，则可以向该IP地址对应的服务器的该端口号发送TCP连接请求</p>
 <p>3)服务器收到TCP连接请求后，回复可以连接请求</p>
 <p>4)浏览器收到回传的数据后，还会向服务器发送数据包，表示三次握手结束</p>
-<p>5)三次握手成功后，开始通讯，根据HTTP协议的要求，组织一个请求的数据包，里面包含请求的资源路径、用户身份等信息。<br>  发送后，服务器相应请求，将数据返回给浏览器，数据可以是html网页，也可以是图片或脚本程序。如果资源路径指定的资<br>  源不存在，服务器会返回404错误；如果返回的是一个页面，则根据页面里的外链URL地址，重复上述步骤，再次获取。</p>
+<p>5)三次握手成功后，开始通讯，根据HTTP协议的要求，组织一个请求的数据包，里面包含请求的资源路径、用户身份等信息。发送后，服务器相应请求，将数据返回给浏览器，数据可以是html网页，也可以是图片或脚本程序。如果资源路径指定的资源不存在，服务器会返回404错误；如果返回的是一个页面，则根据页面里的外链URL地址，重复上述步骤，再次获取。</p>
 <p>6)渲染页面，并开始响应用户的操作</p>
 <p>7)窗口关闭时，浏览器终止与服务器的连接(四次挥手)</p>
 <p>(4)TCP</p>
@@ -392,8 +392,33 @@
 <h3 id="7-cookie"><a href="#7-cookie" class="headerlink" title="7.cookie"></a>7.cookie</h3><p>Cookie是由服务器端生成，发送给User-Agent（一般是浏览器），浏览器会将Cookie以key/value保存到某个目录下的文本文件内，下次请求同一网站时就发送该Cookie给服务器（前提是浏览器设置为启用cookie）。</p>
 <p>Cookie就是一个小型文件，有个数和大小的限制，大小一般是4k，本地可以更改。</p>
 <p>Cookie 具有保质期，满足同源策略，可以设置document.domain = ‘xxx.com’，使不同源域名之间共用cookie。</p>
-<p>封装cookie的使用(增、删、查)<br>    var manageCookie = {<br>        setCookie: function (key, value, date) {<br>            var oDate = new Date();<br>            oDate.setDate(oDate.getDate() + date);<br>            document.cookie = key + ‘=’ + value + ‘;expires=’ + oDate;<br>            return this;<br>        },<br>        removeCookie: function (key) {<br>            this.setCookie(key, ‘’, -1);<br>            return this;<br>        },<br>        getCookie: function (key, callback) {<br>            var cookieStr = document.cookie,<br>                cookieArr = cookieStr.split(‘;’),<br>                len = cookieArr.length;<br>            for (var i = 0;i &lt; len;i++) {<br>                var cookieItem = cookieArr[i].split(‘=’);<br>                if (cookieItem[0] == key) {<br>                    callback(cookieItem[1]);<br>                    break;<br>                }<br>            }<br>            return this;<br>        }<br>    };</p>
-<h3 id="8-iframe"><a href="#8-iframe" class="headerlink" title="8.iframe"></a>8.iframe</h3><p>(1)iframe就是一个标签dom元素,可以一个网页里嵌入另一个网页。</p>
+<p>封装cookie的使用(增、删、查)</p>
+<pre><code>var manageCookie = {
+    setCookie: function (key, value, date) {
+        var oDate = new Date();
+        oDate.setDate(oDate.getDate() + date);
+        document.cookie = key + &apos;=&apos; + value + &apos;;expires=&apos; + oDate;
+        return this;
+    },
+    removeCookie: function (key) {
+        this.setCookie(key, &apos;&apos;, -1);
+        return this;
+    },
+    getCookie: function (key, callback) {
+        var cookieStr = document.cookie,
+            cookieArr = cookieStr.split(&apos;;&apos;),
+            len = cookieArr.length;
+        for (var i = 0;i &lt; len;i++) {
+            var cookieItem = cookieArr[i].split(&apos;=&apos;);
+            if (cookieItem[0] == key) {
+                callback(cookieItem[1]);
+                break;
+            }
+        }
+        return this;
+    }
+};
+</code></pre><h3 id="8-iframe"><a href="#8-iframe" class="headerlink" title="8.iframe"></a>8.iframe</h3><p>(1)iframe就是一个标签dom元素,可以一个网页里嵌入另一个网页。</p>
 <p>(2)iframes 阻塞页面加载<br>    window.onload 事件需要在所有 iframe 加载完毕后(包含里面的元素)才会触发。在 Safari 和 Chrome 里，<br>    通过 JavaScript 动态设置 iframe 的 src 可以避免这种阻塞情况。</p>
 <p>(3)如何获取iframe内的window<br>    1.document.getElementsByTagName(‘iframe’)[0].contentWindow (子窗口)<br>    2.document.getElementsById(‘iFr’).contentWindow<br>    简易写法<br>    window.iframeName (iframe的name)</p>
 <pre><code>IE专用
