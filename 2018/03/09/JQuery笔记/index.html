@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/09/JQuery笔记/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="使用jQuery前要先在script标签中外部引入jQuery的js文件1.一些常用方法(1)$()  里面可以写css选择器、 原生dom、 jquery对象、null/undefined、函数function(){}、selector/content等。 注：$(&amp;apos;ul&amp;gt;li:first&amp;apos;);    选出来的是jquery对象     $(&amp;apos;ul&amp;gt;li">
-<meta property="og:updated_time" content="2018-03-13T03:22:27.262Z">
+<meta property="og:updated_time" content="2018-03-13T03:35:52.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JQuery笔记">
 <meta name="twitter:description" content="使用jQuery前要先在script标签中外部引入jQuery的js文件1.一些常用方法(1)$()  里面可以写css选择器、 原生dom、 jquery对象、null/undefined、函数function(){}、selector/content等。 注：$(&amp;apos;ul&amp;gt;li:first&amp;apos;);    选出来的是jquery对象     $(&amp;apos;ul&amp;gt;li">
@@ -389,92 +389,93 @@ a().done(function (data) {  //成功的回调函数
     objectN    可选，Object类型 第N个被合并的对象。
 </code></pre><p>(2)$.fn.extend(obj)<br>    其中$.fn = $.prototype，obj里可以添加多个属性函数。<br>    jQuery的实例可以使用这些添加的方法。</p>
 <h3 id="5-Jquery源码浅析"><a href="#5-Jquery源码浅析" class="headerlink" title="5.Jquery源码浅析"></a>5.Jquery源码浅析</h3><p>   //全局都会用到的变量、正则表达式定义在了代码最开头</p>
-<p>   //$()括号内可能传的值<br>        1.一个参数<br>        $(‘#id’) $(‘.class’) $(‘div’) $(‘&lt; div&gt;&lt; /div&gt;’) $(‘<div>asds’)  $($(dom)) $(function) $(null) $(“”)</div></p>
-<pre><code>2.多个参数
-$(&apos;li&apos;,&apos;ul&apos;) $(&apos;li&apos;,$(dom)) $(&apos;li&apos;,dom)
-</code></pre><p>   (function (global, factory) {                         //防止变量污染，使用立即执行函数封装</p>
-<pre><code>if(typeof module === &quot;object&quot;){   //此举为了兼容commonjs模块
+<p>   //$()括号内可能传的值<br>        1.一个参数<br>        $(‘#id’) $(‘.class’) $(‘div’) $(‘&lt; div&gt;&lt; /div&gt;’) $(‘&lt; div &gt;asds’)  $($(dom)) $(function) $(null) $(“”)<br>        2.多个参数<br>        $(‘li’,’ul’) $(‘li’,$(dom)) $(‘li’,dom)</p>
+<pre><code>(function (global, factory) {                         //防止变量污染，使用立即执行函数封装       
+   if(typeof module === &quot;object&quot;){   //此举为了兼容commonjs模块
 
-}else {
-    factory(global);    //立即执行函数根本任务就是执行传入factory函数
-}
-</code></pre><p>   })(window, function(window, noGlobal){<br>       window.jQuery = window.S = jQuery;  //让外部window可以方便调用jquery函数 </p>
-<pre><code>var init = jQuery.fn.init = function (selector,context,root) {  //fn 即prototype，该函数处理如何去完成对元素的选择
+   }else {
+       factory(global);    //立即执行函数根本任务就是执行传入factory函数
+   }
 
-     if(!selector){   //判读并处理$(null) $(&quot;&quot;) $(false) $(undefined)
-         return this;
-     }
+})(window, function(window, noGlobal){
+   window.jQuery = window.S = jQuery;  //让外部window可以方便调用jquery函数 
 
-     root = root || rootjQuery;  //rootjQuery = jQuery(document);其实就是document对象
+   var init = jQuery.fn.init = function (selector,context,root) {  //fn 即prototype，该函数处理如何去完成对元素的选择
 
-     if(typeof slector === &quot;string&quot;) {  //处理$(&apos;#id&apos;) $(&apos;.class&apos;) $(&apos;div&apos;) $(&apos;&lt;div&gt;&lt;/div&gt;&apos;) $(&apos;&lt;div&gt;asds&apos;)，以及两个参数的情况
-         //各种 if-else 运用正则和字符判断各种类型并给出响应的
+        if(!selector){   //判读并处理$(null) $(&quot;&quot;) $(false) $(undefined)
+            return this;
+        }
 
-         var oDom = document.getElementById(id);    //仅举例id一种情况，实际上通过正则来判断其他类型
-         this[0] = oDom;
-         this.length = 1;
-         this.preObject = document;   //元素的上一级
+        root = root || rootjQuery;  //rootjQuery = jQuery(document);其实就是document对象
 
-         return this;       //隐式返回
-     }else if(selector.nodeType) {   //处理原生dom $(dom)
+        if(typeof slector === &quot;string&quot;) {  //处理$(&apos;#id&apos;) $(&apos;.class&apos;) $(&apos;div&apos;) $(&apos;&lt;div&gt;&lt;/div&gt;&apos;) $(&apos;&lt;div&gt;asds&apos;)，以及两个参数的情况
+            //各种 if-else 运用正则和字符判断各种类型并给出响应的
 
-     }else if( jQuery.isFunction(selector) ){   //处理$(function)
-         //用了jQuery.reay工具方法触发function
-     }
+            var oDom = document.getElementById(id);    //仅举例id一种情况，实际上通过正则来判断其他类型
+            this[0] = oDom;
+            this.length = 1;
+            this.preObject = document;   //元素的上一级
 
-     return jQuery.makeArray(selector, this);   //处理$($(dom))
-}
+            return this;       //隐式返回
+        }else if(selector.nodeType) {   //处理原生dom $(dom)
 
-init.prototype = jQuery.fn;  //此句是为了让jquery实例能使用jquery原型上的各种方法，init原型刚开始是{}空的
+        }else if( jQuery.isFunction(selector) ){   //处理$(function)
+            //用了jQuery.reay工具方法触发function
+        }
 
-var jQuery = function (selector, context) { 
-    return new jQuery.fn.init(selector, context); //返回一个以原型上的init为构造函数的的jquery对象
-}
+        return jQuery.makeArray(selector, this);   //处理$($(dom))
+   }
 
-jQuery.extend = jQuery.fn.extend = function () {  //拓展工具和实例方法，先写为一个函数，里面在区分
-     var options, name, src, copy, copyIsArray, clone, 
-         target = arguments[0] || {},  //合并的目标
-         i = 1, deep = false, 
-         length = arguments.length;
+   init.prototype = jQuery.fn;  //此句是为了让jquery实例能使用jquery原型上的各种方法，init原型刚开始是{}空的
 
-     if(typeof target === &quot;boolean&quot;) {  //需要深度克隆
-         deep = target;
-         target = arguments[i] || {};
-         i++;
-     }
+   var jQuery = function (selector, context) { 
+       return new jQuery.fn.init(selector, context); //返回一个以原型上的init为构造函数的的jquery对象
+   }
 
-     if( typeof target !== &quot;object&quot; &amp;&amp; !jQuery.isFunction(target)) {  //所传参数不是对象也不是函数
-         target = {};
-     }
+   jQuery.extend = jQuery.fn.extend = function () {  //拓展工具和实例方法，先写为一个函数，里面在区分
+        var options, name, src, copy, copyIsArray, clone, 
+            target = arguments[0] || {},  //合并的目标
+            i = 1, deep = false, 
+            length = arguments.length;
 
-     if(i === length){   //添加方法到jQuery或jQuery.fn上，(true,obj1)或者(obj1)
-         target = this;
-         i--;
-     }
+        if(typeof target === &quot;boolean&quot;) {  //需要深度克隆
+            deep = target;
+            target = arguments[i] || {};
+            i++;
+        }
 
-     for(;i &lt; length;i++){
-         if( (options = arguments[i]) != null){
-             for( name in options) {
-                 src = target[name];
-                 copy = options[name];
+        if( typeof target !== &quot;object&quot; &amp;&amp; !jQuery.isFunction(target)) {  //所传参数不是对象也不是函数
+            target = {};
+        }
 
-                 if( target === copy){  //防止合并对象自身，避免死循环
-                     continute;
-                 }
+        if(i === length){   //添加方法到jQuery或jQuery.fn上，(true,obj1)或者(obj1)
+            target = this;
+            i--;
+        }
 
-                 if( deep &amp;&amp; copy &amp;&amp; (jQuery.isPlainObject(copy) || (copyIsArray = Array.isArray(copy)))) {
-                     //深度克隆过程
-                 }else if(copy !== undefined) {  //浅克隆
-                     target[name] = copy;
-                 }
-             }
-         }
-     }
+        for(;i &lt; length;i++){
+            if( (options = arguments[i]) != null){
+                for( name in options) {
+                    src = target[name];
+                    copy = options[name];
 
-     return target;
-}
-</code></pre><p>   })</p>
+                    if( target === copy){  //防止合并对象自身，避免死循环
+                        continute;
+                    }
 
+                    if( deep &amp;&amp; copy &amp;&amp; (jQuery.isPlainObject(copy) || (copyIsArray = Array.isArray(copy)))) {
+                        //深度克隆过程
+                    }else if(copy !== undefined) {  //浅克隆
+                        target[name] = copy;
+                    }
+                }
+            }
+        }
+
+        return target;
+   }
+})
+</code></pre>
       
     </div>
     
