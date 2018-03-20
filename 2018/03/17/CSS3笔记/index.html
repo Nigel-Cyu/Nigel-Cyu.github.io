@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.css3前缀-webkit  Chrome和Safari-moz     Firefox-ms      IE-o       Opera 2.border-radiusborder-radius: 20px  =  border-top-left-radius: 20px    =  border-top-left-radius: 20px 20px    注：分别是x轴和y轴">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3笔记">
+<meta property="og:url" content="http://yoursite.com/2018/03/17/CSS3笔记/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.css3前缀-webkit  Chrome和Safari-moz     Firefox-ms      IE-o       Opera 2.border-radiusborder-radius: 20px  =  border-top-left-radius: 20px    =  border-top-left-radius: 20px 20px    注：分别是x轴和y轴">
+<meta property="og:updated_time" content="2018-03-20T07:06:59.305Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3笔记">
+<meta name="twitter:description" content="1.css3前缀-webkit  Chrome和Safari-moz     Firefox-ms      IE-o       Opera 2.border-radiusborder-radius: 20px  =  border-top-left-radius: 20px    =  border-top-left-radius: 20px 20px    注：分别是x轴和y轴">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/17/CSS3笔记/"/>
+
+
+
+
+
+  <title>CSS3笔记 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/17/CSS3笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS3笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-17T14:23:15+08:00">
+                2018-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-css3前缀"><a href="#1-css3前缀" class="headerlink" title="1.css3前缀"></a>1.css3前缀</h3><p>-webkit  Chrome和Safari<br>-moz     Firefox<br>-ms      IE<br>-o       Opera</p>
+<h3 id="2-border-radius"><a href="#2-border-radius" class="headerlink" title="2.border-radius"></a>2.border-radius</h3><pre><code>border-radius: 20px  =  border-top-left-radius: 20px    =  border-top-left-radius: 20px 20px    注：分别是x轴和y轴
+                        border-top-right-radius: 20px      border-top-right-radius: 20px 20px
+                        border-bottom-right-radius: 20px   border-bottom-right-radius: 20px 20px
+                        border-bottom-left-radius: 20px    border-bottom-left-radius: 20px 20px
+</code></pre><a id="more"></a>
+<h3 id="3-box-shadow-和-text-shadow"><a href="#3-box-shadow-和-text-shadow" class="headerlink" title="3.box-shadow 和 text-shadow"></a>3.box-shadow 和 text-shadow</h3><p> box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];<br> 例. box-shadow: 4px 2px 6px 7px #333333 inset;</p>
+<p> text-shadow: X-Offset Y-Offset blur color<br> 例. text-shadow: 0 1px 1px #fff<br>    X-Offset：表示阴影的水平偏移距离，其值为正值时阴影向右偏移，反之向左偏移；<br>    Y-Offset：是指阴影的垂直偏移距离，如果其值是正值时，阴影向下偏移，反之向上偏移；</p>
+<h3 id="4-rgba"><a href="#4-rgba" class="headerlink" title="4.rgba"></a>4.rgba</h3><pre><code>color：rgba(R,G,B,A)
+R、G、B三个参数，正整数值的取值范围为：0 - 255,百分数值的取值范围为：0.0% - 100.0% ;
+A为透明度参数，取值在0~1之间，不可为负值。
+</code></pre><h3 id="5-css3渐变"><a href="#5-css3渐变" class="headerlink" title="5.css3渐变"></a>5.css3渐变</h3><p>(1)线性渐变 linear-gradient([direction], color[percent], color[percent], …);</p>
+<pre><code>direction为选填，角度的单位为 deg ，也可以用to bottom, to left, to top left等的方式来表达
+</code></pre><p>(2)径向渐变 radial-gradient(shape at position, color[percent], color[percent])</p>
+<pre><code>shape:放射的形状，可以为原型circle，可以为椭圆ellipse;
+position: 圆心位置，可以两个值，也可以一个，如果为一个时，第二个值默认center 即 50%。值类型可以为，百分数，距离像素，也可以是方位值(left,top...); 
+</code></pre><h3 id="6-word-wrap-normal-break-word"><a href="#6-word-wrap-normal-break-word" class="headerlink" title="6.word-wrap: normal | break-word;"></a>6.word-wrap: normal | break-word;</h3><pre><code>文字边界换行
+</code></pre><h3 id="7-font-face"><a href="#7-font-face" class="headerlink" title="7.font-face"></a>7.font-face</h3><pre><code>@font-face{
+    font-family:”myFirstFont”;
+    src:url(&apos;Sansation_Light.ttf&apos;),
+    url(&apos;Sansation_Light.eot&apos;) format(&apos;eot&apos;);  //format指的是你自定义的字体的格式，主要用来帮助浏览器识别
+}
+p{
+    font-family:”myFristFont”;
+}
+</code></pre><h3 id="8-border-image"><a href="#8-border-image" class="headerlink" title="8.border-image"></a>8.border-image</h3><pre><code>border-image: source slice width outset repeat;
+
+    source : 用于指定要用于绘制边框的图像的位置
+    slice  : 图像边界向内偏移
+    width  : 图像边界的宽度
+    outset : 用于指定在边框外部绘制 border-image-area 的量
+    repeat : 用于设置图像边界是否应重复（repeat）、拉伸（stretch）或铺满（round）                          
+</code></pre><h3 id="9-background"><a href="#9-background" class="headerlink" title="9.background"></a>9.background</h3><p>(1)background-origin<br>    可选的值：<br>    padding-box(默认)  :背景图像相对于内边距框来定位<br>    border-box           :背景图像相对于边框盒来定位<br>    content-box           :背景图像相对于内容框来定位                              </p>
+<pre><code>它只相当于规定图片的左上角以什么地方为原点，其他的它就不负责了
+</code></pre><p>(2)background-clip<br>    可选的值：<br>    border-box(默认)    :背景被裁剪到边框盒<br>    padding-box            :背景被裁剪到内边距框<br>    content-box            :背景被裁剪到内容框</p>
+<p>(3)background-size<br>    可选的值：<br>    length    设置背景图像的高度和宽度,第一个值为宽度，第二个值为高度,如果只设一个值，则第二个值会被设置为”auto”<br>    percentage    以父元素的百分比来设置背景图像的宽度和高度<br>    cover        用一张图片铺满整个背景，如果比例不符，则截断图片<br>    contain        尽量让背景内，存在一整张图片</p>
+<h3 id="10-属性选择器"><a href="#10-属性选择器" class="headerlink" title="10.属性选择器"></a>10.属性选择器</h3><p>E[att^=”val”]{…}  选择匹配元素E, 且E元素定义了属性att, 其属性值以val开头的任何字符串</p>
+<p>E[att$=”val”]{…}  选择匹配元素E, 且E元素定义了属性att, 其属性值以val结尾的任何字符串</p>
+<p>E[att*=”val”]{…}  选择匹配元素E, 且E元素定义了属性att, 其属性值任意位置出现了val,位置不限</p>
+<pre><code>例. div[class*=&quot;test&quot;]{
+        background:#ffff00;
+    }
+</code></pre><h3 id="11-伪类选择器"><a href="#11-伪类选择器" class="headerlink" title="11.伪类选择器"></a>11.伪类选择器</h3><p>(1):root{}   跟标签选择器，等同于html{}</p>
+<p>(2):not([att=”val”]){}  否定选择器,排除某些特定条件的元素</p>
+<p>(3):empty{}  空标签选择器,用来选择没有内容的元素、不在文档树中的元素</p>
+<p>(4):target{}  目标元素选择器,用来匹配被location.hash 选中的元素(即锚点元素)</p>
+<p>(5):first-child{}      第一个子元素<br>   :last-child{}       最后一个子元素<br>   :nth-child(n){}       第n个子元素<br>   :nth-last-child(n){}  从后往前数</p>
+<p>(6):first-of-type{}    第一个该类型的子元素<br>   :last-of-type{}     最后一该类型的个子元素<br>   :nth-of-type(n){}     第n个该类型的子元素<br>   :nth-last-of-type(n){}  从后往前数</p>
+<pre><code>:first-child 和 :first-of-type的区别：
+  :first-child 匹配的是父元素的第一个子元素，结构上的
+  :first-of-type 匹配的是该类型的第一个元素
+</code></pre><p>(7):only-child 和 :only-of-type</p>
+<pre><code>前者选择的是独生子的子元素，结构上的；后者是选择该类型的独生子子元素
+</code></pre><p>(8):enabled 和 :disabled 、:checked<br>    在web的表单中，有些表单元素有可用(“enabled”)和不可用(“disabled”)状态，比如输入框，密码框，复选框等。</p>
+<pre><code>:checked{} 选择框的被选中状态下的元素
+</code></pre><p>(9):read-only{} 和 :read-write{}</p>
+<pre><code>前者选中只读的元素，后者选中非只读的元素
+比如&lt; input type=&quot;text&quot; readonly=&quot;readonly&quot;/&gt; 为只读元素
+</code></pre><h3 id="12-伪元素选择器"><a href="#12-伪元素选择器" class="headerlink" title="12.伪元素选择器"></a>12.伪元素选择器</h3><pre><code>css3增添了一个 ::selection，用来匹配突出显示的文本（用鼠标选中的文本）。默认情况下，选中文本是以蓝色的背景，白色的字体显示。
+</code></pre><h3 id="13-条件选择"><a href="#13-条件选择" class="headerlink" title="13.条件选择"></a>13.条件选择</h3><pre><code>div&gt;span  div标签的下一层中的span标签
+div+span  div标签后面紧跟的兄弟span标签
+div~span  div标签后面的所有兄弟span标签
+</code></pre><h3 id="14-transform"><a href="#14-transform" class="headerlink" title="14.transform"></a>14.transform</h3><pre><code>transform: none | tranform-functions
+
+tranform-functions如下：
+
+rotate(angle)  以x/y/z为轴进行旋转，默认为z，rotatex(), rotatey(), rotatez(), rotate3d(x, y, z, angle)
+
+scale(x, y)   接受两个值，如果没有第二参数，则第二个参数使用第一个参数的值，值是数字表示倍数，不加任何单位
+              scalex(),scaley() scalez() scale3d(sx,sy,sz)
+
+skew(x, y)    定义沿着 X 和 Y 轴的 2D 倾斜转换。如果第二个参数未提供，则默认值为0 。skewx(), skewy()
+
+translate(x, [y])   可以移动距离,相对于自身位置
+                    translatex(),translatey(),translatez(),translate3d(x, y, z)
+
+transform-origin: x-axis y-axis z-axis;  变换原点，默认50% 50% 0 即盒子的中心，该属性要和transform一起使用。
+</code></pre><h3 id="15-transition动画"><a href="#15-transition动画" class="headerlink" title="15.transition动画"></a>15.transition动画</h3><p>transition: property duration timing-function delay;</p>
+<pre><code>transition-property    规定设置过渡效果的 CSS 属性的名称。
+transition-duration    规定完成过渡效果需要多少秒或毫秒。
+transition-timing-function    规定速度效果的速度曲线，例如linear(默认)、ease
+transition-delay    定义过渡效果何时开始。
+</code></pre><h3 id="16-animation-动画铺垫"><a href="#16-animation-动画铺垫" class="headerlink" title="16.animation  动画铺垫"></a>16.animation  动画铺垫</h3><p>animation: name duration timing-function delay iteration-count direction;</p>
+<pre><code>animation-name          规定需要绑定到选择器的 keyframe 名称
+animation-duration      规定完成动画所花费的时间，以秒或毫秒计
+animation-timing-function    规定动画的速度曲线，例如linear(默认)、ease
+animation-delay          规定在动画开始之前的延迟
+animation-iteration-count    规定动画应该播放的次数，infinite/number
+animation-direction      规定是否应该轮流反向播放动画
+
+动画关键帧 @keyframes 0% - 100% 代表动画的时间过渡
+    例如@keyframes demoMove{
+            0%{ background-color:red;}
+            10%{ background-color:green;}
+            20%{ background-color:white;}
+            50%{ width:200px;}
+            100%{ height:200px;}
+        }
+帧频里面如果只有 0% 和 100%两个关键帧，那么可以用 from to 代替
+</code></pre><h3 id="17-columns-多列布局"><a href="#17-columns-多列布局" class="headerlink" title="17.columns 多列布局"></a>17.columns 多列布局</h3><p>columns: [column-width] [column-count];<br>    column-width 指每一列的宽度 根据容器宽度自适应（最小宽度）<br>    column-count 指规定的列数 唯一精准的是列数<br>    不要两一起使用 会乱</p>
+<pre><code>column-gap 设置列与列之间的宽度(间隙)，直接用数值表示，如不设置则默认按 font-size 来设置
+
+column-rule: width style color  设置列与列之间间隙的分界线样式，style有none、hidden、dotted、
+                                dashed、solid、double、groove、ridge、inset、outset
+
+column-span：1/all  用于规定标题可以跨越几列，all就是全都跨过
+</code></pre><h3 id="18-盒模型"><a href="#18-盒模型" class="headerlink" title="18.盒模型"></a>18.盒模型</h3><p>(1)W3C标准盒模型下width不包括padding 和 border，而IE6混杂模式盒模型下，width包含padding 和border。</p>
+<pre><code>box-sizing : border-box/content-box
+
+    content-box为W3C标准盒子
+    border-box为IE6混杂模式的盒子
+</code></pre><p>(2)弹性盒子</p>
+<pre><code>在父元素上(容器上)设置 display: flex; flex为复核属性
+
+    flex-direction 决定主轴的方向（即子元素的排列方向），可能的值 row(水平显示) row-reverse(水平反向)
+                                                              column(垂直显示) column-reverse
+
+    flex-wrap  定义如果一条轴线排不下，如何换行。可能的值 nowrap(不换行) wrap(换行) wrap-reverse(反向换行)
+
+    flex-flow   flex-direction 和 flex-wrap 的简写形式，默认值为row nowrap
+
+    justify-content  定义了子元素在主轴上的对齐方式，可能的值 flex-start(默认，容器开头) flex-end(容器结尾)
+                                                          center(容器中心) space-between(元素间留空白) 
+                                                          space-around(元素中间和两侧都有空白)
+
+    align-items  定义子元素在交叉轴上如何对齐，可能的值 flex-start(交叉轴的起点对齐) flex-end(交叉轴的终点对齐)
+                                                    center(交叉轴的中点对齐) baseline(第一行文字的基线对齐)
+                                                    stretch(默认,若子元素未设置高度或设为auto，占满整个容器)
+
+    align-content  定义了多根轴线的对齐方式，值与align-items相同
+
+
+在子元素上设置 flex: flex-grow flex-shrink flex-basis;  默认值为0 1 auto，后两个属性可选
+
+    flex-grow 默认为0，当有多余空间时，该元素能分配到几份
+
+    flex-shrink 默认为1，如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。
+                如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。
+
+    flex-basis  定义了在分配多余空间之前，该元素占据的主轴空间。它的默认值为auto，即项目的本来大小。
+                它可以设为数值，如350px，则该子元素将占据固定空间。
+
+    还有 order 定义项目的排列顺序。数值越小，排列越靠前，默认为0
+
+        align-self 允许该子元素有与其他子元素不一样的对齐方式，可覆盖align-items属性，默认值为auto，
+               表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
+</code></pre><h3 id="19-transparent-透明颜色值"><a href="#19-transparent-透明颜色值" class="headerlink" title="19.transparent 透明颜色值"></a>19.transparent 透明颜色值</h3><pre><code>利用 transparent 画三角形
+如 div{
+        margin: 0 auto;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 30px 30px;
+        border-color: transparent transparent red;
+    }
+</code></pre><h3 id="20-transform-style-3d变换"><a href="#20-transform-style-3d变换" class="headerlink" title="20.transform-style 3d变换"></a>20.transform-style 3d变换</h3><pre><code>定义被嵌套元素如何在 3D 空间中显示，需要设置在父元素中。
+    注：设置了transform-style:preserve-3d的元素，不能设置overflow：hidden；否则preserve-3d失效。
+
+可选的值：flat   子元素将不保留其 3D 位置
+         preserve-3d  子元素将保留其 3D 位置
+
+景深 perspective：默认none  设置在父元素上，也就是父元素的景深
+     perspective-origin:  默认值是50% 50%
+
+    perspective：60px 与  transform: perspective(600px) 的区别：
+    前者用在舞台元素上(变形元素们的共同父元素)，后者就是用在当前变形元素上，并且可以与其他的transform函数一起使用。
+
+backface-visibility: visible | hidden  定义是否展示元素的背面。
+</code></pre><h3 id="21-媒体查询"><a href="#21-媒体查询" class="headerlink" title="21.媒体查询"></a>21.媒体查询</h3><p>媒体查询是向不同设备提供不同样式的一种方式，它为每种类型的用户提供了最佳的体验。</p>
+<p>(1)媒体查询的引用方法 link标签  @import  @media<br>    &lt; link rel=”stylesheet” media=”screen and (max-width: 600px)” href=”1.css”/&gt;<br>        注：screen前加 not表示排除，加only用于向早期浏览器提供隐藏媒体查询</p>
+<pre><code>@import url(1.css) screen and (max-width:360px)
+
+@media all and (max-width: 1000px) and (min-width: 600px){}
+</code></pre><p>(2)device-width/height 定义输出设备的屏幕可见宽/高度 (不是浏览器的宽/高度)<br>    width/height使用documentElement.clientWidth/Height即viewport的值。</p>
+<p>(3)物理像素 和 设备独立像素</p>
+<pre><code>一个物理像素是显示器(手机屏)上最小的物理显示单元，在操作系统的调度下，每一个设备像素都有自己的颜色值和亮度值。
+
+设备独立像素(也叫目睹无关像素)，可以认为是计算机坐标系统中得一个点，这个点代表一个可以由程序使用的虚拟
+像素（css像素），然后由相关系统转换为物理像素。
+
+设备像素比(dpr) = 物理像素 / 设备独立像素
+
+在不同的屏幕上（普通屏幕 vs retina屏幕），css像素所呈现的大小（物理尺寸）是一致的，不同的是一个css像素所对应
+的物理像素个数是不一致。
+</code></pre><h3 id="22-浏览器渲染原理"><a href="#22-浏览器渲染原理" class="headerlink" title="22.浏览器渲染原理"></a>22.浏览器渲染原理</h3><p>(1)过程</p>
+<pre><code>1.处理HTML生成DOM树
+浏览器将获得的HTML代码解析生成一个DOM树，html中的每个标签都将成为DOM树中的一个节点，根节点是document对象，树中也包括js中动态生成的DOM节点；
+
+2.处理CSS生成CSSDOM树
+浏览器把所有样式解析成结构体，在解析过程中去除掉不能识别的样式，生成CSSDOM树；
+
+3.将两树合并成render树
+DOM树和CSSDOM树合并成render树，render树中每个node都有自己的样式style，而树中不包括隐藏的节点(如display: none的节点，无样式的head节点)，这些节点不影响布局layout，但visibility: hidden 的节点会包含在render树上，因为其会影响布局，占用空间；
+
+4.对render树进行布局计算
+render树按照样式计算布局，布局阶段输出的结果称为&quot;盒模型&quot;，盒模型精确表达了窗口中每个元素的位置和大小，而且所有相应的度量单位都会转化成屏幕上的绝对像素位置；
+
+5.将render树上的每个节点绘制到屏幕上
+将这些信息渲染在屏幕的每个真实像素点上，这个阶段称为&quot;绘制&quot;，亦称为&quot;栅格化&quot;。
+</code></pre><p>(2)重排 和 重绘</p>
+<pre><code>重排：在计算各节点在当前设备上的准确位置和尺寸时，这些布局需要做的事，称为回流(重排)，当render树种部分或全部
+      元素的尺寸、位置布局或者隐藏等发生改变时，就会回流。每个页面至少回流一次，就在页面第一次加载时。
+
+重绘：render树中一些元素节点的属性发生改变，而这些属性只影响元素的外观、风格，而不影响布局，这时会发生重绘。
+
+重排和重绘影响性能
+以下属性和方法需要返回最新的布局信息，重新计算render树，造成回流，应尽量合并在一起操作，减少回流次数。
+这些属性包括：offsetTop offsetLeft offsetWidth offsetHeight；scrollTop scrollLeft scrollWidth scrollHeight；                        clientTop clientLeft clientWidth clientHeight；getComputedStyle() currentStyle()
+
+想要提高网页性能，就需要降低重排、重绘的频率和成本，尽量少触发重新渲染。DOM变动和样式变动都会触发重新渲染，但如今的
+浏览器已经很智能了，会把所有的变动集中起来，拍成一个队列，一次过执行，尽量避免多次重新渲染。
+
+如果在样式的写操作之后，发生了上述触发重排属性的读操作，就会引发浏览器立即重排，这些重排不会形成队列优化。
+例.  反面教材：div.style.left = div.offsetLeft + &apos;px&apos;;
+              div.style.top = div.offsetTop + &apos;px&apos;;
+              //触发了两次重排重绘
+
+    正面教材：var left = div.offsetLeft + &apos;px&apos;;
+             var top = div.offsetTop + &apos;px&apos;;
+             div.style.left = left;
+             div.style.top = top;
+             //只触发一次重排重绘
+
+性能优化的方法：
+(1)DOM的多个读操作/写操作，应该放在一起写，不要两个读操作之间加了一个写操作;
+(2)离线操作DOM，如使用隐藏元素 document.creatDocumentFragment() cloneNode();
+(3)修改样式的时候添加类名，或一次性添加到 dom.style.cssText上。
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/09/JQuery笔记/" rel="next" title="JQuery笔记">
+                <i class="fa fa-chevron-left"></i> JQuery笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-css3前缀"><span class="nav-number">1.</span> <span class="nav-text">1.css3前缀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-border-radius"><span class="nav-number">2.</span> <span class="nav-text">2.border-radius</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-box-shadow-和-text-shadow"><span class="nav-number">3.</span> <span class="nav-text">3.box-shadow 和 text-shadow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-rgba"><span class="nav-number">4.</span> <span class="nav-text">4.rgba</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-css3渐变"><span class="nav-number">5.</span> <span class="nav-text">5.css3渐变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-word-wrap-normal-break-word"><span class="nav-number">6.</span> <span class="nav-text">6.word-wrap: normal | break-word;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-font-face"><span class="nav-number">7.</span> <span class="nav-text">7.font-face</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-border-image"><span class="nav-number">8.</span> <span class="nav-text">8.border-image</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-background"><span class="nav-number">9.</span> <span class="nav-text">9.background</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-属性选择器"><span class="nav-number">10.</span> <span class="nav-text">10.属性选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-伪类选择器"><span class="nav-number">11.</span> <span class="nav-text">11.伪类选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-伪元素选择器"><span class="nav-number">12.</span> <span class="nav-text">12.伪元素选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-条件选择"><span class="nav-number">13.</span> <span class="nav-text">13.条件选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-transform"><span class="nav-number">14.</span> <span class="nav-text">14.transform</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-transition动画"><span class="nav-number">15.</span> <span class="nav-text">15.transition动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-animation-动画铺垫"><span class="nav-number">16.</span> <span class="nav-text">16.animation  动画铺垫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-columns-多列布局"><span class="nav-number">17.</span> <span class="nav-text">17.columns 多列布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-盒模型"><span class="nav-number">18.</span> <span class="nav-text">18.盒模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-transparent-透明颜色值"><span class="nav-number">19.</span> <span class="nav-text">19.transparent 透明颜色值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-transform-style-3d变换"><span class="nav-number">20.</span> <span class="nav-text">20.transform-style 3d变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-媒体查询"><span class="nav-number">21.</span> <span class="nav-text">21.媒体查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-浏览器渲染原理"><span class="nav-number">22.</span> <span class="nav-text">22.浏览器渲染原理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
