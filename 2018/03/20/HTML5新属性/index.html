@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Canvasie9之前的浏览器不支持canvas (1)如何使用Canvas &amp;lt; canvas width=500 height=500&amp;gt;&amp;lt; /canvas&amp;gt; var canvas = document.getElementById(&amp;apos;myCanvas&amp;apos;);  //元素对象，相当于画布 var ctx = canvas.getContext(&amp;apos;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5新属性">
+<meta property="og:url" content="http://yoursite.com/2018/03/20/HTML5新属性/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Canvasie9之前的浏览器不支持canvas (1)如何使用Canvas &amp;lt; canvas width=500 height=500&amp;gt;&amp;lt; /canvas&amp;gt; var canvas = document.getElementById(&amp;apos;myCanvas&amp;apos;);  //元素对象，相当于画布 var ctx = canvas.getContext(&amp;apos;">
+<meta property="og:updated_time" content="2018-03-28T10:25:31.660Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5新属性">
+<meta name="twitter:description" content="Canvasie9之前的浏览器不支持canvas (1)如何使用Canvas &amp;lt; canvas width=500 height=500&amp;gt;&amp;lt; /canvas&amp;gt; var canvas = document.getElementById(&amp;apos;myCanvas&amp;apos;);  //元素对象，相当于画布 var ctx = canvas.getContext(&amp;apos;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/20/HTML5新属性/"/>
+
+
+
+
+
+  <title>HTML5新属性 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/20/HTML5新属性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML5新属性</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-20T16:04:21+08:00">
+                2018-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h2><p>ie9之前的浏览器不支持canvas</p>
+<p>(1)如何使用Canvas</p>
+<pre><code>&lt; canvas width=500 height=500&gt;&lt; /canvas&gt;
+var canvas = document.getElementById(&apos;myCanvas&apos;);  //元素对象，相当于画布
+var ctx = canvas.getContext(&apos;2d&apos;);         //上下文对象，相当于画笔
+</code></pre><p>(2)线段</p>
+<pre><code>ctx.moveTo(x, y);  移动到 x，y坐标点
+ctx.lineTo(x, y); 从当前点绘制直线到x，y点
+ctx.strokeStyle = &quot;red&quot;; 设置线条的颜色
+ctx.stroke();  描边
+ctx.lineWidth  = 20; 设置线段宽度(多粗)
+ctx.closePath();  闭合当前路径  和回到起始点的区别
+ctx.fill();  填充
+</code></pre><a id="more"></a>
+<pre><code>注：1.fill和stroke方法都是作用在当前子路径下的；
+    2.完成一条路径后要重新开始另一条路径时必须使用beginPath()方法, betinPath开始子路径的一个新的集合。
+</code></pre><p>(3)矩形</p>
+<pre><code>ctx.rect(x, y, width, height);  x,y为矩形左上角坐标
+ctx.fillRect(x, y, w, h);
+ctx.strokeRect(x, y, w, h);
+ctx.clearRect(x, y, w, h);  清空给定矩形内的指定像素
+</code></pre><p>(4)弧形和圆角</p>
+<pre><code>ctx.arc(x, y, r, sAngle, eAngle, clockwise);  x y是圆心位置，r是半径，sAngle eAngle是起始、结束角，以弧度记，
+                                              clockwise是圆弧的方向 0是顺时针 1是逆时针
+
+ctx.arcTo(x1, y1, x2, y2, r);  x1 y1是弧的起点的x y坐标，x2 y2是弧的终点的x y坐标，r是弧的半径
+</code></pre><p>(5)贝塞尔曲线</p>
+<pre><code>quadraticCurveTo(x1, y1, ex, ey) 二次贝塞尔曲线 x1 y1控制点，ex ey结束点 
+
+bezierCurveTo(x1, y1, x2, y2, ex, ey) 三次贝塞尔曲线 x1,y1 x2,y2都是控制点，ex,ey 结束点
+</code></pre><p>(6)坐标轴转换</p>
+<pre><code>ctx.translate(x, y)   将画布上的(0,0)点转移到(x, y)上
+ctx.scale(scalewidth, scaleheight)  缩放当前绘图宽、高度，可填的值 1=100% ，放大后包括起点的距离也会变大
+ctx.rotate(angle)     旋转当前的绘图,就算用了beginPath(),后面的图形也会跟着旋转
+save() restore()      用save保存当前图像状态，再用restore从栈中弹出图形状态并恢复，
+                      如旋转30度前save，restore出来的状态就是0度
+
+ctx.setTransform(a,b,c,d,e,f)  缩放、旋转、移动并倾斜当前的环境，该变换只会影响 setTransform() 方法调用之后的绘图
+                               参数：水平缩放、水平倾斜、垂直倾斜、垂直缩放、水平移动、垂直移动
+
+ctx.transform(a,b,c,d,e,f)  该方法的行为相对于由 rotate scale translate transform完成的其他变换，如果已将绘图设置
+                            为放大2倍，再用transform放大2倍，绘图最终将放大4倍，而用setTransform就最终只放大2倍
+</code></pre><p>(7)填充图案</p>
+<pre><code>ctx.craetePattern(img, &quot;repeat|repeat-x|repeat-y|no-repeat&quot;);  也可添加canvas元素、video元素
+
+例.  var img = document.getElementById(&quot;img&quot;);
+     img.onload = function () {           //需要注意图片是否加载完
+         ctx.fillStyle = ctx.createPattern(img, &quot;repeat&quot;);
+         ctx.fillRect(0,0,100,100);
+     }
+</code></pre><p>(8)渐变</p>
+<pre><code>ctx.createLinearGradient(x1, y1, x2, y2)  线性渐变，x1 y1是渐变开始点坐标，x2 y2是渐变结束点坐标
+
+ctx.createRadialGradient(x1, y1, r1, x2, y2, r2)  放射渐变，r1是开始圆半径，r2是结束圆半径
+
+    注：先用变量接受渐变，变量.addColorStop规定不同的颜色何处定位，再用fillStyle来获取变量
+
+例. var grd = ctx.createLinearGradient(0,0,170,0);
+    grd.addColorStop(0,&quot;black&quot;);
+    grd.addColorStop(1,&quot;white&quot;);
+
+    ctx.fillStyle=grd;
+    ctx.fillRect(20,20,150,100);
+</code></pre><p>(9)阴影</p>
+<pre><code>ctx.shadowColor    阴影颜色
+ctx.shadowOffsetX  阴影向左、右偏移量
+ctx.shadowOffsetY  阴影向上、下偏移量
+ctx.shadowBlur     模糊级数
+    注：这里的阴影偏移量不受坐标系变换的影响
+</code></pre><p>(10)文本</p>
+<pre><code>ctx.fillText(text,x,y,maxWidth)  x y文本开始点坐标，maxWidth是文本最大宽度，选填
+ctx.strokeText(text,x,y,maxWidth)   与前者不同的是strokeText文字是空心的
+    注：结合ctx.font使用
+
+ctx.measureText(txt).width   计算文本txt的宽度
+</code></pre><p>(11)线段样式</p>
+<pre><code>ctx.lineCap  线条末端线帽的样式，可选值：butt 平直的边缘  round 圆形线帽   square 正方形线帽
+ctx.lineJoin 线条相交边角的样式，可选值：miter(默认) 尖角   bevel 斜角    round 圆角  
+ctx.miterLimit  当lineJoin是miter时，用于控制斜接部分的长度，如果斜接长度超过 miterLimit 的值，变成bevel
+</code></pre><p>(12)裁剪</p>
+<pre><code>ctx.clip()  从原始画布中剪切任意形状和尺寸,当前路径外的区域不再绘制
+    注：可在clip() 前用 save() 方法保存，后续通过 restore() 方法恢复
+</code></pre><p>(13)合成<br>    ctx.globalCompositeOperation  可选值有11种，常用source-over, destination-over, copy</p>
+<p>(14)全局透明度<br>    ctx.globalAlpha  数值为 0 ~ 1</p>
+<p>(15)绘制图片</p>
+<pre><code>语法一  ctx.drawImage(img,x,y)
+语法二  ctx.drawImage(img,x,y,width,height)
+语法三  ctx.drawImage(img,sx,sy,swidth,sheight,x,y,width,height)
+
+参数：img    规定要使用的图像、画布或视频
+      sx    开始剪切的 x 坐标位置
+      sy    开始剪切的 y 坐标位置
+      swidth    被剪切图像的宽度
+      sheight    被剪切图像的高度
+      x        在画布上放置图像的 x 坐标位置
+      y        在画布上放置图像的 y 坐标位置
+      width        要使用的图像的宽度（伸展或缩小图像）
+      height    要使用的图像的高度（伸展或缩小图像）
+</code></pre><p>(16)将canvas内容导出<br>1.canvas.toDataURL() ; 是canvas自身的方法不是上下文对象<br>2.将canvas的内容抽取成1张图片, base64编码格式<br>    注：同源策略的限制<br>3.将canvas的内容放入img元素里</p>
+<p>(17)获取canvas像素信息</p>
+<pre><code>ctx.getImageData(x,y,width,height)   同源策略
+
+ctx.createImageData(w, h)   创建新的空白 ImageData 对象,对象里包含每个像素点的rgba
+
+ctx.putImageData(imgData,sx,sy,x,y,width,height)  将图像数据放回画布上
+
+例. 将一个矩形由黑色变为灰色 
+    ctx.fillRect(0,0,10,10);
+    var pixel = ctx.getImageData(0,0,10,10);
+    var row = pixel.width,
+        col = pixel.height,
+        d = pixel.data;
+
+    for(var i = 0;i &lt; row;i++){
+        var c = i * col * 4;
+        for(var j = 0;j &lt; col;j++){
+            d[c + j * 4 + 3] = 100;
+        }
+    }
+    ctx.putImageData(pixel,10,10);
+</code></pre><p>(18)命中检测</p>
+<p>ctx.isPointInPath(x, y)  检测是否在区域内,chrome 与safari的区别</p>
+<p>ctx.isPointInStroke(x, y)  检测是否在线上</p>
+<p>还可以通过检测当前点的像素值，如果为透明，则该点不再路径上</p>
+<p>(19)如何解决canvas高分屏模糊问题 </p>
+<pre><code>在分辨率比较高的屏幕，例如ip6/6s/mac等机器上，因为canvs绘制的是位图，所以会导致模糊，
+解决方法是根据屏幕分辨率修改canvas样式代码中的宽和高与canvas的width和height属性的比例。
+</code></pre><h2 id="SVG可缩放矢量图形"><a href="#SVG可缩放矢量图形" class="headerlink" title="SVG可缩放矢量图形"></a>SVG可缩放矢量图形</h2><p>(1)标签</p>
+<pre><code>&lt;svg width=&quot;500px&quot; height=&quot;500px&quot;&gt;&lt;/svg&gt;  开始
+
+&lt;line x1=&quot;100&quot; y1=&quot;100&quot; x2=&quot;200&quot; y2=&quot;100&quot;&gt;&lt;/line&gt;  直线
+
+&lt;rect x=&quot;50&quot; y=&quot;50&quot; width=&quot;100&quot; height=&quot;100&quot; rx=&quot;10&quot; ry=&quot;20&quot;&gt;&lt;/rect&gt;  矩形  rx ry设置圆角
+
+&lt;circle r=&quot;50&quot; cx=&quot;220&quot; cy=&quot;100&quot;&gt;&lt;/circle&gt;  圆形
+
+&lt;ellipse rx=&quot;100&quot; ry=&quot;50&quot; cx=&quot;100&quot; cy=&quot;200&quot;&gt;&lt;/ellipse&gt;  椭圆
+
+&lt;polyline points=&quot;60 50, 75 35, 100 50, 125 35, 150 50,175 35, 190 50&quot;&gt;&lt;/polyline&gt;   折线
+
+&lt;polygon points=&quot;125 125,130 140,120 140&quot;&gt;&lt;/polygon&gt;   多边形
+
+&lt;text x=&quot;125&quot; y=&quot;220&quot;&gt;hello,world&lt;/text&gt;   文本
+</code></pre><p>(2)样式属性</p>
+<pre><code>在标签里的style=&quot;&quot;里添加
+fill    填充颜色
+stroke  线条颜色
+stroke-width   线条宽度
+stroke-opacity/fill-opacity   透明度
+stroke-linecap   线条末端线帽的样式  butt round square
+stroke-linejoin  线条相交的边角样式  mitter bevel round
+stroke-dasharray 用于创建虚线，可填一组数值，然后线条会按数值规律叙事变化
+stroke-dashoffset定义线段相对于起点伸缩了多少
+</code></pre><p>(3)path元素</p>
+<pre><code>M指令和L指令  绝对路径
+&lt;path d = &quot;M 10 10 L 20 10&quot; /&gt;   开始于10,10  到达20,10  画直线
+
+m指令和l指令  相对路径
+&lt;path d = &quot;m 10 10 l 20 10&quot; /&gt;   小m表示相对于上一个坐标的位移，小写字母同理
+
+H和V命令
+&lt;path d=&quot;M 100 100 H 200 V 200&quot;/&gt;  H：水平画一条直线到x   V：竖直画一条直线到y
+
+Z命令
+&lt;path d=&quot;M 100 100 H 200 V 200 z&quot;/&gt;  从当前位置到起点画一条直线闭合  注：Z不区分大小写
+
+A指令(圆弧指令)
+&lt;path d=&quot;M 100 100 A 70 120 90 1 1 150 200&quot;&gt;&lt;/path&gt;
+七个参数
+rx ry x-axis-rotation large-arc-flag sweep-flag x y
+rx ry 圆弧的x轴半径和y轴半径
+x-axis-rotation 圆弧相对x轴的旋转角度，默认是顺时针，可以设置负值
+large-arc-flag 表示圆弧路径是大圆弧还是小圆弧 1大圆弧
+sweep-flag 表示从起点到终点是顺时针还是逆时针，1表示顺时针，0表示逆时针
+x y 表示终点坐标，绝对或相对
+
+二次贝塞尔
+Q x1 y1, x y
+T x  y
+
+三次贝塞尔曲线
+C x1 y1, x2 y2, x y
+S x2 y2, x y
+</code></pre><p>(4)颜色渐变</p>
+<pre><code>SVG 渐变必须在 &lt;defs&gt; 标签中进行定义
+
+线性渐变
+&lt;defs&gt;
+    &lt;linearGradient id=&quot;bg1&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;100%&quot;&gt;   //x1 y1起始点坐标  x2 y2终点坐标
+        &lt;stop offset=&quot;0%&quot; style=&quot;stop-color:rgb(255,255,0);&quot;/&gt;
+        &lt;stop offset=&quot;100%&quot; style=&quot;stop-color:rgb(255,0,0);&quot;/&gt;  //每种颜色通过&lt;stop&gt;标签来规定，offset属性定义渐变位置
+    &lt;/linearGradient&gt;
+&lt;/defs&gt;
+&lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;500&quot; height=&quot;500&quot;style=&quot;fill:url(#bg1)&quot;/&gt;  //用id获取渐变
+
+径向渐变
+&lt;defs&gt;
+    &lt;radialGradient id=&quot;bg2&quot; cx=&quot;50%&quot; cy=&quot;50%&quot; r=&quot;50%&quot; fx=&quot;50%&quot; fy=&quot;50%&quot;&gt;  //fx 和 fy 定义内圈
+        &lt;stop offset=&quot;0%&quot; style=&quot;stop-color:green;&quot;/&gt;
+        &lt;stop offset=&quot;100%&quot; style=&quot;stop-color:red;&quot;/&gt;
+    &lt;/radialGradient&gt;
+&lt;/defs&gt;
+&lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;500&quot; height=&quot;500&quot; style=&quot;fill:url(#bg2)&quot;/&gt;
+</code></pre><p>(5)SVG滤镜</p>
+<pre><code>高斯滤镜
+&lt;defs&gt;
+    &lt;filter id=&quot;Gaussian_Blur&quot;&gt;   //id 属性可为滤镜定义一个唯一的名称
+        &lt;feGaussianBlur in=&quot;SourceGraphic&quot; stdDeviation=&quot;20&quot;/&gt;
+        //in=&quot;SourceGraphic&quot; 这个部分定义了由整个图像创建效果,stdDeviation 属性可定义模糊的程度
+    &lt;/filter&gt;
+&lt;/defs&gt;
+&lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;500&quot; height=&quot;500&quot; fill=”yellow” style=&quot;filter:url(#Gaussian_Blur)&quot;/&gt;
+</code></pre><p>(6)获取路径和坐标</p>
+<pre><code>getTotalLength  获取路径总长度
+getPointAtLength(x)   获取路径上距离起始点距离x长度的点的坐标
+</code></pre><p>(7)ViewBox(SVG标签属性)</p>
+<pre><code>viewBox的四个参数 x y左上角坐标，width height可视区宽高。
+
+    例. &lt;svg width=&quot;400&quot; height=&quot;300&quot; viewBox=&quot;0,0,40,30&quot; &gt;&lt;/svg&gt;
+        相当于viewBox在400×300的svg画布上，取了一个40×30的小区域，然后铺满svg，相当于放大了十倍
+
+当svg比例和viewBox比例不同时，需要用preserveAspectRatio
+
+preserveAspectRatio=&quot;xMidYMid meet&quot;  //注意Y大写
+第1参数表示viewBox如何与SVG viewport对齐，Min-上、左边对齐  Mid-轴中心对齐  Max-下、右边对齐
+第2个参数表示如何维持高宽比
+    meet-保持纵横比缩放viewBox适应viewport slice
+    slice-保持纵横比同时比例小的方向放大填满viewport
+    none-扭曲纵横比以充分适应viewport
+</code></pre><p>(8)JS生成SVG元素</p>
+<pre><code>1、创建SVG元素需要指定命名空间
+2、SVG元素对象一般通过调用setAttribute()方法来设定属性值
+
+例.  var svg = document.createElementNS(&apos;http://www.w3.org/2000/svg&apos;, &apos;svg&apos;);
+    svg.setAttribute(&apos;width&apos;,  500);
+    svg.setAttribute(&apos;height&apos;,  500);
+
+    var rect = document.createElementNS(&apos;http://www.w3.org/2000/svg&apos;, &apos;svg&apos;);
+    svg.appendChild(rect);
+</code></pre><h2 id="requestAnimationFrame定时器"><a href="#requestAnimationFrame定时器" class="headerlink" title="requestAnimationFrame定时器"></a>requestAnimationFrame定时器</h2><p>(1)优点<br>大多数电脑显示器的刷新频率是60Hz，大概相当于每秒钟重绘60次。大多数浏览器都会对重绘操作加以限制，不超过显示器的重绘频率，<br>最平滑动画的最佳循环间隔是lOOOms/60，约等于16.6ms。</p>
+<p>setTimeout和setInterval的问题是它们都不精确，而requestAnimationFrame采用系统时间间隔，保持最佳绘制效率，不会因为间隔<br>时间过短，造成过度绘制，增加开销；也不会因为间隔时间太长，使用动画卡顿不流畅。</p>
+<p>(2)特点<br>a.requestAnimationFrame会把每一帧的所有DOM操作集中起来，在一次重绘或回流中一次完成，且重回或回流时间紧随浏览器刷新频率；<br>b.不会对隐藏或不可见的元素进行重绘或回流，减少CPU的内存使用量；<br>c.由于其是浏览器提供的动画API，在页面未激活的状态下，动画会自动暂停，减少CPU开销。</p>
+<p>(3)使用<br>requestAnimationFrame的用法与settimeout很相似，只是不需要设置时间间隔而已。</p>
+<p>var req = requestAnimationFrame(function () {});<br>cancelAnimationFrame(req);  //清除计时器</p>
+<p>(4)兼容</p>
+<p>window.requestAnimationFrame = (function () {<br>    return window.requestAnimation ||<br>           window.webkitRequestAnimationFrame ||<br>           window.mozRequestAnimationFrame ||<br>           function (callback) {                    //IE不兼容requestAnimationFrame<br>               window.setTimeOut(callback, 1000/16);<br>           };<br>})();</p>
+<p>window.cancelAnimFrame = (function(){<br>    return window.cancelAnimationFrame ||<br>           window.webkitCancelAnimationFrame ||<br>           window.mozCancelAnimationFrame ||<br>           function(id){<br>               window.clearTimeout(id);<br>           };<br>})();</p>
+<h2 id="客户端存储Storage"><a href="#客户端存储Storage" class="headerlink" title="客户端存储Storage"></a>客户端存储Storage</h2><p>分为 LocalStroage 和 SessionStroage</p>
+<p>(1)存储数据<br>localStorage.name = ‘nigel’;<br>localStorage.info = JSON.stringify({name:’nigel’, company: ‘bat’});<br>localStorage.setItem(“name”,”nigel”); </p>
+<p>(2)取出数据<br>localStrorage.name<br>JSON.parse(localStorage.info)<br>localStroage.getItem(“name”);</p>
+<p>var value0 =localStorage.key(0);   //调用key()方法获取指定下标的名称的值</p>
+<p>(3)删除和清除数据<br>localStroage.removeItem(“name”);<br>localStorage.clear();</p>
+<p>(4)cookie和客户端存储的区别<br>由于HTTP协议是无状态的，而服务器端的业务是要有状态的，cookie的产生目的是为了存储状态信息。</p>
+<pre><code>1.cookie数据不能超过4k，sessionStorage和localStorage虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大；
+
+2.cookie在浏览器和服务器间来回传递。sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。
+  cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下;
+
+3.cookie会随http请求，附加传递到服务器，使得加载速度慢且效率不高；客户端存储直接把数据存储在本地客户端，浏览器
+  加载时不需要通过网络向服务器请求来获取，因此加载很快；
+
+4.cookie只在设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭；sessionStroage仅在当前浏览器窗口关闭前有效，
+  自然也就不可能持久保持,localStorage始终有效，窗口或浏览器关闭也一直保存，除非收到删除，因此用作持久数据；
+
+5.cookie是在所有同源窗口中都是共享的；sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面，localStorage
+  在所有同源窗口中都是共享的；
+
+6.Web Storage 支持事件通知机制，可以将数据更新的通知发送给监听者，且直接对键值赋值，api接口使用更方便；而cookie
+  储存的是一个字符串，需要自己写解析的函数来解析字符串，从而获取键值对，不够友好。
+</code></pre><h2 id="History新属性"><a href="#History新属性" class="headerlink" title="History新属性"></a>History新属性</h2><p>两个方法：<br>history.pushState(state, title, url); 添加一条历史记录<br>history.replaceState(state, title, url); 替换当前的历史记录</p>
+<p>三个参数：<br>state：一个与指定网址相关的状态对象，popstate事件触发时，该对象会传入回调函数中。如果不需要这个对象，此处可以填null。<br>title：新页面的标题，但是所有浏览器目前都忽略这个值，因此这里可以填null。<br>url：新的网址，必须与当前页面处在同一个域。浏览器的地址栏将显示这个网址</p>
+<p>两个事件：<br>onpopstate事件： 点击后退按钮时触发，调用pushState或者replaceState不会触发popstate事件。<br>onhashchange事件:  当页面的hash值改变的时候触发，常用于构建单页面应用。</p>
+<h2 id="Worker"><a href="#Worker" class="headerlink" title="Worker"></a>Worker</h2><p>利用 Worker 可以在浏览器后台运行Javascript， 而不占用浏览器自身线程，提高应用的总体性能，并且提升用户体验。</p>
+<p>运用 worker 步骤<br>1.var worker = new Worker(‘worker.js’);  worker文件必须和主文件满足同源策略<br>2.主线程上用 worker.onmessage 来接受worker发来的数据<br>3.在 worker.js 中使用 postmessage 向主线程传递数据<br>4.结束一个worker，有两种方法：(1)close() 在worker作用域(worker.js)中调用<br>                            (2)worker.terminate() 在主进程的worker对象上调用</p>
+<p>特性：<br>1.worker无法访问DOM、BOM节点；<br>2.worker只是window的子集，无法访问window、document之类的全局变量、全局函数；<br>3.Worker可以使用setTimeout(),setInterval()之类的函数，也可以使用XMLHttpRequest对象来做Ajax通信。</p>
+<h2 id="geoloaction地理定位"><a href="#geoloaction地理定位" class="headerlink" title="geoloaction地理定位"></a>geoloaction地理定位</h2><p>window.navigator.geolocation  实际上是 navigator 下的一个对象</p>
+<p>geolocation下的方法：</p>
+<p>(1)getCurrentPosition(success, error, options)   获取当前的位置信息，需要翻墙使用</p>
+<pre><code>success：成功回调函数(必需)，error:失败回调函数(可选)，options：参数(可选)
+
+success后返回的是一个 Geoposition 对象{
+    coords:{
+        latitude 纬度
+        longitude 经度
+        altitude 海拔
+        accuracy 定位精准度，单位m
+        altitudeAccuracy 海拔精准度，单位m
+        heading 方向
+        speed 速度
+    },
+    timestamp 时间戳，响应的日期/时间
+}
+
+error后返回的是一个 positionError 对象
+    error.code = 1 用户拒绝 Permission denied 
+    error.code = 2 获取不到 Position unavailable
+    error.code = 3 连接超时 Timeout
+
+options的可选值：
+    enableHighAccuracy  是否需要高精度位置，默认false
+    timeout  请求超时时间，默认infinity，单位ms 
+    maximumAge  位置信息过期时间，设置为0就无条件获取新的地理位置信息，单位ms，默认0
+</code></pre><p>(2)watchPosition(success, error, options)  返回用户的当前位置，并继续监听并返回用户移动时的更新位置</p>
+<p>(3)clearWatch(id) 使用 clearWatch 清除监听</p>
+<h2 id="DeviceMotionEvent设备重力感应事件"><a href="#DeviceMotionEvent设备重力感应事件" class="headerlink" title="DeviceMotionEvent设备重力感应事件"></a>DeviceMotionEvent设备重力感应事件</h2><p>window.addEventListener(‘devicemotion’, function(e){<br>       console.log(e);<br>});</p>
+<p>返回的e是一个 DeviceMotionEvent 对象{<br>    acceleration  x y z三个方向的重力加速度（需要陀螺仪支持）<br>    accelerationIncludingGravity  包括重心引力的重力加速度<br>    rotationRate(alpha, beta, gamma)  旋转速率<br>    interval  获取的时间间隔<br>}<br>注：DeviceMotionEvent对象里的均是只读属性。</p>
+<h2 id="多媒体标签"><a href="#多媒体标签" class="headerlink" title="多媒体标签"></a>多媒体标签</h2><p>audio音频 和 video视频<br>&lt; audio id=”audio” src=”./xx.mp3” &gt;&lt; /audio &gt;<br>&lt; video id=”video” src=”./xx.mp4” &gt;&lt; /video &gt;</p>
+<p>(1)标签属性<br>autoplay 自动播放  &lt; audio src=”xx.mp3” autoplay &gt;&lt; /audio &gt;</p>
+<p>controls 设置控件  &lt; audio src=”xx.mp3” autoplay controls &gt;&lt; /audio &gt;</p>
+<p>preload(none/metadata/auto)  预加载<br>    node  不需要加载数据<br>    metadata  元数据 诸如时长、比特率、帧大小这样的原数据而不是媒体内容需要加载的<br>    auto  浏览器应当加载它认为适量的媒体内容</p>
+<p>loop  是否循环播放音/视频</p>
+<p>poster  当视频不可用时，使用一张图片替代，否则是空白 (video 独有)</p>
+<pre><code>例. &lt;video src=&quot;成都.mp4&quot; autoplay controls loop preload=&quot;auto&quot; poster=&quot;封面.jpg&quot;&gt;&lt;/video&gt;
+</code></pre><p>(2)多资源类型</p>
+<pre><code>&lt;audio id=&quot;music&quot;&gt;  
+    &lt;source src=&quot;xx.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+    &lt;source src=&quot;xx.ogg&quot; type=&apos;audio/ogg&quot;&apos;&gt;
+&lt;/audio&gt;
+</code></pre><p>(3)脚本化<br>var audio = document.getElementById(‘audio’);</p>
+<p>var audio = new Audio(‘./laojie.mp3’);</p>
+<p>var audio = document.createElement(‘audio’);</p>
+<p>(4)设置属性<br>audio.controls = true;<br>audio.loop = ‘loop’;<br>audio.preload = ‘auto’;<br>audio.autoplay = true;</p>
+<p>audio.volume  播放音量，介于0(静音)~1(最大音量)之间，默认1。若muted属性设为true则会进入静音模式，<br>              设置为false则会恢复之前指定的音量继续播放，超过 [0, 1 ]范围会报错。</p>
+<p>audio.playbackRate 播放速率,用于指定媒体播放的速度。该属性值为1.0表示正常速度，大于1则表示”快进”，<br>                   0~1之间表示”慢放”，负值表示回放。</p>
+<p>audio.currentTime  设置或返回音频/视频播放的当前位置</p>
+<p>audio.duration  返回当前音频/视频的时长，单位/秒 (需要注意window.onload)</p>
+<p>audio.played/buffered/seekable<br>    played返回已经播放过的时间段，buffered返回当前已经缓冲的时间段，seekable返回用户可跳转的时间段</p>
+<pre><code>这三个属性都是TimeRanges对象，每个对象都有一个length属性以及start()和end()方法，length属性表示
+当前的一个时间段，start()与end()分别返回当前时间段的起始时间点和结束时间点(单位/秒，起始参数是0)
+</code></pre><p>audio.paused/seeking/ended  查询媒体播放状态<br>    paused为true表示播放器暂停，seeking为true表示播放器正在调到一个新的播放点，<br>    如果播放器播放完媒体并且停下来，则ended属性为true。</p>
+<p>audio.readyState  返回音频/视频的当前就绪状态，是只读属性。<br>    返回的数值： 0 = HAVE_NOTHING   没有关于音频是否就绪的信息<br>                1 = HAVE_METADATA  关于音频就绪的元数据<br>                2 = HAVE_CURRENT_DATA  关于当前播放位置的数据是可用的，但没有足够的数据来播放下一帧/毫秒<br>                3 = HAVE_FUTURE_DATA   当前及至少下一帧的数据是可用的<br>                4 = HAVE_ENOUGH_DATA   可用数据足以开始播放</p>
+<p>audio.networkState  返回音频/视频的当前网络状态。<br>    返回的数值： 0 = NETWORK_EMPTY  音频/视频尚未初始化<br>                1 = NETWORK_IDLE   音频/视频是活动的且已选取资源，但并未使用网络<br>                2 = NETWORK_LOADING    浏览器正在下载数据<br>                3 = NETWORK_NO_SOURCE  未找到音频/视频来源</p>
+<p>audio.error  onerror事件在音频/视频加载发生错误时触发，返回一个MediaError对象。<br>    MediaError对象的code属性返回一个数字值，它表示音频/视频的错误状态：<br>                1 = MEDIA_ERR_ABORTED  取回过程被用户中止<br>                2 = MEDIA_ERR_NETWORK  当下载时发生错误<br>                3 = MEDIA_ERR_DECODE   当解码时发生错误<br>                4 = MEDIA_ERR_SRC_NOT_SUPPORTED  不支持音频/视频</p>
+<p>(5)方法<br>play()  播放<br>pause() 暂停<br>load()  重新加载视频/音频元素，用于在更改来源或其他设置后对音频/视频元素进行更新</p>
+<p>canPlayType(type)  是否能播放指定的音频/视频类型，可选值video/ogg video/mp4 audio/mp3等</p>
+<p>(6)事件<br>onplay   开始播放触发<br>onpause  暂停触发<br>onloadedmetadata  浏览器获取完媒体的元数据触发<br>onloadeddata   浏览器已经加载完当前帧数据，准备播放时触发，注意兼容IE8<br>onended  当前播放结束后触发</p>
+<h2 id="drag-和-drop"><a href="#drag-和-drop" class="headerlink" title="drag 和 drop"></a>drag 和 drop</h2><p>常用于各种拖动操作中</p>
+<p>创建可拖动元素   &lt; div id=”drag” draggable=”true” &gt;&lt; /div &gt;</p>
+<p>拖拽相关的操作:<br>ondragstart  被拖拽元素开始被拖拽时触发，一般用于传递被拖拽数据，应用在被拖拽元素上</p>
+<p>ondragend  当拖动操作结束时触发（通过释放鼠标按钮或者点击转义键），应用在被拖拽元素上</p>
+<p>ondragenter  当一个被拖动的元素或者选中的文本进入一个有效的放置目标时触发，应用在目标元素上</p>
+<p>ondragover  当元素或者选中的文本被拖动到有效放置区域上方时触发（每几百毫秒触发一次），应用在目标元素上<br>    注：默认情况下是无法允许一个元素放置在另一个元素上的，要放置必须阻止默认行为，要用preventDefault()</p>
+<p>ondrop  当元素或选中的文本在有效区域放置时触发，一般用于接收数据，应用在目标元素上<br>    注：需要调用 preventDefault() 来避免浏览器对数据的默认处理（drop 事件的默认行为是以链接形式打开）</p>
+<p>上述事件的回调函数都需要用到 DragEvent 事件对象</p>
+<p>e.dataTransfer.setData(“dataType”, e.target.id)  传值</p>
+<p>e.dataTransfer.getData(“dataType”)  取值</p>
+<h2 id="FileReader"><a href="#FileReader" class="headerlink" title="FileReader"></a>FileReader</h2><p>FileReader对象允许Web应用程序异步读取存储在用户计算机上的文件（或原始数据缓冲区）的内容.</p>
+<p>(1)构造函数<br>FileReader() 返回一个新构造的FileReader对象。</p>
+<p>(2)对象上的方法<br>FileReader.abort()  中止读取操作。在返回时，readyState属性为DONE。</p>
+<p>readAsBinaryString(file)  将文件读取为二进制编码</p>
+<p>readAsDataURL(file)  将文件读取为DataURL编码</p>
+<p>readAsText(file, [encoding])  将文件读取为文本</p>
+<p>readAsArrayBuffer(file)​​​​​​​  将文件读取为arraybuffer</p>
+<p>(3)事件<br>onloadstart 读取开始时触发<br>onprogress  读取中触发<br>onloadend 读取完成触发，无论成功或失败<br>onload    文件读取成功完成时触发<br>onabort 读取中断时触发<br>onerror 读取操作出错时触发</p>
+<p>实例.  var reader = new FileReader();<br>      reader.readAsDataURL(this.file);<br>      reader.onload = function () {<br>          return reader.result;<br>      }</p>
+<h2 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h2><p>WebSocket是HTML5开始提供的一种在单个 TCP 连接上进行全双工通讯的协议。</p>
+<p>Websocket其实是一个新协议，跟HTTP协议基本没有关系，只是为了兼容现有浏览器的握手规范，借用了HTTP的协议来完成握手。</p>
+<p>(1)产生原因<br> · 在 HTTP/1.0 中,大多实现为每个请求/响应交换使用新的连接<br> · 在 HTTP/1.1 中,一个连接可用于一次或多次请求/响应交换<br> · HTTP协议中，服务端不能主动联系客户端，只能有客户端发起<br> · webSoket服务器和客户端均可主动发送数据</p>
+<p>(2)建立连接<br> · 浏览器和websocket服务器通过TCP握手建立连接，如果连接建立失败，则后面的过程不会执行，web应用程序会收到错误消息通知；</p>
+<p> · 在TCP连接成功后，浏览器会通过Http协议传送websocket支持的版本号、协议的字版本号、原始地址、主机地址等字段给服务端；</p>
+<p> · websocket服务器接收到浏览器发送的请求后，如果数据包数据和格式正确、客户端和服务器的协议版本号匹配，就接受本次握手，<br>   并给出相应的数据回复，回复的数据包同样采用Http协议；</p>
+<p> · 浏览器接收到服务器回复的数据包后，如果数据内容和格式正确，就表示此次连接成功，触发onopen事件，可以通过send()接口向<br>   服务器发送数据；否则就握手失败，web应用程序会受到onerror消息，且能知道造成失败的原因。</p>
+<p>(3)如何创建websocket对象</p>
+<p>var Socket = new WebSocket(url, [protocol]);<br>    第一个参数 url, 指定连接的 URL<br>    第二个参数 protocol 是可选的，指定了可接受的子协议</p>
+<p>(4)对象的方法<br>Socket.send(data)  使用连接传输数据</p>
+<p>Socket.close()  用于终止任何现有连接</p>
+<p>(5)事件<br>Socket.onopen        连接建立时触发<br>Socket.onmessage    客户端接收服务端数据时触发<br>Socket.onerror        通信发生错误时触发<br>Socket.onclose        连接关闭时触发</p>
+<p>(6)优点<br> · 客户端和服务器都可以主动传送数据<br> · 不需要频繁地创建TCP请求和销毁请求，减少了带宽网络的使用，节省服务器资源</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/17/CSS3笔记/" rel="next" title="CSS3笔记">
+                <i class="fa fa-chevron-left"></i> CSS3笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Canvas"><span class="nav-number">1.</span> <span class="nav-text">Canvas</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVG可缩放矢量图形"><span class="nav-number">2.</span> <span class="nav-text">SVG可缩放矢量图形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#requestAnimationFrame定时器"><span class="nav-number">3.</span> <span class="nav-text">requestAnimationFrame定时器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端存储Storage"><span class="nav-number">4.</span> <span class="nav-text">客户端存储Storage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#History新属性"><span class="nav-number">5.</span> <span class="nav-text">History新属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Worker"><span class="nav-number">6.</span> <span class="nav-text">Worker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#geoloaction地理定位"><span class="nav-number">7.</span> <span class="nav-text">geoloaction地理定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DeviceMotionEvent设备重力感应事件"><span class="nav-number">8.</span> <span class="nav-text">DeviceMotionEvent设备重力感应事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多媒体标签"><span class="nav-number">9.</span> <span class="nav-text">多媒体标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drag-和-drop"><span class="nav-number">10.</span> <span class="nav-text">drag 和 drop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FileReader"><span class="nav-number">11.</span> <span class="nav-text">FileReader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebSocket"><span class="nav-number">12.</span> <span class="nav-text">WebSocket</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -214,6 +214,143 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/20/HTML5新属性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/20/HTML5新属性/" itemprop="url">HTML5新属性</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-20T16:04:21+08:00">
+                2018-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h2><p>ie9之前的浏览器不支持canvas</p>
+<p>(1)如何使用Canvas</p>
+<pre><code>&lt; canvas width=500 height=500&gt;&lt; /canvas&gt;
+var canvas = document.getElementById(&apos;myCanvas&apos;);  //元素对象，相当于画布
+var ctx = canvas.getContext(&apos;2d&apos;);         //上下文对象，相当于画笔
+</code></pre><p>(2)线段</p>
+<pre><code>ctx.moveTo(x, y);  移动到 x，y坐标点
+ctx.lineTo(x, y); 从当前点绘制直线到x，y点
+ctx.strokeStyle = &quot;red&quot;; 设置线条的颜色
+ctx.stroke();  描边
+ctx.lineWidth  = 20; 设置线段宽度(多粗)
+ctx.closePath();  闭合当前路径  和回到起始点的区别
+ctx.fill();  填充
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/20/HTML5新属性/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -257,7 +394,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-17T14:23:15+08:00">
                 2018-03-17
@@ -307,7 +444,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/17/CSS3笔记/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -386,7 +523,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-09T22:56:02+08:00">
                 2018-03-09
@@ -438,7 +575,7 @@ has(); find(); eq(); not();  is();-&gt;true/false
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/09/JQuery笔记/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -517,7 +654,7 @@ has(); find(); eq(); not();  is();-&gt;true/false
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T22:24:02+08:00">
                 2018-03-05
@@ -571,7 +708,7 @@ has(); find(); eq(); not();  is();-&gt;true/false
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/05/Ajax笔记/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -650,7 +787,7 @@ has(); find(); eq(); not();  is();-&gt;true/false
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-02T22:47:34+08:00">
                 2018-03-02
@@ -702,7 +839,7 @@ has(); find(); eq(); not();  is();-&gt;true/false
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/02/正则笔记/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -781,7 +918,7 @@ has(); find(); eq(); not();  is();-&gt;true/false
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-02T22:47:16+08:00">
                 2018-03-02
@@ -828,7 +965,7 @@ has(); find(); eq(); not();  is();-&gt;true/false
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/02/BOM笔记/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -907,7 +1044,7 @@ has(); find(); eq(); not();  is();-&gt;true/false
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-01T21:57:01+08:00">
                 2018-03-01
@@ -957,7 +1094,7 @@ has(); find(); eq(); not();  is();-&gt;true/false
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/01/Javascript-事件/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1036,7 +1173,7 @@ has(); find(); eq(); not();  is();-&gt;true/false
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-01T18:42:01+08:00">
                 2018-03-01
@@ -1084,7 +1221,7 @@ has(); find(); eq(); not();  is();-&gt;true/false
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/01/定时器及异步加载/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1163,7 +1300,7 @@ has(); find(); eq(); not();  is();-&gt;true/false
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-28T16:43:12+08:00">
                 2018-02-28
@@ -1216,7 +1353,7 @@ has(); find(); eq(); not();  is();-&gt;true/false
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/02/28/DOM笔记/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1295,7 +1432,7 @@ has(); find(); eq(); not();  is();-&gt;true/false
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-24T15:45:13+08:00">
                 2018-02-24
@@ -1341,145 +1478,7 @@ has(); find(); eq(); not();  is();-&gt;true/false
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/02/24/JavaScript笔记/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/20/html与css/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/20/html与css/" itemprop="url">html与css</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T20:28:52+08:00">
-                2018-02-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="HTML笔记"><a href="#HTML笔记" class="headerlink" title="HTML笔记"></a>HTML笔记</h2><p>1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。</p>
-<p>2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面</p>
-<pre><code>IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多
-Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows、 BSD、Linux 和 Mac OS X 中使用
-Opera          presto  快、兼容性不好 ，现为chrome的blink
-Chrome(谷歌)   先为 webkit 、后为blink
-Safari(苹果)   webkit   代码结构清晰、渲染速度快
-
-360、UC、QQ、2345等国内浏览器(都是自己的皮肤别人的核)      blink
-
-移动端浏览器内核：
-iPhone 和 iPad       webkit
-Android 4.4 之前     webkit
-Android 4.4 之后     chromiun
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/02/20/html与css/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1519,6 +1518,10 @@ Android 4.4 之后     chromiun
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1562,8 +1565,8 @@ Android 4.4 之后     chromiun
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -1613,7 +1616,7 @@ Android 4.4 之后     chromiun
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
