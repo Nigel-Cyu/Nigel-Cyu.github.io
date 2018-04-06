@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/20/html与css/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="HTML笔记1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。 2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面 IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows">
-<meta property="og:updated_time" content="2018-03-01T09:33:21.115Z">
+<meta property="og:updated_time" content="2018-04-03T05:02:00.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html与css">
 <meta name="twitter:description" content="HTML笔记1.html 全称 Hypertext  Markup  Language  超文本标记语言 ，并不是编程语言，而是标记语言。 2.浏览器内核（渲染引擎）：负责对网页语法的解释并渲染页面 IE(微软)       trident  开始接口成熟，处于“垄断”地位，不更新，导致现在bug多 Firefox        Gecko    代码公开，是开源内核。跨平台，可以在Windows">
@@ -466,7 +466,11 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
 <p>Ø  a:active          给a标签设置被点击的样式</p>
 <pre><code>注：在使用的时候一定遵守这样的顺序：a:link,a:visited,a:hover,a:active，否则会失效！
     :link、:visited只能用于a标签，:hover、:active 其它标签也可以使用
-</code></pre>
+</code></pre><p>12.rem<br>rem是子元素根据根节点 html 的 font-size 大小来确定自身的font-size</p>
+<p>一般浏览器默认的 html 节点的 font-size 是 16px，所以 1rem = 16px</p>
+<p>但是为了方便简化运算，在 body 节点中设定 Font-size = 62.5%(10/16 = 62.5%)</p>
+<p>而后 1rem =  10px，因此1rem等于多少取决于 html 和 body 节点中的font-size的取值</p>
+
       
     </div>
     
@@ -575,7 +579,7 @@ bfc的作用：(1)解决margin塌陷问题(清除内部浮动)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>

@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/05/Ajax笔记/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1.同源策略：同域名、同协议、同端口 2.封装Ajax函数function ajax(method, url, flag, data, callBack) {     var xml;     if(window.XMLHttpRequest()) {         xml = new window.XMLHttpRequest();     }else{         xml = new w">
-<meta property="og:updated_time" content="2018-03-09T12:50:42.241Z">
+<meta property="og:updated_time" content="2018-04-03T03:28:43.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax笔记">
 <meta name="twitter:description" content="1.同源策略：同域名、同协议、同端口 2.封装Ajax函数function ajax(method, url, flag, data, callBack) {     var xml;     if(window.XMLHttpRequest()) {         xml = new window.XMLHttpRequest();     }else{         xml = new w">
@@ -388,7 +388,7 @@
 <p>(2)于是把数据放到服务器上，并且数据为json形式（因为js可以轻松处理json数据）</p>
 <p>(3)定义好能处理跨域获取数据的函数，如 function doJSON（data）{ //可以让数据为我调用的步骤 } (名字可随便)</p>
 <p>(4)用src获取数据的时候以？添加一个参数cb=’doJSON’ </p>
-<p>(5)后台服务端看到cb=’doJSON’后，会把数据作为参数传入doJSON()中，再一并返回给客户端</p>
+<p>(5)后台服务端看到cb=’doJSON’后，会把数据作为参数传入doJSON()中，返回一段可执行代码给客户端</p>
 <h3 id="7-cookie"><a href="#7-cookie" class="headerlink" title="7.cookie"></a>7.cookie</h3><p>Cookie是由服务器端生成，发送给User-Agent（一般是浏览器），浏览器会将Cookie以key/value保存到某个目录下的文本文件内，下次请求同一网站时就发送该Cookie给服务器（前提是浏览器设置为启用cookie）。</p>
 <p>Cookie就是一个小型文件，有个数和大小的限制，大小一般是4k，本地可以更改。</p>
 <p>Cookie 具有保质期，满足同源策略，可以设置document.domain = ‘xxx.com’，使不同源域名之间共用cookie。</p>
@@ -544,7 +544,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
