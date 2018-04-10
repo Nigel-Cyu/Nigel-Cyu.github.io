@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/29/es6新语法/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="块级作用域ES5里，JS中作用域有：全局作用域、函数作用域，没有块作用域的概念。ECMAScript 6(简称ES6)中新增了块级作用域。  块级作用域由 {} 包括，if语句和for语句里面的 {} 也属于块作用域。（严格模式下 function 变量属于块级作用域） 例如 {        var a = 1;    }    console.log(a); // 输出1，可见通过var定义的">
-<meta property="og:updated_time" content="2018-04-08T08:07:30.874Z">
+<meta property="og:updated_time" content="2018-04-09T15:10:08.272Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es6新语法">
 <meta name="twitter:description" content="块级作用域ES5里，JS中作用域有：全局作用域、函数作用域，没有块作用域的概念。ECMAScript 6(简称ES6)中新增了块级作用域。  块级作用域由 {} 包括，if语句和for语句里面的 {} 也属于块作用域。（严格模式下 function 变量属于块级作用域） 例如 {        var a = 1;    }    console.log(a); // 输出1，可见通过var定义的">
@@ -104,7 +104,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Penulis'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Beranda
+            Startseite
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Arsip
+            Archiv
           </a>
         </li>
       
@@ -258,9 +258,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post creato" itemprop="dateCreated datePublished" datetime="2018-03-29T11:22:41+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-29T11:22:41+08:00">
                 2018-03-29
               </time>
             
@@ -512,7 +512,73 @@ dedupe([1, 1, 2, 3]);
         reject(err);
     }
 });
-</code></pre>
+//resolve函数将Promise对象的状态由&apos;未完成&apos;变成&apos;成功&apos;，并将异步操作成功后的结果作为参数传递出去；
+  而reject函数是将状态由&apos;未完成&apos;变成&apos;失败&apos;，也将操作失败的错误信息作为参数传递出去。
+
+promise.then(function (data) {  //promise状态为成功的回调函数，函数参数data就是上面的value
+    //return 一个新的promise对象，且默认状态为resolve
+}, function (err) {    //promise状态为失败的回调函数，函数参数err就是上面的err
+
+}).then(...)   //这个then之前返回的是一个新的Promise对象，因此可以实现链式调用
+</code></pre><p>then里的成功或失败回调函数，都可以返回了一个异步操作，即新的Promise对象，其状态决定下一个then调用哪个函数</p>
+<pre><code>var p1 = new Promise(function (resolve, reject) {
+    setTimeout(() =&gt; reject(new Error(&apos;fail&apos;)), 3000)
+})
+
+var p2 = new Promise(function (resolve, reject) {
+    setTimeout(() =&gt; resolve(p1), 1000)
+})
+
+p2.then(result =&gt; console.log(result)).catch(error =&gt; console.log(error))
+//p1是一个Promise，3秒后状态变为rejected。p2的状态在1秒后变为resolve，resolve方法返回的是p1。
+  由于p2用 resolve 返回 p1（另一个 Promise），导致p2自己的状态无效了，由p1的状态决定p2的状态。
+  所以，后面的 then 语句和 catch 语句都变成针对 p1的状态。
+    注：catch 方法是.then(null, rejection)的别名，用于指定发生错误时的回调函数，与前面的then
+        指向同一个 Promise对象(p1)，由于 p1是 reject状态，而 then没有定义失败回调函数，所以直
+        接触发catch。
+  3秒后 p1变为rejected，导致触发catch方法指定的回调函数，输出 Error: fail。
+</code></pre><h2 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h2><p>遍历器（Iterator）就是这样一种机制。它是一种接口，为各种不同的数据结构提供统一的访问机制。<br>任何数据结构只要部署Iterator接口，就可以完成遍历操作（即依次处理该数据结构的所有成员）。</p>
+<p>一、Iterator的遍历过程<br>(1)创建一个指针对象，指向当前数据结构的起始位置。也就是说，遍历器对象本质上，就是一个指针对象。</p>
+<p>(2)第一次调用指针对象的next方法，可以将指针指向数据结构的第一个成员。</p>
+<p>(3)第二次调用指针对象的next方法，指针就指向数据结构的第二个成员。</p>
+<p>(4)不断调用指针对象的next方法，直到它指向数据结构的结束位置。</p>
+<p>注：每一次调用next方法，都会返回数据结构的当前成员的信息。具体来说，就是返回一个包含value和done两个属性的对象。<br>    其中，value属性是当前成员的值，done属性是一个布尔值，表示遍历是否结束。</p>
+<p>下面模拟next方法返回值</p>
+<p>function makeIterator (arr) {<br>    var index = 0;<br>    return {<br>        next () {<br>            return index &lt; arr.length ? {<br>                value: arr[index++], done: false<br>            } : {<br>                value: undefined, done: true<br>            }<br>        }<br>    }<br>}<br>var it = makeIterator([‘a’, ‘b’]);<br>it.next();    // { value: “a”, done: false }<br>it.next();    // { value: “b”, done: false }<br>it.next();    // { value: undefined, done: true }</p>
+<p>二、Symbol.iterator<br>ES6规定，默认的Iterator接口部署在数据结构的Symbol.iterator属性，或者说，<br>一个数据结构只要具有Symbol.iterator属性，就可以认为是”可遍历的”。</p>
+<p>var arr = [1, 2, 3];<br>var it = arr<a href="">Symbol.iterator</a>;<br>console.log(it.next());  //{ value: 1, done: false }</p>
+<p>当使用for…of循环遍历某种数据结构时，该循环会自动去寻找Iterator接口。<br>在ES6中，有三类数据结构原生具备Iterator接口：数组、类数组对象、Set和Map结构。<br>也就是说，对象没有Symbol.iterator，也就无法使用for…of，对象只能用for…in遍历。</p>
+<p>三、调用Iterator接口的场合<br>(1)对数组和Set结构进行解构赋值时，会默认调用Symbol.iterator方法。<br>(2)扩展运算符(…)也会调用默认的iterator接口。<br>(3)for…of<br>(4)Array.from()<br>(5)Map(), Set(), 比如new Map([[‘a’,1],[‘b’,2]])。</p>
+<h2 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h2><p>Generator 函数是 ES6 提供的一种异步编程解决方案，是一个状态机，封装了多个内部状态。<br>执行 Generator 函数会返回一个遍历器对象，依次遍历 Generator 函数内部的每一个状态。</p>
+<p>function <em>makeGenerator(a) {  //键字与函数名之间有一个星号 </em> ,就定义了Generator<br>   var b = yield a + 1;         //函数体内部使用yield语句，定义不同的内部状态<br>   var c = yield b + 2;<br>   return c;<br>}<br>var it = makeGenerator(2);  //为第一行的yield后的a赋值<br>console.log(it.next());     //执行到第一行yield 输出 {value: 3, done: false}<br>console.log(it.next(4));    //为第一行yield的(a+1)赋值4，不赋值b是undefined，输出{value: 6, done: false}<br>console.log(it.next(77));   //为第二行yield后的(b+2)赋值77，输出 {value: 77, done: true}</p>
+<p>一、遍历器对象的next方法的运行逻辑<br>(1)遇到yield语句，就暂停执行后面的操作，并将紧跟在yield后面的那个表达式的值，作为返回的对象的value属性值。</p>
+<p>(2)下一次调用next方法时，再继续往下执行，直到遇到下一个yield语句。</p>
+<p>(3)如果没有遇到新的yield语句，就一直运行到函数结束，直到return语句，并将return后面表达式的值，作为返回的对象的value属性值。</p>
+<p>(4)如果该函数没有return语句，则返回的对象的value属性值为undefined。</p>
+<p>二、for…of<br>for…of循环可以自动遍历Generator函数时生成的Iterator对象，且此时不再需要调用next方法。</p>
+<p>三、异步操作的同步化表达<br>Generator函数的暂停执行的效果，意味着可以把异步操作写在yield语句里面，等到调用next方法时再往后执行。<br>这实际上等同于不需要写回调函数了，因为异步操作的后续操作可以放在yield语句下面，反正要等到调用next方<br>法时再执行。所以，Generator函数的一个重要实际意义就是用来处理异步操作，改写回调函数。<br>Ajax是典型的异步操作，通过Generator函数部署Ajax操作，可以用同步的方式表达。</p>
+<p>function *myGenerator () {<br>    var result = yield request(“url”);<br>    var resp = JSON.parse(result);<br>    console.log(resp.value);<br>}<br>function request(url) {<br>  makeAjaxCall(url, function(response){<br>    it.next(response);<br>  });<br>}<br>var it = myGenerator();<br>it.next();</p>
+<h2 id="Module模块化"><a href="#Module模块化" class="headerlink" title="Module模块化"></a>Module模块化</h2><p>在 ES6 之前，社区制定了一些模块加载方案，最主要的有 CommonJS 和 AMD 两种。前者用于服务器，后者用于浏览器。<br>ES6 在语言标准的层面上，实现了模块功能，而且实现得相当简单，完全可以取代 CommonJS 和 AMD 规范，成为浏览器<br>和服务器通用的模块解决方案。</p>
+<p>CommonJS 和 AMD 模块，都只能在运行时确定这些东西。比如，CommonJS 模块就是对象，输入时必须查找对象属性。</p>
+<blockquote>
+<p>let { stat, exists, readFile } = require(‘fs’);</p>
+</blockquote>
+<p>ES6 模块不是对象，而是通过export命令显式指定输出的代码，再通过import命令输入，称为静态加载。</p>
+<blockquote>
+<p>import { stat, exists, readFile } from ‘fs’;</p>
+</blockquote>
+<p>一、export命令<br>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。<br>如果你希望外部能够读取模块内部的某个变量，就必须使用export关键字输出该变量。</p>
+<p>一个 JS 文件，里面使用export命令输出变量。<br>// profile.js<br>var firstName = ‘Michael’;<br>var lastName = ‘Jackson’;<br>var year = 1958;<br>export {firstName, lastName, year};</p>
+<p>export命令除了输出变量，还可以输出函数或类（class）。<br>通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。<br>function v1() { … }<br>function v2() { … }<br>export {<br>  v1 as streamV1,<br>  v2 as streamV2,<br>};</p>
+<p>二、import命令<br>使用export命令定义了模块的对外接口以后，其他 JS 文件就可以通过import命令加载这个模块。</p>
+<p>// main.js<br>import {firstName, lastName, year} from ‘./profile’;<br>function setName(element) {<br>  element.textContent = firstName + ‘ ‘ + lastName;<br>}</p>
+<p>如果想为输入的变量重新取一个名字，import命令要使用as关键字，将输入的变量重命名。<br>import { lastName as surname } from ‘./profile’;</p>
+<p>注：import命令具有提升效果，会提升到整个模块的头部，首先执行。</p>
+<p>还可以使用整体加载，即用星号（<em>）指定一个对象，所有输出值都加载在这个对象上面。<br>import </em> as circle from ‘./circle’;<br>console.log(‘圆面积：’ + circle.area(4));<br>console.log(‘圆周长：’ + circle.circumference(14));</p>
+<p>三、export default 命令<br>为了给用户提供方便，让他们不用阅读文档就能加载模块，就要用到export default命令，为模块指定默认输出。</p>
+<p>// export-default.js<br>export default function () {<br>  console.log(‘foo’);<br>}<br>上面代码是一个模块文件export-default.js，它的默认输出是一个函数</p>
+<p>其他模块加载该模块时，import命令可以为该匿名函数指定任意名字。<br>import customName from ‘./export-default’;<br>customName();<br>需要注意的是，这时import命令后面，不使用大括号。</p>
+
       
     </div>
     
@@ -598,10 +664,10 @@ dedupe([1, 1, 2, 3]);
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Daftar Isi
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Ikhtisar
+            Übersicht
           </li>
         </ul>
       
@@ -622,7 +688,7 @@ dedupe([1, 1, 2, 3]);
                 <a href="/archives/">
               
                   <span class="site-state-item-count">12</span>
-                  <span class="site-state-item-name">posting</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -658,7 +724,7 @@ dedupe([1, 1, 2, 3]);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#块级作用域"><span class="nav-number">1.</span> <span class="nav-text">块级作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解构赋值"><span class="nav-number">2.</span> <span class="nav-text">解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组扩展"><span class="nav-number">3.</span> <span class="nav-text">数组扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象拓展"><span class="nav-number">4.</span> <span class="nav-text">对象拓展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数拓展"><span class="nav-number">5.</span> <span class="nav-text">函数拓展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set和Map数据结构"><span class="nav-number">6.</span> <span class="nav-text">Set和Map数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise"><span class="nav-number">7.</span> <span class="nav-text">Promise</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#块级作用域"><span class="nav-number">1.</span> <span class="nav-text">块级作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解构赋值"><span class="nav-number">2.</span> <span class="nav-text">解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组扩展"><span class="nav-number">3.</span> <span class="nav-text">数组扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象拓展"><span class="nav-number">4.</span> <span class="nav-text">对象拓展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数拓展"><span class="nav-number">5.</span> <span class="nav-text">函数拓展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set和Map数据结构"><span class="nav-number">6.</span> <span class="nav-text">Set和Map数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise"><span class="nav-number">7.</span> <span class="nav-text">Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Iterator"><span class="nav-number">8.</span> <span class="nav-text">Iterator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator"><span class="nav-number">9.</span> <span class="nav-text">Generator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Module模块化"><span class="nav-number">10.</span> <span class="nav-text">Module模块化</span></a></li></ol></div>
             
 
           </div>
@@ -688,7 +754,7 @@ dedupe([1, 1, 2, 3]);
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -696,7 +762,7 @@ dedupe([1, 1, 2, 3]);
 
 
 
-  <div class="theme-info">Tema &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
